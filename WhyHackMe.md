@@ -1,6 +1,6 @@
 Link: https://tryhackme.com/room/whyhackme
 
-
+---
 <b>┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]<br>
 └─$ nmap -sV -sC -Pn 10.10.134.235</B><BR>
 <p>Starting Nmap 7.92 ( https://nmap.org ) at 2024-01-08 02:28 CST
