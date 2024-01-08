@@ -79,7 +79,7 @@ ftp> exit
 <b>┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]<br>
 └─$ ls</b><br>
 nmap  update.txt
-                                                                                                                                                                                                                                           
+                                                                                                                                                                                                                             <code>              
 <B>┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]<br>
 └─$ cat update.txt  </B>
 
@@ -111,5 +111,5 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /logout.php           (Status: 302) [Size: 0] [--> login.php]                     
 /config.php           (Status: 200) [Size: 0]                                     
 /server-status        (Status: 403) [Size: 278] 
-
+</code>
 
