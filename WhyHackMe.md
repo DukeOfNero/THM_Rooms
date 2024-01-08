@@ -1,4 +1,4 @@
-<B>└─$ nmap -sV -sC -Pn 10.10.134.235</B>
+<B>└─$ nmap -sV -sC -Pn 10.10.134.235</B><BR>
 <p>Starting Nmap 7.92 ( https://nmap.org ) at 2024-01-08 02:28 CST
 Nmap scan report for 10.10.134.235
 Host is up (0.039s latency).
@@ -69,8 +69,8 @@ ftp> ls
 ftp> exit
 421 Timeout.
                                                                                                                                                                                                                                            
-┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]
-└─$ ls
+<b>┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]<br>
+└─$ ls</b>
 nmap  update.txt
                                                                                                                                                                                                                                            
 ┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]
