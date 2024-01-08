@@ -70,12 +70,13 @@ ftp> ls
 ftp> exit
 421 Timeout.
 </code>                                                                                                                                       
+
 <b>┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]<br>
-└─$ ls</b>
+└─$ ls</b><br>
 nmap  update.txt
                                                                                                                                                                                                                                            
-┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]
-└─$ cat update.txt  
+<B>┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]<br>
+└─$ cat update.txt  </B>
 <code>
 Hey I just removed the old user mike because that account was compromised and for any of you who wants the creds of new account visit 127.0.0.1/dir/pass.txt and don't worry this file is only accessible by localhost(127.0.0.1), so nobody else can view it except me or people with access to the common account. 
 - admin
