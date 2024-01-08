@@ -84,6 +84,34 @@ nmap  update.txt
 └─$ cat update.txt  </B>
 <code>
 Hey I just removed the old user mike because that account was compromised and for any of you who wants the creds of new account visit 127.0.0.1/dir/pass.txt and don't worry this file is only accessible by localhost(127.0.0.1), so nobody else can view it except me or people with access to the common account. 
-- admin
+
+┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]
+└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.134.235 -x .php,.ht
+===============================================================
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://10.10.134.235
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Extensions:              php,html,tx
+[+] Timeout:                 10s
+===============================================================
+2024/01/08 03:00:12 Starting gobuster in directory enumeration mode
+===============================================================
+/blog.php             (Status: 200) [Size: 3102]
+/login.php            (Status: 200) [Size: 523] 
+/register.php         (Status: 200) [Size: 643] 
+/index.php            (Status: 200) [Size: 563] 
+/dir                  (Status: 403) [Size: 278] 
+/assets               (Status: 301) [Size: 315] [--> http://10.10.134.235/assets/]
+/logout.php           (Status: 302) [Size: 0] [--> login.php]                     
+/config.php           (Status: 200) [Size: 0]                                     
+/server-status        (Status: 403) [Size: 278] 
+
 </code>
+
 
