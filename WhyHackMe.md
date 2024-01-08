@@ -1,6 +1,6 @@
 <B>└─$ nmap -sV -sC -Pn 10.10.134.235</B><BR>
 <p>Starting Nmap 7.92 ( https://nmap.org ) at 2024-01-08 02:28 CST
-Nmap scan report for 10.10.134.235
+<code>Nmap scan report for 10.10.134.235
 Host is up (0.039s latency).
 Not shown: 997 closed tcp ports (conn-refused)
 PORT   STATE SERVICE VERSION
@@ -32,7 +32,7 @@ Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 16.16 seconds</p>
-
+</code>
 <b>┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]<br>
 └─$ ftp anonymous@10.10.134.235</b><BR>
 Connected to 10.10.134.235.
