@@ -33,8 +33,8 @@ Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 16.16 seconds</p>
 
-┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]
-└─$ ftp anonymous@10.10.134.235
+<b>┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]
+└─$ ftp anonymous@10.10.134.235</b>
 Connected to 10.10.134.235.
 220 (vsFTPd 3.0.3)
 331 Please specify the password.
