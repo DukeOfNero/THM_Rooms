@@ -87,9 +87,9 @@ Hey I just removed the old user mike because that account was compromised and fo
 
 **┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.134.235 -x .php,.ht**
-===============================================================
-Gobuster v3.1.0
-by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+>===============================================================
+>Gobuster v3.1.0
+>by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ===============================================================
 [+] Url:                     http://10.10.134.235
 [+] Method:                  GET
