@@ -35,6 +35,7 @@ Nmap done: 1 IP address (1 host up) scanned in 16.16 seconds</p>
 </code>
 <b>┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]<br>
 └─$ ftp anonymous@10.10.134.235</b><BR>
+<code>
 Connected to 10.10.134.235.
 220 (vsFTPd 3.0.3)
 331 Please specify the password.
@@ -68,13 +69,15 @@ ftp> ls
 226 Directory send OK.
 ftp> exit
 421 Timeout.
-                                                                                                                                                                                                                                           
+</code>                                                                                                                                       
 <b>┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]<br>
 └─$ ls</b>
 nmap  update.txt
                                                                                                                                                                                                                                            
 ┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]
 └─$ cat update.txt  
+<code>
 Hey I just removed the old user mike because that account was compromised and for any of you who wants the creds of new account visit 127.0.0.1/dir/pass.txt and don't worry this file is only accessible by localhost(127.0.0.1), so nobody else can view it except me or people with access to the common account. 
 - admin
+</code>
 
