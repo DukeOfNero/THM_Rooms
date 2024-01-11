@@ -1,11 +1,10 @@
 Link: https://tryhackme.com/room/whyhackme
 
-
 <h1>Service Enumeration</h1>
 
-<b>┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]<br>
-└─$ nmap -sV -sC -Pn 10.10.134.235</B>
 <code>
+<b>┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]
+└─$ nmap -sV -sC -Pn 10.10.134.235</b>
 Starting Nmap 7.92 ( https://nmap.org ) at 2024-01-08 02:28 CST
 Nmap scan report for 10.10.134.235
 Host is up (0.039s latency).
