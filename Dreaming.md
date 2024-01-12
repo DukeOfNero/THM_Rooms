@@ -85,6 +85,8 @@ User lucien may run the following commands on dreaming:
     (death) NOPASSWD: /usr/bin/python3 /home/death/getDreams.py
 
 
+lucien@dreaming:~$ mysql -u lucien -plucien42DBPASSWORD
+
 
 
 
