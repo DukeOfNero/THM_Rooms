@@ -134,6 +134,27 @@ lucien@dreaming:~$ sudo -u death /usr/bin/python3 /home/death/getDreams.py
 
 <h2>get reverse shell as death </h2>
 
+run linpeas
+╔══════════╣ Interesting GROUP writable files (not in Home) (max 500)
+╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#writable-files                                   
+  Group death:                                                                                                      
+/usr/lib/python3.8/shutil.py     
+╔══════════╣ Unexpected in root
+/kingdom_backup                                                                                                     
+/swap.img
+
+death@dreaming:/home/morpheus$ cat restore.py
+cat restore.py
+from shutil import copy2 as backup
+
+src_file = "/home/morpheus/kingdom"
+dst_file = "/kingdom_backup/kingdom"
+
+backup(src_file, dst_file)
+print("The kingdom backup has been done!")
+
+
+
 
 
 <\code>
