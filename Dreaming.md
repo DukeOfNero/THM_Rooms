@@ -80,6 +80,8 @@ uid=1000(lucien) gid=1000(lucien) groups=1000(lucien),4(adm),24(cdrom),30(dip),4
 
 get Lucien password login via ssh
 
+<h2> PrivEsc to Death </h2>
+
 lucien@dreaming:/opt$ sudo -l
 Matching Defaults entries for lucien on dreaming:
     env_reset, mail_badpass,
