@@ -21,6 +21,8 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 http://dreaming.thm/app/pluck-4.7.13/?file=dreaming
 
+<h2> Initial access </h2>
+
 whoops default admin password is password
 http://dreaming.thm/app/pluck-4.7.13/admin.php?action=start
 
@@ -39,6 +41,9 @@ drwxr-xr-x  5 lucien   lucien   4096 Aug 25 16:26 lucien
 drwxr-xr-x  3 morpheus morpheus 4096 Aug  7 23:48 morpheus
 
 
+
+<h2> PrivEsc to Lucien </h2>
+
 run linpeas found interesing files 
 www-data@dreaming:/opt$ ls -la
 ls -la
@@ -50,7 +55,6 @@ drwxr-xr-x 20 root   root   4096 Jul 28 22:35 ..
 www-data@dreaming:/opt$ cat test.py
 cat test.py
 import requests
-
 #Todo add myself as a user
 url = "http://127.0.0.1/app/pluck-4.7.13/login.php"
 password = "HeyLucien#@1999!"
