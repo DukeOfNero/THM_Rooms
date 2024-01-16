@@ -1,3 +1,5 @@
+<code>
+  
 async function login() {
   let formElement = document.getElementById('login-form');
   console.log(formElement.elements);
@@ -21,3 +23,5 @@ async function digest(data) {
   const hashString = hashArray.map(byte => byte.toString(16).padStart(2, '0')).join('');
   return hashString;
 }
+
+</code>
