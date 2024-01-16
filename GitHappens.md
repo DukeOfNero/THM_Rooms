@@ -16,14 +16,13 @@ Resolving deltas: 100% (88/88), done.
                                                                                                                     
 ┌──(duke㉿kali)-[~/Documents/THM_GitHappens]
 └─$ ./GitTools/Dumper/gitdumper.sh http://10.10.231.42/.git/ clone
-###########
+
 # GitDumper is part of https://github.com/internetwache/GitTools
 #
 # Developed and maintained by @gehaxelt from @internetwache
 #
 # Use at your own risk. Usage might be illegal in certain circumstances. 
 # Only for educational purposes!
-###########
 
 
 [*] Destination folder does not exist
