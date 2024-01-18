@@ -173,6 +173,6 @@ case $ans in
         exit;;
 esac
 
-
+you choice read and priesc via nano
 
 </code>
