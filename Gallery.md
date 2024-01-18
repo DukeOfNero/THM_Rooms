@@ -141,7 +141,7 @@ cat rootkit.sh
 
 read -e -p "Would you like to versioncheck, update, list or read the report ? " ans;
 
-# Execute your choice
+Execute your choice
 case $ans in
     versioncheck)
         /usr/bin/rkhunter --versioncheck ;;
