@@ -40,11 +40,11 @@ link: https://github.com/MuirlandOracle/CVE-2019-15107
 use exploid to get reverse shell
 download /root/.ssh/id_rsa to get pernament access via ssh
 
-┌──(duke㉿kali) [~/Documents/THM_Wreath]
+┌──(duke㉿kali) [/Documents/THM_Wreath]
 └─$ cp id_rsa root                        
-┌──(duke㉿kali) -[~/Documents/THM_Wreath]
+┌──(duke㉿kali) [/Documents/THM_Wreath]
 └─$ chmod +600 root 
-┌──(duke㉿kali) [~/Documents/THM_Wreath]
+┌──(duke㉿kali) [/Documents/THM_Wreath]
 └─$ ssh -i root root@10.200.85.200
 [root@prod-serv ~]# id
 uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
