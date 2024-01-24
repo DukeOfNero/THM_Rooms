@@ -1,6 +1,5 @@
 link: https://tryhackme.com/room/wreath
-<code>
-<h2>Enumaration Webserver </h2>
+<code><h2>Enumaration Webserver </h2>
 nmap
 ┌──(duke㉿kali)-[~/Documents/THM_Wreath]
 └─$ nmap -sV -sC -Pn 10.200.85.200
@@ -35,7 +34,7 @@ PORT      STATE  SERVICE    VERSION
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 115.90 seconds
 
-Service Webmin is vulnarable
+<b>Service Webmin is vulnarable</b>
 
 link: https://github.com/MuirlandOracle/CVE-2019-15107
 
