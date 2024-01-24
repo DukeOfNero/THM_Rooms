@@ -35,14 +35,12 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 115.90 seconds
 
 <b>Service Webmin is vulnarable</b>
-
 link: https://github.com/MuirlandOracle/CVE-2019-15107
 
 use exploid to get reverse shell
+download /root/.ssh/id_rsa to get pernament access via ssh
 
-download /root/.ssh/id_rsa to get pernamet access via ssh
-
-──(duke㉿kali)-[~/Documents/THM_Wreath]
+┌──(duke㉿kali)-[~/Documents/THM_Wreath]
 └─$ cp id_rsa root                        
                                                                                                                     
 ┌──(duke㉿kali)-[~/Documents/THM_Wreath]
