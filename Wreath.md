@@ -1,5 +1,5 @@
 link: https://tryhackme.com/room/wreath
-<code><h2>Enumaration Webserver </h2>
+<code><h2>Enumaration PublicFacing Webserver </h2>
 ┌──(duke㉿kali)-[~/Documents/THM_Wreath]
 └─$ nmap -sV -sC -Pn 10.200.85.200
 Starting Nmap 7.92 ( https://nmap.org ) at 2024-01-24 05:31 CST
