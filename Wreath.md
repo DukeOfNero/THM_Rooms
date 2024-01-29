@@ -125,10 +125,15 @@ PORT     STATE SERVICE
 5985/tcp open  wsman
 MAC Address: 02:E9:87:C5:9E:21 (Unknown)
 
-<h2> port forwarding </h2>
+<h2> Port forwarding </h2>
 ┌──(duke㉿kali)-[~/Documents/THM_Wreath]
 └─$ ssh -L 23456:10.200.85.150:80  -i root root@10.200.85.200 -N
 
+or using socat 
+
+┌──(duke㉿kali)-[~]
+└─$ socat tcp-l:18801 tcp-l:18800,fork,reuseaddr
+[root@prod-serv tmp]# ./socat-dukeofnero tcp:10.50.86.201:18801 tcp:10.200.85.150:80,fork &
 
 
 </code>
