@@ -80,6 +80,56 @@ ip-10-200-85-1.eu-west-1.compute.internal (10.200.85.1) at 02:16:e7:43:1c:11 [et
 64 bytes from 10.200.85.200: icmp_seq=1 ttl=64 time=0.051 ms
 64 bytes from 10.200.85.250: icmp_seq=1 ttl=64 time=0.574 ms
 
+[root@prod-serv tmp]# ./nmap-dukeofnero -sP 10.200.85.0/24
+
+Starting Nmap 6.49BETA1 ( http://nmap.org ) at 2024-01-29 09:39 GMT
+Cannot find nmap-payloads. UDP payloads are disabled.
+Nmap scan report for ip-10-200-85-1.eu-west-1.compute.internal (10.200.85.1)
+Cannot find nmap-mac-prefixes: Ethernet vendor correlation will not be performed
+Host is up (-0.15s latency).
+MAC Address: 02:16:E7:43:1C:11 (Unknown)
+Nmap scan report for ip-10-200-85-100.eu-west-1.compute.internal (10.200.85.100)
+Host is up (0.00047s latency).
+MAC Address: 02:E4:55:CA:F3:1B (Unknown)
+Nmap scan report for ip-10-200-85-150.eu-west-1.compute.internal (10.200.85.150)
+Host is up (0.00046s latency).
+MAC Address: 02:E9:87:C5:9E:21 (Unknown)
+Nmap scan report for ip-10-200-85-250.eu-west-1.compute.internal (10.200.85.250)
+Host is up (0.00032s latency).
+MAC Address: 02:C4:B2:A9:1F:37 (Unknown)
+Nmap scan report for ip-10-200-85-200.eu-west-1.compute.internal (10.200.85.200)
+Host is up.
+Nmap done: 256 IP addresses (5 hosts up) scanned in 4.78 seconds
+
+[root@prod-serv tmp]# ./nmap-dukeofnero  10.200.85.100
+
+Starting Nmap 6.49BETA1 ( http://nmap.org ) at 2024-01-29 09:40 GMT
+Unable to find nmap-services!  Resorting to /etc/services
+Cannot find nmap-payloads. UDP payloads are disabled.
+Stats: 0:02:00 elapsed; 0 hosts completed (1 up), 1 undergoing SYN Stealth Scan
+SYN Stealth Scan Timing: About 96.42% done; ETC: 09:42 (0:00:04 remaining)
+Nmap scan report for ip-10-200-85-100.eu-west-1.compute.internal (10.200.85.100)
+Cannot find nmap-mac-prefixes: Ethernet vendor correlation will not be performed
+Host is up (-0.20s latency).
+All 6150 scanned ports on ip-10-200-85-100.eu-west-1.compute.internal (10.200.85.100) are filtered
+MAC Address: 02:E4:55:CA:F3:1B (Unknown)
+
+Nmap done: 1 IP address (1 host up) scanned in 124.55 seconds
+[root@prod-serv tmp]# ./nmap-dukeofnero  10.200.85.150
+Host is up (0.00056s latency).
+Not shown: 6146 filtered ports
+PORT     STATE SERVICE
+80/tcp   open  http
+3389/tcp open  ms-wbt-server
+5357/tcp open  wsdapi
+5985/tcp open  wsman
+MAC Address: 02:E9:87:C5:9E:21 (Unknown)
+
+<h2> port forwarding </h2>
+┌──(duke㉿kali)-[~/Documents/THM_Wreath]
+└─$ ssh -L 23456:10.200.85.150:80  -i root root@10.200.85.200 -N
+
+
 
 </code>
 
