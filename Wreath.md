@@ -365,7 +365,7 @@ SERVICE_NAME: SystemExplorerHelpService
         DEPENDENCIES       : 
         SERVICE_START_NAME : LocalSystem
 
-# C:\xampp\htdocs\resources\uploads>powershell "get-acl -Path 'C:\Program Files (x86)\System Explorer' | format-list"
+### C:\xampp\htdocs\resources\uploads>powershell "get-acl -Path 'C:\Program Files (x86)\System Explorer' | format-list"
 powershell "get-acl -Path 'C:\Program Files (x86)\System Explorer' | format-list"
 
 
