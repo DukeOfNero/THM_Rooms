@@ -307,8 +307,6 @@ vhups
 wreath-pc\thomas
 
 ### C:\xampp\htdocs\resources\uploads>whoami /priv
-PRIVILEGES INFORMATION
-----------------------
 
 Privilege Name                Description                               State   
 ============================= ========================================= ========
