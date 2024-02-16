@@ -1,8 +1,5 @@
 link: https://tryhackme.com/room/kiba
-<code>
-
 ## Enumaration
-
 <code>
 ┌──(duke㉿kali)-[~/Documents/THM_Kiba]
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.124.166 -x .txt,.php,html
