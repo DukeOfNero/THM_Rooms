@@ -1,5 +1,5 @@
 link: https://tryhackme.com/room/kiba
-
+<code>
 ** Enumaration
 ┌──(duke㉿kali)-[~/Documents/THM_Kiba]
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.124.166 -x .txt,.php,html
@@ -40,3 +40,5 @@ PORT     STATE SERVICE
 Nmap done: 1 IP address (1 host up) scanned in 23.05 seconds
 
 ** found Kibana Version: 6.5.4
+
+</code>
