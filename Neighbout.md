@@ -1,6 +1,6 @@
 link: https://tryhackme.com/room/neighbour
 ## Enumeration nmap, gobuster, nikto
-
+<code>
 ┌──(duke㉿kali)-[~/Documents/TMH_Neighbour]
 └─$ nmap  -sV -Pn -p22,80 10.10.205.86
 Starting Nmap 7.92 ( https://nmap.org ) at 2024-02-19 02:36 CST
@@ -41,3 +41,4 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /logout.php           (Status: 302) [Size: 0] [--> login.php]                    
 /server-status        (Status: 403) [Size: 277]               
 
+</code>
