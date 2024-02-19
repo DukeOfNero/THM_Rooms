@@ -26,9 +26,8 @@ Nmap done: 1 IP address (1 host up) scanned in 6.75 seconds
 [+] User Agent:              gobuster/3.1.0
 [+] Extensions:              txt,php,html
 [+] Timeout:                 10s
-===============================================================
 2024/02/19 02:37:17 Starting gobuster in directory enumeration mode
-===============================================================
+
 /index.php            (Status: 200) [Size: 1357]
 /login.php            (Status: 200) [Size: 1316]
 /profile.php          (Status: 302) [Size: 0] [--> login.php]
