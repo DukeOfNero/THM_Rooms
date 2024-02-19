@@ -58,5 +58,8 @@ OSVDB-3093: /db.php: This might be interesting... has been seen in web logs from
 End Time:           2024-02-19 03:40:07 (GMT-6) (318 seconds)
 + 1 host(s) tested
 
+login as guest and use idor 
+http://10.10.205.86/profile.php?user=admin
+
 
 </code>
