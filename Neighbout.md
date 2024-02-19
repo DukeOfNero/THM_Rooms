@@ -40,12 +40,10 @@ Nmap done: 1 IP address (1 host up) scanned in 6.75 seconds
 ┌──(duke㉿kali)-[~/Documents/TMH_Neighbour]
 └─$ nikto  -h http://10.10.205.86                  
 - Nikto v2.1.6
----------------------------------------------------------------------------
 + Target IP:          10.10.205.86
 + Target Hostname:    10.10.205.86
 + Target Port:        80
 + Start Time:         2024-02-19 03:34:49 (GMT-6)
----------------------------------------------------------------------------
 + Server: Apache/2.4.53 (Debian)
 + Retrieved x-powered-by header: PHP/8.0.19
 + The anti-clickjacking X-Frame-Options header is not present.
