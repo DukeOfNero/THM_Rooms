@@ -38,9 +38,9 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /LICENSE.txt          (Status: 200) [Size: 17130]                                     
 /server-status        (Status: 403) [Size: 278]                                       
                                                                                       
-===============================================================
+` ===============================================================
 2024/02/19 04:45:40 Finished
-===============================================================
+` ===============================================================
 
 API Documentation
 Since every good API has a documentation we have one as well!
