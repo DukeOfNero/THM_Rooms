@@ -46,8 +46,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ` 2024/02/19 04:45:40 Finished
 ` ===============================================================
 
-
-
+### api.js
 
 function getAPIURL() {
 var str = window.location.hostname;
@@ -55,8 +54,6 @@ str = str + ":5000"
 return str;
 
     }
-
-
 async function getUsers() {
     var u=getAPIURL();
     let url = 'http://' + u + '/api/v2/resources/books/random4';
@@ -88,23 +85,15 @@ async function renderUsers() {
 renderUsers();
 //the previous version of the api had a paramter which lead to local file inclusion vulnerability, glad we now have the new version which is secure.
 
-
-
-
-API Documentation
+### API Documentation
 Since every good API has a documentation we have one as well!
 The various routes this API currently provides are:
 
 /api/v2/resources/books/all (Retrieve all books and get the output in a json format)
-
 /api/v2/resources/books/random4 (Retrieve 4 random records)
-
 /api/v2/resources/books?id=1(Search by a specific parameter , id parameter)
-
 /api/v2/resources/books?author=J.K. Rowling (Search by a specific parameter, this query will return all the books with author=J.K. Rowling)
-
 /api/v2/resources/books?published=1993 (This query will return all the books published in the year 1993)
-
 /api/v2/resources/books?author=J.K. Rowling&published=2003 (Search by a combination of 2 or more parameters)
 
 
