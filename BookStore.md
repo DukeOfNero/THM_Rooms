@@ -39,7 +39,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /server-status        (Status: 403) [Size: 278]                                       
                                                                                       
 ` ===============================================================
-2024/02/19 04:45:40 Finished
+` 2024/02/19 04:45:40 Finished
 ` ===============================================================
 
 API Documentation
