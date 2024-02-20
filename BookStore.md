@@ -41,10 +41,6 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /javascript           (Status: 301) [Size: 319] [--> http://10.10.189.121/javascript/]
 /LICENSE.txt          (Status: 200) [Size: 17130]                                     
 /server-status        (Status: 403) [Size: 278]                                       
-                                                                                      
-` ===============================================================
-` 2024/02/19 04:45:40 Finished
-` ===============================================================
 
 ### api.js
 
