@@ -15,13 +15,11 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 8.63 seconds
-                                                                                                                                                                                                                                           
+
 ┌──(duke㉿kali)-[~/Documents/THM_BookStore]
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.189.121 -x .txt,.php,html
-===============================================================
 Gobuster v3.1.0
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
-===============================================================
 [+] Url:                     http://10.10.189.121
 [+] Method:                  GET
 [+] Threads:                 10
@@ -30,9 +28,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 [+] User Agent:              gobuster/3.1.0
 [+] Extensions:              txt,php,html
 [+] Timeout:                 10s
-===============================================================
 2024/02/19 03:54:59 Starting gobuster in directory enumeration mode
-===============================================================
 /images               (Status: 301) [Size: 315] [--> http://10.10.189.121/images/]
 /index.html           (Status: 200) [Size: 6452]                                  
 /login.html           (Status: 200) [Size: 5325]                                  
