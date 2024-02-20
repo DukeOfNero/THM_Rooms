@@ -1,5 +1,8 @@
+
+<code>
 ┌──(duke㉿kali)-[~/Documents/THM_BookStore]
 └─$ nmap  -sV -Pn 10.10.189.121
+
 Starting Nmap 7.92 ( https://nmap.org ) at 2024-02-19 03:54 CST
 Nmap scan report for 10.10.189.121
 Host is up (0.040s latency).
@@ -58,3 +61,5 @@ The various routes this API currently provides are:
 /api/v2/resources/books?published=1993 (This query will return all the books published in the year 1993)
 
 /api/v2/resources/books?author=J.K. Rowling&published=2003 (Search by a combination of 2 or more parameters)
+
+<\code>
