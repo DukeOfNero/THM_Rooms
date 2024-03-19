@@ -3,10 +3,7 @@ nmap, gobuster
 
 ┌──(duke㉿kali)-[~/Documents/THM_Smag_Grotto]
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.19.178     
-===============================================================
-Gobuster v3.1.0
-by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
-===============================================================
+
 [+] Url:                     http://10.10.19.178
 [+] Method:                  GET
 [+] Threads:                 10
@@ -14,22 +11,16 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 [+] Negative Status codes:   404
 [+] User Agent:              gobuster/3.1.0
 [+] Timeout:                 10s
-===============================================================
-2024/03/19 05:00:44 Starting gobuster in directory enumeration mode
-===============================================================
+
 /mail                 (Status: 301) [Size: 311] [--> http://10.10.19.178/mail/]
 /server-status        (Status: 403) [Size: 277]                                
                                                                                
-===============================================================
 2024/03/19 05:15:15 Finished
-===============================================================
-                                                                                                                    
+                                                                                                                   
 ┌──(duke㉿kali)-[~/Documents/THM_Smag_Grotto]
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://development.smag.thm -x .php, .txt
-===============================================================
 Gobuster v3.1.0
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
-===============================================================
 [+] Url:                     http://development.smag.thm
 [+] Method:                  GET
 [+] Threads:                 10
@@ -38,9 +29,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 [+] User Agent:              gobuster/3.1.0
 [+] Extensions:              php,
 [+] Timeout:                 10s
-===============================================================
 2024/03/19 05:16:48 Starting gobuster in directory enumeration mode
-===============================================================
 /login.php            (Status: 200) [Size: 1035]
 /admin.php            (Status: 302) [Size: 0] [--> login.php]
 /server-status        (Status: 403) [Size: 285]              
