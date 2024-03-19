@@ -1,6 +1,5 @@
 <code>
-nmap, gobuster
-
+### nmap, gobuster, nikto
 ┌──(duke㉿kali)-[~/Documents/THM_Smag_Grotto]
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.19.178     
 
@@ -71,11 +70,12 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 + 1 host(s) tested
 
 
+in /mail found
+
 <a>To: netadmin@smag.thm</a>
 <a>Cc: uzi@smag.thm</a>
 <!-- <a>Bcc: trodd@smag.thm</a> -->
 <a>From: jake@smag.thm</a>
-
 
 
 username=helpdesk&password=cH4nG3M3_n0w
