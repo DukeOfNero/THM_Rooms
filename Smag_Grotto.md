@@ -1,4 +1,5 @@
-<code> ### nmap, gobuster, nikto
+<code>
+### nmap, gobuster, nikto ###
 ┌──(duke㉿kali)-[~/Documents/THM_Smag_Grotto]
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.19.178     
 
