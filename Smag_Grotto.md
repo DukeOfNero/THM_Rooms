@@ -166,4 +166,11 @@ development             [Status: 200, Size: 1176, Words: 76, Lines: 18, Duration
 development             [Status: 200, Size: 1176, Words: 76, Lines: 18, Duration: 31ms]
 
 
+#### login via http://development.smag.thm/admin.php use  username=helpdesk&password=cH4nG3M3_n0w
+
+run reverse shell
+get access as www-date
+run linpease
+
+
 <\code>
