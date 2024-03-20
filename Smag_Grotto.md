@@ -70,7 +70,28 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 + End Time:           2024-03-19 06:44:21 (GMT-5) (364 seconds)
 ---------------------------------------------------------------------------
 + 1 host(s) tested
-
++ 
+┌──(duke㉿kali)-[~/Documents/THM_Smag_Grotto]
+└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://smag.thm -x .php, .txt, .html
+===============================================================
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://smag.thm
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Extensions:              php,
+[+] Timeout:                 10s
+===============================================================
+2024/03/20 06:16:28 Starting gobuster in directory enumeration mode
+===============================================================
+/index.php            (Status: 200) [Size: 402]
+/mail                 (Status: 301) [Size: 303] [--> http://smag.thm/mail/]
+/server-status        (Status: 403) [Size: 273]                            
+                                                
 
 in /mail found
 
