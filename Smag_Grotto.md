@@ -80,5 +80,67 @@ in /mail found
 
 username=helpdesk&password=cH4nG3M3_n0w
 
+#### Subdomain Enumeration
+
+                                                                                                                                                                                                                                          
+┌──(duke㉿kali)-[~/Documents/THM_Smag_Grotto]
+└─$ ffuf -w ../../www/wordlists/Subdomain.txt -H "HOST: FUZZ.smag.thm" -u http://smag.thm
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v1.5.0 Kali Exclusive <3
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://smag.thm
+ :: Wordlist         : FUZZ: ../../www/wordlists/Subdomain.txt
+ :: Header           : Host: FUZZ.smag.thm
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200,204,301,302,307,401,403,405,500
+________________________________________________
+
+media                   [Status: 200, Size: 402, Words: 69, Lines: 13, Duration: 40ms]
+ftp                     [Status: 200, Size: 402, Words: 69, Lines: 13, Duration: 40ms]
+wap                     [Status: 200, Size: 402, Words: 69, Lines: 13, Duration: 40ms]
+ns1                     [Status: 200, Size: 402, Words: 69, Lines: 13, Duration: 40ms]
+
+#### Filter size 402
+                                                                                                                                                                                                                                           
+┌──(duke㉿kali)-[~/Documents/THM_Smag_Grotto]
+└─$ ffuf -w ../../www/wordlists/Subdomain.txt -H "HOST: FUZZ.smag.thm" -u http://smag.thm -fs 402
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v1.5.0 Kali Exclusive <3
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://smag.thm
+ :: Wordlist         : FUZZ: ../../www/wordlists/Subdomain.txt
+ :: Header           : Host: FUZZ.smag.thm
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200,204,301,302,307,401,403,405,500
+ :: Filter           : Response size: 402
+________________________________________________
+
+development             [Status: 200, Size: 1176, Words: 76, Lines: 18, Duration: 32ms]
+development             [Status: 200, Size: 1176, Words: 76, Lines: 18, Duration: 31ms]
+
 
 <\code>
