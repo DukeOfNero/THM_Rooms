@@ -17,6 +17,32 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 7.38 seconds
 
 
+┌──(duke㉿kali)-[~/Documents/THM_LessonLearned]
+└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.177.226 -x .php, .txt, .html
+===============================================================
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://10.10.177.226
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Extensions:              php,
+[+] Timeout:                 10s
+===============================================================
+2024/03/22 03:59:43 Starting gobuster in directory enumeration mode
+===============================================================
+/index.php            (Status: 200) [Size: 1223]
+/manual               (Status: 301) [Size: 315] [--> http://10.10.177.226/manual/]
+/server-status        (Status: 403) [Size: 278]                                   
+                                                                                  
+===============================================================
+2024/03/22 04:38:45 Finished
+===============================================================
+
+
 
 
 
