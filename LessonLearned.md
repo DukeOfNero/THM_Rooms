@@ -16,9 +16,8 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 7.38 seconds
 
-
-┌──(duke㉿kali)-[~/Documents/THM_LessonLearned]
-└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.177.226 -x .php, .txt, .html
+┌─(duke㉿kali)-[/Documents/THM_LessonLearned]
+└$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.177.226 -x .php, .txt, .html
 ===============================================================
 Gobuster v3.1.0
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
