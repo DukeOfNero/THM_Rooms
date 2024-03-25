@@ -18,10 +18,10 @@ Nmap done: 1 IP address (1 host up) scanned in 7.38 seconds
 
 ┌─(duke㉿kali)-[/Documents/THM_LessonLearned]
 └$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.177.226 -x .php, .txt, .html
-===============================================================
+
 Gobuster v3.1.0
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
-===============================================================
+
 [+] Url:                     http://10.10.177.226
 [+] Method:                  GET
 [+] Threads:                 10
@@ -30,22 +30,17 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 [+] User Agent:              gobuster/3.1.0
 [+] Extensions:              php,
 [+] Timeout:                 10s
-===============================================================
+
 2024/03/22 03:59:43 Starting gobuster in directory enumeration mode
-===============================================================
+
 /index.php            (Status: 200) [Size: 1223]
 /manual               (Status: 301) [Size: 315] [--> http://10.10.177.226/manual/]
 /server-status        (Status: 403) [Size: 278]                                   
                                                                                   
-===============================================================
+
 2024/03/22 04:38:45 Finished
-===============================================================
 
-
-
-
-
-after sql injection
+### sql injection ' or 1=1
 
 Oops! It looks like you injected an OR 1=1 or similar into the username field. This wouldn't have bypassed the login because every row in the users table was returned, and the login check only proceeds if one row matches the query.
 
@@ -56,5 +51,7 @@ OR 1=1 is dangerous and should almost never be used for precisely this reason. N
 Lesson learned?
 
 P.S. maybe there is less destructive way to bypass the login...
+
+##  1' union select null -- -
   
 </code>
