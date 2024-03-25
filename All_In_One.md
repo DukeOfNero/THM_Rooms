@@ -90,7 +90,37 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 2024/03/25 07:46:00 Starting gobuster in directory enumeration mode
 2024/03/25 08:29:17 Finished
 
+└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.197.77/wordpress -x .php, .txt, .html
 
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+
+[+] Url:                     http://10.10.197.77/wordpress
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Extensions:              php,
+[+] Timeout:                 10s
+
+2024/03/25 08:35:14 Starting gobuster in directory enumeration mode
+
+/index.php            (Status: 301) [Size: 0] [--> http://10.10.197.77/wordpress/]
+/wp-content           (Status: 301) [Size: 327] [--> http://10.10.197.77/wordpress/wp-content/]
+/wp-login.php         (Status: 200) [Size: 6766]                                               
+/wp-includes          (Status: 301) [Size: 328] [--> http://10.10.197.77/wordpress/wp-includes/]
+/wp-trackback.php     (Status: 200) [Size: 135]                                                 
+/wp-admin             (Status: 301) [Size: 325] [--> http://10.10.197.77/wordpress/wp-admin/]   
+/xmlrpc.php           (Status: 405) [Size: 42]                                                  
+Progress: 127419 / 661683 (19.26%)                                                             ^C
+[!] Keyboard interrupt detected, terminating.
+                                                  
+
+### wordpress Enumeration
+WordPress version 5.5.1
+WordPress theme in use: twentytwenty 
+found user elyana
 
 
 
