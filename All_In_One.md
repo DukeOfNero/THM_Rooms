@@ -74,5 +74,25 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 <!-- KeepGoing -->
 
 
+└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.197.77/heckathons -x .php, .txt, .html
+
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+
+[+] Url:                     http://10.10.197.77/heckathons
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Extensions:              php,
+[+] Timeout:                 10s
+2024/03/25 07:46:00 Starting gobuster in directory enumeration mode
+2024/03/25 08:29:17 Finished
+
+
+
+
+
 
 <\code>
