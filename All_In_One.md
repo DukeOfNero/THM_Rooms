@@ -46,6 +46,31 @@ Nmap done: 1 IP address (1 host up) scanned in 6.27 seconds
 
 ### WwWW
 
+┌──(duke㉿kali)-[~/Documents/THM_all_in_one]
+└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.200.162 -x .php, .txt, .html
+
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+
+[+] Url:                     http://10.10.200.162
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Extensions:              php,
+[+] Timeout:                 10s
+
+2024/03/25 05:30:23 Starting gobuster in directory enumeration mode
+
+/wordpress            (Status: 301) [Size: 318] [--> http://10.10.200.162/wordpress/]
+/hackathons           (Status: 200) [Size: 197]                                      
+/server-status        (Status: 403) [Size: 278]                                      
+
+2024/03/25 06:13:56 Finished
+
+
+
 
 
 <\code>
