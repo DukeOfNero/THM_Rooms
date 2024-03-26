@@ -70,8 +70,16 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 2024/03/25 06:13:56 Finished
 
 #### in /hackathons found
-<!-- Dvc W@iyur@123 -->
-<!-- KeepGoing -->
+
+
+Damn how much I hate the smell of Vinegar
+
+Dvc W@iyur@123 
+KeepGoing 
+
+VIGENERE CYPHER key "KeepGoing"
+
+Try H@ckme@123
 
 
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.197.77/heckathons -x .php, .txt, .html
@@ -250,6 +258,6 @@ ________________________________________________
 :: Progress: [878/878] :: Job [1/1] :: 421 req/sec :: Duration: [0:00:02] :: Errors: 0 ::
 
 
-
+login to wordpress as elyana psw H@ckme@123 
 
 <\code>
