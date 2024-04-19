@@ -27,34 +27,6 @@ PORT     STATE SERVICE  VERSION
 1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
 SF-Port80-TCP:V=7.92%I=7%D=4/18%Time=66210E70%P=x86_64-pc-linux-gnu%r(GetR
 SF:equest,291,"HTTP/1\.1\x20405\x20Method\x20Not\x20Allowed\r\nServer:\x20
-SF:WebSockify\x20Python/3\.8\.10\r\nDate:\x20Thu,\x2018\x20Apr\x202024\x20
-SF:12:13:36\x20GMT\r\nConnection:\x20close\r\nContent-Type:\x20text/html;c
-SF:harset=utf-8\r\nContent-Length:\x20472\r\n\r\n<!DOCTYPE\x20HTML\x20PUBL
-SF:IC\x20\"-//W3C//DTD\x20HTML\x204\.01//EN\"\n\x20\x20\x20\x20\x20\x20\x2
-SF:0\x20\"http://www\.w3\.org/TR/html4/strict\.dtd\">\n<html>\n\x20\x20\x2
-SF:0\x20<head>\n\x20\x20\x20\x20\x20\x20\x20\x20<meta\x20http-equiv=\"Cont
-SF:ent-Type\"\x20content=\"text/html;charset=utf-8\">\n\x20\x20\x20\x20\x2
-SF:0\x20\x20\x20Error\x20response</title>\n\x20\x20\x20\x20</head>\
-SF:n\x20\x20\x20\x20<body>\n\x20\x20\x20\x20\x20\x20\x20\x20<h1>Error\x20r
-SF:esponse</h1>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Error\x20code:\x20405<
-SF:/p>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Message:\x20Method\x20Not\x20Al
-SF:lowed\.</p>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Error\x20code\x20explan
-SF:ation:\x20405\x20-\x20Specified\x20method\x20is\x20invalid\x20for\x20th
-SF:is\x20resource\.</p>\n\x20\x20\x20\x20</body>\n</html>\n")%r(HTTPOption
-SF:s,2B9,"HTTP/1\.1\x20501\x20Unsupported\x20method\x20\('OPTIONS'\)\r\nSe
-SF:rver:\x20WebSockify\x20Python/3\.8\.10\r\nDate:\x20Thu,\x2018\x20Apr\x2
-SF:02024\x2012:13:36\x20GMT\r\nConnection:\x20close\r\nContent-Type:\x20te
-SF:xt/html;charset=utf-8\r\nContent-Length:\x20500\r\n\r\n<!DOCTYPE\x20HTM
-SF:L\x20PUBLIC\x20\"-//W3C//DTD\x20HTML\x204\.01//EN\"\n\x20\x20\x20\x20\x
-SF:20\x20\x20\x20\"http://www\.w3\.org/TR/html4/strict\.dtd\">\n<html>\n\x
-SF:20\x20\x20\x20<head>\n\x20\x20\x20\x20\x20\x20\x20\x20<meta\x20http-equ
-SF:iv=\"Content-Type\"\x20content=\"text/html;charset=utf-8\">\n\x20\x20\x
-SF:20\x20\x20\x20\x20\x20<title>Error\x20response</title>\n\x20\x20\x20\x2
-SF:0</head>\n\x20\x20\x20\x20<body>\n\x20\x20\x20\x20\x20\x20\x20\x20<h1>E
-SF:rror\x20response</h1>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Error\x20code
-SF::\x20501</p>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>Message:\x20Unsupporte
-SF:d\x20method\x20\('OPTIONS'\)\.</p>\n\x20\x20\x20\x20\x20\x20\x20\x20<p>
-SF:Error\x20code\x20explanation:\x20HTTPStatus\.NOT_IMPLEMENTED\x20-\x20Se
 SF:rver\x20does\x20not\x20support\x20this\x20operation\.</p>\n\x20\x20\x20
 SF:\x20</body>\n</html>\n");
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
@@ -190,6 +162,12 @@ Fingerprinting the version - Time: 00:00:28 <===================================
 [+] Data Received: 28.813 MB
 [+] Memory used: 227.711 MB
 [+] Elapsed time: 00:00:34
+
+### found brick theme 1.9.5 -- vulneable by CVE-2024-25600
+
+use exploit from 
+https://github.com/K3ysTr0K3R/CVE-2024-25600-EXPLOIT/blob/main/CVE-2024-25600.py
+
 
 
 https://bricks.thm/phpmyadmin/
