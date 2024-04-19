@@ -1,3 +1,4 @@
+<code>
 https://tryhackme.com/r/room/tryhack3mbricksheist
 
 Note: Add 10.10.207.101 bricks.thm to your /etc/hosts file.
@@ -83,3 +84,4 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /dashboard            (Status: 302) [Size: 0] [--> https://bricks.thm/wp-admin/]  
 
 
+<\code>
