@@ -59,13 +59,14 @@ SF:rver\x20does\x20not\x20support\x20this\x20operation\.</p>\n\x20\x20\x20
 SF:\x20</body>\n</html>\n");
 Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
-
-┌──(duke㉿kali)-[~/Documents/THM_BrickByBrick]
+┌(duke kali) [/Documents/THM_BrickByBrick]
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u https://bricks.thm -x .php, .txt, .html -k | egrep -v "Status: 301"
+
 ===============================================================
 Gobuster v3.1.0
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ===============================================================
+
 [+] Url:                     https://bricks.thm
 [+] Method:                  GET
 [+] Threads:                 10
@@ -74,9 +75,11 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 [+] User Agent:              gobuster/3.1.0
 [+] Extensions:              php,
 [+] Timeout:                 10s
+
 ===============================================================
 2024/04/18 07:24:48 Starting gobuster in directory enumeration mode
 ===============================================================
+
 /login                (Status: 302) [Size: 0] [--> https://bricks.thm/wp-login.php]
 /login.php            (Status: 302) [Size: 0] [--> https://bricks.thm/wp-login.php]
 /admin                (Status: 302) [Size: 0] [--> https://bricks.thm/wp-admin/]                 
