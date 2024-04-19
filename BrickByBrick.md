@@ -84,4 +84,110 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /dashboard            (Status: 302) [Size: 0] [--> https://bricks.thm/wp-admin/]  
 
 
+
+## Wordpress Enumeration
+                                                                                                                                                  
+┌──(duke㉿kali)-[~]
+└─$ wpscan --url https://bricks.thm --enumerate u --disable-tls-checks 
+_______________________________________________________________
+         __          _______   _____
+         \ \        / /  __ \ / ____|
+          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
+           \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
+            \  /\  /  | |     ____) | (__| (_| | | | |
+             \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+         WordPress Security Scanner by the WPScan Team
+                         Version 3.8.22
+       Sponsored by Automattic - https://automattic.com/
+       @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
+_______________________________________________________________
+
+[i] It seems like you have not updated the database for some time.
+[?] Do you want to update now? [Y]es [N]o, default: [N]n
+[+] URL: https://bricks.thm/ [10.10.119.30]
+[+] Started: Fri Apr 19 05:54:19 2024
+
+Interesting Finding(s):
+
+[+] Headers
+ | Interesting Entry: server: Apache
+ | Found By: Headers (Passive Detection)
+ | Confidence: 100%
+
+[+] robots.txt found: https://bricks.thm/robots.txt
+ | Interesting Entries:
+ |  - /wp-admin/
+ |  - /wp-admin/admin-ajax.php
+ | Found By: Robots Txt (Aggressive Detection)
+ | Confidence: 100%
+
+[+] XML-RPC seems to be enabled: https://bricks.thm/xmlrpc.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+ | References:
+ |  - http://codex.wordpress.org/XML-RPC_Pingback_API
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner/
+ |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access/
+
+[+] WordPress readme found: https://bricks.thm/readme.html
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] The external WP-Cron seems to be enabled: https://bricks.thm/wp-cron.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 60%
+ | References:
+ |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://github.com/wpscanteam/wpscan/issues/1299
+
+Fingerprinting the version - Time: 00:00:28 <==========================================================================================================================================================> (708 / 708) 100.00% Time: 00:00:28
+[i] The WordPress version could not be detected.
+
+[+] WordPress theme in use: bricks
+ | Location: https://bricks.thm/wp-content/themes/bricks/
+ | Readme: https://bricks.thm/wp-content/themes/bricks/readme.txt
+ | Style URL: https://bricks.thm/wp-content/themes/bricks/style.css
+ | Style Name: Bricks
+ | Style URI: https://bricksbuilder.io/
+ | Description: Visual website builder for WordPress....
+ | Author: Bricks
+ | Author URI: https://bricksbuilder.io/
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ | Confirmed By: Urls In 404 Page (Passive Detection)
+ |
+ | Version: 1.9.5 (80% confidence)
+ | Found By: Style (Passive Detection)
+ |  - https://bricks.thm/wp-content/themes/bricks/style.css, Match: 'Version: 1.9.5'
+
+[+] Enumerating Users (via Passive and Aggressive Methods)
+ Brute Forcing Author IDs - Time: 00:00:00 <=============================================================================================================================================================> (10 / 10) 100.00% Time: 00:00:00
+
+[i] User(s) Identified:
+
+[+] administrator
+ | Found By: Rss Generator (Passive Detection)
+ | Confirmed By:
+ |  Wp Json Api (Aggressive Detection)
+ |   - https://bricks.thm/wp-json/wp/v2/users/?per_page=100&page=1
+ |  Rss Generator (Aggressive Detection)
+ |  Author Id Brute Forcing - Author Pattern (Aggressive Detection)
+ |  Login Error Messages (Aggressive Detection)
+
+[!] No WPScan API Token given, as a result vulnerability data has not been output.
+[!] You can get a free API token with 25 daily requests by registering at https://wpscan.com/register
+
+[+] Finished: Fri Apr 19 05:54:53 2024
+[+] Requests Done: 1332
+[+] Cached Requests: 11
+[+] Data Sent: 354.176 KB
+[+] Data Received: 28.813 MB
+[+] Memory used: 227.711 MB
+[+] Elapsed time: 00:00:34
+
+
+
 <\code>
