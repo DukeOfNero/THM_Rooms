@@ -192,5 +192,11 @@ Fingerprinting the version - Time: 00:00:28 <===================================
 [+] Elapsed time: 00:00:34
 
 
+https://bricks.thm/phpmyadmin/
+https://bricks.thm/sample/
+
+
+
+
 
 <\code>
