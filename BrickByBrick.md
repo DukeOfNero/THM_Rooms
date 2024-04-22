@@ -373,8 +373,67 @@ Shell> ps -fax
    9229 ?        S      0:01  \_ /lib/NetworkManager/nm-inet-dialog
 
 ### print running services
-systemctl list-units --type=service --state=running
 
+systemctl list-units --type=service --state=running
+found
+ubuntu.service                                 loaded active running TRYHACK3M       
+
+
+
+### go to 
+apache@tryhackme:/etc/systemd/system$ ls
+sshd.service
+sysinit.target.wants
+syslog.service
+timers.target.wants
+ubuntu.service
+vmtoolsd.service
+
+### print conf
+apache@tryhackme:/etc/systemd/system$ cat ubuntu.service
+cat ubuntu.service
+[Unit]
+Description=TRYHACK3M
+
+[Service]
+Type=simple
+ExecStart=/lib/NetworkManager/nm-inet-dialog
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
+### go to
+apache@tryhackme:/lib/NetworkManager$ ls 
+ls
+VPN
+conf.d
+dispatcher.d
+inet.conf
+nm-dhcp-helper
+nm-dispatcher
+nm-iface-helper
+nm-inet-dialog
+nm-initrd-generator
+nm-openvpn-auth-dialog
+nm-openvpn-service
+nm-openvpn-service-openvpn-helper
+nm-pptp-auth-dialog
+nm-pptp-service
+system-connections
+
+### print
+apache@tryhackme:/lib/NetworkManager$ head inet.conf
+head inet.conf
+ID: 5757314e65474e5962484a4f656d787457544e424e574648555446684d3070735930684b616c70555a7a566b52335276546b686b65575248647a525a57466f77546b64334d6b347a526d685a6255313459316873636b35366247315a4d304531595564476130355864486c6157454a3557544a564e453959556e4a685246497a5932355363303948526a4a6b52464a7a546d706b65466c525054303d
+2024-04-08 10:46:04,743 [*] confbak: Ready!
+2024-04-08 10:46:04,743 [*] Status: Mining!
+2024-04-08 10:46:08,745 [*] Miner()
+2024-04-08 10:46:08,745 [*] Bitcoin Miner Thread Started
+2024-04-08 10:46:08,745 [*] Status: Mining!
+2024-04-08 10:46:10,747 [*] Miner()
+2024-04-08 10:46:12,748 [*] Miner()
+2024-04-08 10:46:14,751 [*] Miner()
 
 
 
