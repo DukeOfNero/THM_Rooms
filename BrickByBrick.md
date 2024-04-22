@@ -3,6 +3,8 @@ https://tryhackme.com/r/room/tryhack3mbricksheist
 
 Note: Add 10.10.207.101 bricks.thm to your /etc/hosts file.
 
+## Service Enumeration
+
 └─$ nmap  -sV -Pn  bricks.thm
 Starting Nmap 7.92 ( https://nmap.org ) at 2024-04-18 07:13 CDT
 Nmap scan report for bricks.thm (10.10.207.101)
@@ -33,11 +35,8 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 ┌(duke kali) [/Documents/THM_BrickByBrick]
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u https://bricks.thm -x .php, .txt, .html -k | egrep -v "Status: 301"
-
-===============================================================
 Gobuster v3.1.0
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
-===============================================================
 
 [+] Url:                     https://bricks.thm
 [+] Method:                  GET
@@ -48,17 +47,13 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 [+] Extensions:              php,
 [+] Timeout:                 10s
 
-===============================================================
-2024/04/18 07:24:48 Starting gobuster in directory enumeration mode
-===============================================================
-
 /login                (Status: 302) [Size: 0] [--> https://bricks.thm/wp-login.php]
 /login.php            (Status: 302) [Size: 0] [--> https://bricks.thm/wp-login.php]
 /admin                (Status: 302) [Size: 0] [--> https://bricks.thm/wp-admin/]                 
 /wp-login.php         (Status: 200) [Size: 4042]                                                 
 /dashboard            (Status: 302) [Size: 0] [--> https://bricks.thm/wp-admin/]  
 
-
+### Found Wordpress app
 
 ## Wordpress Enumeration
                                                                                                                                                   
