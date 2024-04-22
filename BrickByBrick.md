@@ -167,6 +167,9 @@ Fingerprinting the version - Time: 00:00:28 <===================================
 
 use exploit from 
 https://github.com/K3ysTr0K3R/CVE-2024-25600-EXPLOIT/blob/main/CVE-2024-25600.py
+                                                                                                                    
+┌──(duke㉿kali)-[~/Documents/THM_BrickByBrick]
+└─$ python3 CVE-2024-25600.py -u https://bricks.thm
 
 
 
