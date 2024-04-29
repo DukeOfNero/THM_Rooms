@@ -36,9 +36,11 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 20.75 seconds
 
-### subdomain enumeration - nothing
+### subdomain enumeration 
 ┌──(duke㉿kali)-[~/Documents/THM_Creative]
 └─$ ffuf -u http://creative.thm -c -w ../../www/wordlists/Subdomain.txt -H 'Host:FUZZ.cretive.thm' -fs 178
+
+## Found beta.creative.thm
 
 ### folder enumeration - nothing
 ┌──(duke㉿kali)-[~/Documents/THM_Creative]
