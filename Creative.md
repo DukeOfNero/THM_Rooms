@@ -2,6 +2,7 @@
 https://tryhackme.com/r/room/creative
 
 ## Service Enumeration 
+
 └─$ nmap  -sV -Pn  10.10.77.215
 Starting Nmap 7.92 ( https://nmap.org ) at 2024-04-29 02:44 CDT
 Nmap scan report for 10.10.77.215
@@ -34,6 +35,10 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 20.75 seconds
+
+### subdomain enumeration - nothing
+┌──(duke㉿kali)-[~/Documents/THM_Creative]
+└─$ ffuf -u http://creative.thm -c -w ../../www/wordlists/Subdomain.txt -H 'Host:FUZZ.cretive.thm' -fs 178
 
 
 
