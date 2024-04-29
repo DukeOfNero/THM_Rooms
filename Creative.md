@@ -40,6 +40,22 @@ Nmap done: 1 IP address (1 host up) scanned in 20.75 seconds
 ┌──(duke㉿kali)-[~/Documents/THM_Creative]
 └─$ ffuf -u http://creative.thm -c -w ../../www/wordlists/Subdomain.txt -H 'Host:FUZZ.cretive.thm' -fs 178
 
+### folder enumeration - nothing
+┌──(duke㉿kali)-[~/Documents/THM_Creative]
+└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://creative.thm -x .php, .txt, .html                                    
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+[+] Url:                     http://creative.thm
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Extensions:              php,
+[+] Timeout:                 10s
+/assets               (Status: 301) [Size: 178] [--> http://creative.thm/assets/]
+
+
 
 
 
