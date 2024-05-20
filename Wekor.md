@@ -147,7 +147,7 @@ Rejected.........: 0/102912 (0.00%)
 Restore.Point....: 102912/14344385 (0.72%)
 Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:3072-4096
 Candidate.Engine.: Device Generator
-### Candidates.#1....: GANTENG -> 4everloved
+Candidates.#1....: GANTENG -> 4everloved
 
 Started: Fri May 17 07:22:19 2024
 Stopped: Fri May 17 07:22:59 2024
@@ -155,9 +155,8 @@ Stopped: Fri May 17 07:22:59 2024
 
 **  http://site.wekor.thm/wordpress/wp-login.php
 
-
-┌──(duke㉿kali)-[~/Documents/THM_wekor]
-└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://site.wekor.thm/wordpress 
+┌ (duke㉿kali)- [~/Documents/THM_wekor]
+└─ $ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://site.wekor.thm/wordpress 
 ===============================================================
 Gobuster v3.1.0
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
