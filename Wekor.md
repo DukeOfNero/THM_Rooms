@@ -181,6 +181,64 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /xmlrpc.php           (Status: 405) [Size: 42]                                                    
 /wp-signup.php        (Status: 302) [Size: 0] [--> http://site.wekor.thm/wordpress/wp-login.php?action=register]
                                                                                                                 
+┌──(duke㉿kali)-[~/Documents/THM_wekor]
+└─$ hashcat -m 400 eagle.hash ../../rockyou.txt 
+hashcat (v6.2.5) starting
+
+OpenCL API (OpenCL 2.0 pocl 1.8  Linux, None+Asserts, RELOC, LLVM 11.1.0, SLEEF, DISTRO, POCL_DEBUG) - Platform #1 [The pocl project]
+=====================================================================================================================================
+* Device #1: pthread-Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz, 6770/13604 MB (2048 MB allocatable), 4MCU
+
+Minimum password length supported by kernel: 0
+Maximum password length supported by kernel: 256
+
+Hashes: 1 digests; 1 unique digests, 1 unique salts
+Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates
+Rules: 1
+
+Optimizers applied:
+* Zero-Byte
+* Single-Hash
+* Single-Salt
+
+ATTENTION! Pure (unoptimized) backend kernels selected.
+Pure kernels can crack longer passwords, but drastically reduce performance.
+If you want to switch to optimized kernels, append -O to your commandline.
+See the above message to find out about the exact limits.
+
+Watchdog: Hardware monitoring interface not found on your system.
+Watchdog: Temperature abort trigger disabled.
+
+Host memory required for this attack: 1 MB
+
+Dictionary cache hit:
+* Filename..: ../../rockyou.txt
+* Passwords.: 14344385
+* Bytes.....: 139921507
+* Keyspace..: 14344385
+
+### $P$BpyTRbmvfcKyTrbDzaK1zSPgM7J6QY/:xxxxxx                 
+                                                          
+Session..........: hashcat
+Status...........: Cracked
+Hash.Mode........: 400 (phpass)
+Hash.Target......: $P$BpyTRbmvfcKyTrbDzaK1zSPgM7J6QY/
+Time.Started.....: Mon May 20 04:33:23 2024 (1 sec)
+Time.Estimated...: Mon May 20 04:33:24 2024 (0 secs)
+Kernel.Feature...: Pure Kernel
+Guess.Base.......: File (../../rockyou.txt)
+Guess.Queue......: 1/1 (100.00%)
+Speed.#1.........:     2155 H/s (6.90ms) @ Accel:256 Loops:128 Thr:1 Vec:8
+Recovered........: 1/1 (100.00%) Digests
+Progress.........: 1024/14344385 (0.01%)
+Rejected.........: 0/1024 (0.00%)
+Restore.Point....: 0/14344385 (0.00%)
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:8064-8192
+Candidate.Engine.: Device Generator
+Candidates.#1....: 123456 -> bethany
+
+Started: Mon May 20 04:33:22 2024
+Stopped: Mon May 20 04:33:25 2024
 
 
- 
+ ### soccer13
