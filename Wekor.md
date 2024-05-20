@@ -155,4 +155,33 @@ Stopped: Fri May 17 07:22:59 2024
 
 **  http://site.wekor.thm/wordpress/wp-login.php
 
+
+┌──(duke㉿kali)-[~/Documents/THM_wekor]
+└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://site.wekor.thm/wordpress 
+===============================================================
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://site.wekor.thm/wordpress
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Extensions:              ,php
+[+] Timeout:                 10s
+===============================================================
+2024/05/20 02:48:30 Starting gobuster in directory enumeration mode
+===============================================================
+/wp-content           (Status: 301) [Size: 331] [--> http://site.wekor.thm/wordpress/wp-content/]
+/index.php            (Status: 301) [Size: 0] [--> http://site.wekor.thm/wordpress/]             
+/wp-login.php         (Status: 200) [Size: 7896]                                                 
+/wp-includes          (Status: 301) [Size: 332] [--> http://site.wekor.thm/wordpress/wp-includes/]
+/wp-trackback.php     (Status: 200) [Size: 135]                                                   
+/wp-admin             (Status: 301) [Size: 329] [--> http://site.wekor.thm/wordpress/wp-admin/]   
+/xmlrpc.php           (Status: 405) [Size: 42]                                                    
+/wp-signup.php        (Status: 302) [Size: 0] [--> http://site.wekor.thm/wordpress/wp-login.php?action=register]
+                                                                                                                
+
+
  
