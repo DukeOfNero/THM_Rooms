@@ -30,9 +30,15 @@ Service Info: OS: Windows; CPE: cpe:/o:microsoft:windows
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 219.74 seconds
 
+## Found exploit for Jetty 8.y.z-SNAPSHOT 
+use Metasploit to get reverse shell
+
+
 
 Apache24\conf\extra\httpd-ssl.conf:228:#     file needs this password: `xxj31ZMTZzkVA'.
 
+
+### found credentials for user CyberLens
 C:\Users\CyberLens\Documents\Management>more CyberLens-Management.txt
 more CyberLens-Management.txt
 Remember, manual enumeration is often key in an engagement ;)
