@@ -57,4 +57,47 @@ Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 40.72 seconds
 
+
+### FTP nothing                                                                                                                                                                                                                                           
+┌──(duke㉿kali)-[~/Documents/THM_Hijack]
+└─$ ftp anonymous@10.10.28.220
+Connected to 10.10.28.220.
+220 (vsFTPd 3.0.3)
+331 Please specify the password.
+Password: 
+530 Login incorrect.
+ftp: Login failed
+ftp> dir
+530 Please login with USER and PASS.
+530 Please login with USER and PASS.
+ftp: Can't bind for data connection: Address already in use
+ftp> ls
+530 Please login with USER and PASS.
+ftp> exit
+221 Goodbye.
+
+### NFS nothing                                                                                                                                                                                                                                     
+┌──(duke㉿kali)-[~/Documents/THM_Hijack]
+└─$ showmount 10.10.28.220
+Hosts on 10.10.28.220:
+                                                                                                                                                                                                                                           
+┌──(duke㉿kali)-[~/Documents/THM_Hijack]
+└─$ showmount 10.10.28.220 -e
+Export list for 10.10.28.220:
+/mnt/share *
+                                                                                                                                                                                                                                           
+┌──(duke㉿kali)-[~/Documents/THM_Hijack]
+└─$ mkdir nfs       
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+┌──(duke㉿kali)-[~/Documents/THM_Hijack]
+└─$ sudo mount -t nfs 10.10.28.220:/mnt/share ./nfs 
+[sudo] password for duke: 
+                                                                                                                                                                                                                                           
+┌──(duke㉿kali)-[~/Documents/THM_Hijack]
+└─$ cd nfs        
+cd: permission denied: nfs
+                                                                                                                                                                                                                                          
+drwx------   2 1003 1003 4096 Aug  8  2023 nfs
+                                                                                                                                                                                                                                           
+
 <\code>
