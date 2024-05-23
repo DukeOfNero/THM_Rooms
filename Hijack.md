@@ -98,6 +98,39 @@ Export list for 10.10.28.220:
 cd: permission denied: nfs
                                                                                                                                                                                                                                           
 drwx------   2 1003 1003 4096 Aug  8  2023 nfs
+
+
+### www nothing  
+
+─(duke㉿kali)-[~]
+└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://hijack.thm -x .php, .txt, .html 
+===============================================================
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://hijack.thm
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Extensions:              php,
+[+] Timeout:                 10s
+===============================================================
+2024/05/23 04:59:23 Starting gobuster in directory enumeration mode
+===============================================================
+/index.php            (Status: 200) [Size: 487]
+/login.php            (Status: 200) [Size: 822]
+/signup.php           (Status: 200) [Size: 1002]
+/logout.php           (Status: 302) [Size: 0] [--> index.php]
+/config.php           (Status: 200) [Size: 0]                
+/administration.php   (Status: 200) [Size: 51]               
+/navbar.php           (Status: 200) [Size: 304]              
+/server-status        (Status: 403) [Size: 275]              
+                                                  
+
+
+### Password bruce forcing -- admin 
                                                                                                                                                                                                                                            
 
 <\code>
