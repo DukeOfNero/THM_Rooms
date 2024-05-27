@@ -215,6 +215,12 @@ UEhQU0VTU0lEPVBITmpjbWx3ZEQ1MllYSWdhVDF1WlhjZ1NXMWhaMlVvS1RzZ2FTNXpjbU05SW1oMGRI
 
 PHPSESSID=PHNjcmlwdD52YXIgaT1uZXcgSW1hZ2UoKTsgaS5zcmM9Imh0dHA6Ly8xMC45LjMwLjIwMi8%2FY29va2llPSIrYnRvYShkb2N1bWVudC5jb29raWUpOzwvc2NyaXB0PjplMTBhZGMzOTQ5YmE1OWFiYmU1NmUwNTdmMjBmODgzZQ%3D%3D
 
-                                                                                                                                                                                                                                           
+Admin Cookie
+base64(admin:md5(uDh3jCQsdcuLhjVkAy5x))
+base64(admin:d6573ed739ae7fdfb3ced197d94820a5)
+YWRtaW46ZDY1NzNlZDczOWFlN2ZkZmIzY2VkMTk3ZDk0ODIwYTU=
+
+Cookie: PHPSESSID=YWRtaW46ZDY1NzNlZDczOWFlN2ZkZmIzY2VkMTk3ZDk0ODIwYTU%3d
+
 
 <\code>
