@@ -262,7 +262,7 @@ ftp creds :
 
 ftpuser:W3stV1rg1n14M0un741nM4m4
 
-
+### Priv escalation via     env_keep+=LD_LIBRARY_PATH
 rick@Hijack:/tmp$ sudo -l
 [sudo] password for rick: 
 Matching Defaults entries for rick on Hijack:
