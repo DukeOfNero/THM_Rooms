@@ -20,4 +20,33 @@ Nmap done: 1 IP address (1 host up) scanned in 33.37 seconds
 
 ### WWW Enumeration
 
+┌──(duke㉿kali)-[~/Documents/THM_Red]
+└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://red.thm -x php,txt,html
+===============================================================
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://red.thm
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Extensions:              txt,html,php
+[+] Timeout:                 10s
+===============================================================
+2024/05/29 02:52:10 Starting gobuster in directory enumeration mode
+===============================================================
+/index.php            (Status: 302) [Size: 0] [--> /index.php?page=home.html]
+/contact.html         (Status: 200) [Size: 7507]                             
+/about.html           (Status: 200) [Size: 9309]                             
+/home.html            (Status: 200) [Size: 15757]                            
+/services.html        (Status: 200) [Size: 9131]                             
+/signup.html          (Status: 200) [Size: 7283]                             
+/assets               (Status: 301) [Size: 303] [--> http://red.thm/assets/] 
+/portfolio.html       (Status: 200) [Size: 14352]                            
+/signin.html          (Status: 200) [Size: 6655]                             
+/readme.txt           (Status: 200) [Size: 675]                              
+/server-status        (Status: 403) [Size: 272]  
+
 </code>
