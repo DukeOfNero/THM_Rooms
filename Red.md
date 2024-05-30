@@ -93,6 +93,9 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2024-05-30 06:22:
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2024-05-30 06:22:29
 
 ## Credentials login: blue   password: sup3r_p@s$w0rd!9
+get first flag
+
+Fine here is the root password WW91IGFyZSBhIGxvc2VyIEJsdWU=
 
 
 </code>
