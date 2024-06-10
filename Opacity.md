@@ -71,7 +71,7 @@ Unable to connect with SMB1 -- no workgroup available
 
 http://10.10.195.188/cloud/images/file.php &&.jpeg
 
-###
+### linpeas
 
 ╔══════════╣ Readable files inside /tmp, /var/tmp, /private/tmp, /private/var/at/tmp, /private/var/tmp, and backup folders (limit 70)                                                                                                   
 -rwxrwxrwx 1 www-data www-data 847834 Dec 19 12:54 /tmp/linpeas.sh                                                  
