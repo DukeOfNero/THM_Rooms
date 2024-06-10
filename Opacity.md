@@ -67,5 +67,35 @@ Unable to connect with SMB1 -- no workgroup available
                                                               
 
 
+### Upload Bypass
+
+http://10.10.195.188/cloud/images/file.php &&.jpeg
+
+###
+
+╔══════════╣ Readable files inside /tmp, /var/tmp, /private/tmp, /private/var/at/tmp, /private/var/tmp, and backup folders (limit 70)                                                                                                   
+-rwxrwxrwx 1 www-data www-data 847834 Dec 19 12:54 /tmp/linpeas.sh                                                  
+-rw-r--r-- 1 root root 33987 Jun 10 12:19 /var/backups/backup.zip
+
+every minute is call script.php
+
+<?php
+
+//Backup of scripts sysadmin folder
+require_once('lib/backup.inc.php');
+zipData('/home/sysadmin/scripts', '/var/backups/backup.zip');
+echo 'Successful', PHP_EOL;
+
+//Files scheduled removal
+$dir = "/var/www/html/cloud/images";
+if(file_exists($dir)){
+    $di = new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS);
+    $ri = new RecursiveIteratorIterator($di, RecursiveIteratorIterator::CHILD_FIRST);
+    foreach ( $ri as $file ) {
+        $file->isDir() ?  rmdir($file) : unlink($file);
+    }
+}
+?>
+
 
 <\code>
