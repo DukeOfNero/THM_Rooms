@@ -18,6 +18,33 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 37.83 seconds
 
+                                                                                                                    
+┌──(duke㉿kali)-[~/Documents/THM_TakeOver]
+└─$ ffuf  -u https://futurevera.thm -H "Host: FUZZ.futurevera.thm" -w ../../www/wordlists/Subdomain.txt -fw 1511
 
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v1.5.0 Kali Exclusive <3
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : https://futurevera.thm
+ :: Wordlist         : FUZZ: ../../www/wordlists/Subdomain.txt
+ :: Header           : Host: FUZZ.futurevera.thm
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: 200,204,301,302,307,401,403,405,500
+ :: Filter           : Response words: 1511
+________________________________________________
+
+:: Progress: [649649/649649] :: Job [1/1] :: 153 req/sec :: Duration: [0:31:03] :: Errors: 0 ::
+                                                                                                    
   
-<\code>
+</code>
