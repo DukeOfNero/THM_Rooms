@@ -102,7 +102,7 @@ if(file_exists($dir)){
 		$logins = array('admin' => 'oncloud9','root' => 'oncloud9','administrator' => 'oncloud9');
 
 
-
+### Get password database
   ┌──(duke㉿kali)-[~/Documents/THM_Opacity]
 └─$ keepass2john database.kdbx | grep -o "$keepass$.*" >  CrackThis.hash
                                                                                                                     
@@ -136,10 +136,12 @@ $keepass$*2*100000*0*2114f635de17709ecc4a2be2c3403135ffd7c0dd09084c4abe1d983ad94
 ### open database.kdbx with master pass 741852963
 get sysadmin pas Cl0udP4ss40p4city#8700
 
+## Get Sysadmin Password
 
+Cl0udP4ss40p4city#8700
 
-
-
-
+### PrivEscalation to Root
+from pspy32 know that run backup script every 1 min.
+modify backup.inc.php and get reverse shell with root credentials
 
 <\code>
