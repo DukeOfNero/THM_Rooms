@@ -98,4 +98,48 @@ if(file_exists($dir)){
 ?>
 
 
+	/* Define username and associated password array */
+		$logins = array('admin' => 'oncloud9','root' => 'oncloud9','administrator' => 'oncloud9');
+
+
+
+  ┌──(duke㉿kali)-[~/Documents/THM_Opacity]
+└─$ keepass2john database.kdbx | grep -o "$keepass$.*" >  CrackThis.hash
+                                                                                                                    
+┌──(duke㉿kali)-[~/Documents/THM_Opacity]
+└─$ cat CrackThis.hash   
+$keepass$*2*100000*0*2114f635de17709ecc4a2be2c3403135ffd7c0dd09084c4abe1d983ad94d93a5*2bceccca0facfb762eb79ca66588135c72a8835e43d871977ff7d3e9db0ffa17*cae9a25c785fc7f16772bb00bac5cc82*b68e2c3be9e46e8b7fc05eb944fad8b4ec5254a40084a73127b4126408b2ff46*b0afde2bd0db881200fc1c2494baf7c28b7486f081a82e935411ab72a27736b4
+                                                                                                                    
+┌──(duke㉿kali)-[~/Documents/THM_Opacity]
+└─$ hashcat -a 0 -m 13400 CrackThis.hash ../../www/wordlists/rockyou.txt 
+
+Optimizers applied:
+* Zero-Byte
+* Single-Hash
+* Single-Salt
+
+Watchdog: Hardware monitoring interface not found on your system.
+Watchdog: Temperature abort trigger disabled.
+
+Host memory required for this attack: 1 MB
+
+Dictionary cache built:
+* Filename..: ../../www/wordlists/rockyou.txt
+* Passwords.: 14344392
+* Bytes.....: 139921507
+* Keyspace..: 14344385
+* Runtime...: 1 sec
+
+$keepass$*2*100000*0*2114f635de17709ecc4a2be2c3403135ffd7c0dd09084c4abe1d983ad94d93a5*2bceccca0facfb762eb79ca66588135c72a8835e43d871977ff7d3e9db0ffa17*cae9a25c785fc7f16772bb00bac5cc82*b68e2c3be9e46e8b7fc05eb944fad8b4ec5254a40084a73127b4126408b2ff46*b0afde2bd0db881200fc1c2494baf7c28b7486f081a82e935411ab72a27736b4:741852963
+
+
+### open database.kdbx with master pass 741852963
+get sysadmin pas Cl0udP4ss40p4city#8700
+
+
+
+
+
+
+
 <\code>
