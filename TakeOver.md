@@ -45,6 +45,33 @@ ________________________________________________
 ________________________________________________
 
 :: Progress: [649649/649649] :: Job [1/1] :: 153 req/sec :: Duration: [0:31:03] :: Errors: 0 ::
+
+### Web Enum                                                                                                    
                                                                                                     
+┌──(duke㉿kali)-[~]
+└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u https://futurevera.thm -x php,txt,html -k
+
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+
+[+] Url:                     https://futurevera.thm
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Extensions:              php,txt,html
+[+] Timeout:                 10s
+
+2024/06/12 01:52:08 Starting gobuster in directory enumeration mode
+
+/index.html           (Status: 200) [Size: 4605]
+/assets               (Status: 301) [Size: 319] [--> https://futurevera.thm/assets/]
+/css                  (Status: 301) [Size: 316] [--> https://futurevera.thm/css/]   
+/js                   (Status: 301) [Size: 315] [--> https://futurevera.thm/js/]    
+/server-status        (Status: 403) [Size: 280]                                     
+                                                                                    
+2024/06/12 02:52:47 Finished
+
   
 </code>
