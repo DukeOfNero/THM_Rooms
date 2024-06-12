@@ -1,5 +1,4 @@
 <code>
-
 ## Bugged
   
 <A>https://tryhackme.com/r/room/bugged</a>
