@@ -1,5 +1,4 @@
 <code>
-  
 <A>https://tryhackme.com/r/room/bugged</a>
 
 ┌──(duke㉿kali)-[~/Documents/THM_Bugged]
