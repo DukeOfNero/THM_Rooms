@@ -18,33 +18,16 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 37.83 seconds
 
-                                                                                                                    
-┌──(duke㉿kali)-[~/Documents/THM_TakeOver]
-└─$ ffuf  -u https://futurevera.thm -H "Host: FUZZ.futurevera.thm" -w ../../www/wordlists/Subdomain.txt -fw 1511
-
-        /'___\  /'___\           /'___\       
-       /\ \__/ /\ \__/  __  __  /\ \__/       
-       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
-        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
-         \ \_\   \ \_\  \ \____/  \ \_\       
-          \/_/    \/_/   \/___/    \/_/       
-
-       v1.5.0 Kali Exclusive <3
-________________________________________________
-
- :: Method           : GET
- :: URL              : https://futurevera.thm
- :: Wordlist         : FUZZ: ../../www/wordlists/Subdomain.txt
- :: Header           : Host: FUZZ.futurevera.thm
- :: Follow redirects : false
- :: Calibration      : false
- :: Timeout          : 10
- :: Threads          : 40
- :: Matcher          : Response status: 200,204,301,302,307,401,403,405,500
- :: Filter           : Response words: 1511
-________________________________________________
-
-:: Progress: [649649/649649] :: Job [1/1] :: 153 req/sec :: Duration: [0:31:03] :: Errors: 0 ::
+                                                                                               
+┌──(duke㉿kali)-[~]
+└─$ gobuster vhost -w www/wordlists/Subdomain.txt -u http://futurevera.thm -k | egrep -e "Status: 200"  
+Found: portal.futurevera.thm (Status: 200) [Size: 69]    
+Found: payroll.futurevera.thm (Status: 200) [Size: 70]   
+Found: portal.futurevera.thm (Status: 200) [Size: 69]    
+Found: payroll.futurevera.thm (Status: 200) [Size: 70]                     
+Found: portal.futurevera.thm (Status: 200) [Size: 69]                      
+Found: Portal.futurevera.thm (Status: 200) [Size: 69]                      
+Found: PORTAL.futurevera.thm (Status: 200) [Size: 69]          
 
 ### Web Enum                                                                                                    
                                                                                                     
@@ -72,6 +55,28 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /server-status        (Status: 403) [Size: 280]                                     
                                                                                     
 2024/06/12 02:52:47 Finished
+
+┌──(duke㉿kali)-[~]
+└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://payroll.futurevera.thm -x php,txt,html -k 
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+
+[+] Url:                     http://payroll.futurevera.thm
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Extensions:              php,txt,html
+[+] Timeout:                 10s
+
+2024/06/12 04:02:48 Starting gobuster in directory enumeration mode
+
+/index.html           (Status: 200) [Size: 70]
+/server-status        (Status: 403) [Size: 287]
+
+
+## inspecting certificate for web support and blog and fount in CN=secrethelpdesk934752.support.futurevera.thm
 
   
 </code>
