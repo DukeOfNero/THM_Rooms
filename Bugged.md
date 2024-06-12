@@ -1,5 +1,6 @@
 <code>
-https://tryhackme.com/r/room/bugged
+  
+<A>https://tryhackme.com/r/room/bugged<\A>
 
 ┌──(duke㉿kali)-[~/Documents/THM_Bugged]
 └─$ nmap  -sV -p- -Pn 10.10.55.176
