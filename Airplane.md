@@ -14,4 +14,30 @@ PORT     STATE SERVICE  VERSION
 6048/tcp open  x11?
 8000/tcp open  http-alt Werkzeug/3.0.2 Python/3.8.10
 
+
+
+http://airplane.thm:8000/?page=index.html
+
+┌──(duke㉿kali)-[~/Documents/THM_AirPlane]
+└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://airplane.thm:8000 -x php,txt,html -k
+===============================================================
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://airplane.thm:8000
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Extensions:              php,txt,html
+[+] Timeout:                 10s
+===============================================================
+2024/06/13 03:20:15 Starting gobuster in directory enumeration mode
+===============================================================
+/airplane             (Status: 200) [Size: 655]
+
+
+
+
 </code>
