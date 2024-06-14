@@ -37,12 +37,17 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 carlos:x:1000: nothing
 hudson:x:1001: get some files from home folder
 
+
+in files proc/{pid}/cmdline
+
+Found that gdbserver is running on port 6048 with PID 524
+
 ### Initial Access
 I found out that there is an exploit available for gdbserver, so I used the Metasploit exploit multi/gdb/gdb_server_exec. and fill all required options.
 
-get shell as Hudson
+get shell as `Hudson`
 
-run linpeas and
+run linpeas and pspy32 and found
 
 ### Priv Esc
 ╔══════════╣ SUID - Check easy privesc, exploits and write perms
