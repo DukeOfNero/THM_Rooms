@@ -66,7 +66,7 @@ Matching Defaults entries for carlos on airplane:
     secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
 
 User carlos may run the following commands on airplane:
-    (ALL) NOPASSWD: /usr/bin/ruby /root/*.rb
+    `(ALL) NOPASSWD: /usr/bin/ruby /root/*.rb`
 
 **Folders /Root  and /usr/bin/ruby are ofcorse locked for write**
  
