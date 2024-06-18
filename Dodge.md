@@ -2,6 +2,8 @@
   
 https://tryhackme.com/r/room/dodge
 
+### Service Enumeration
+
 ┌──(duke㉿kali)-[~/Documents/THM_DOdge]
 └─$ nmap  -sV -Pn -p-  10.10.128.143
 Starting Nmap 7.92 ( https://nmap.org ) at 2024-06-17 06:19 CDT
@@ -25,21 +27,14 @@ www.dodge.thm
 blog.dodge.thm 403
 touch-me-not.dodge.thm
 dev.dodge.thm /serverstatus
-netops-dev.dodge.thm - Firewall - Upload Logs
+netops-dev.dodge.thm - Firewall - Upload Logs - chech source
 ball.dodge.thm 403
-
 
 
 ### Enable ftp service via link
 
 https://netops-dev.dodge.thm/firewall10110.php
-
-
-┌──(duke㉿kali)-[~]
-└─$ nmap  -Sv -p 21 dodge.thm                                                                         
-Failed to resolve/decode supposed IPv4 source address "v": Temporary failure in name resolution
-QUITTING!
-                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                          
 ┌──(duke㉿kali)-[~]
 └─$ nmap  -sV -p 21 dodge.thm
 Starting Nmap 7.92 ( https://nmap.org ) at 2024-06-17 07:06 CDT
@@ -122,7 +117,7 @@ mget id_rsa_backup [anpqy?]? y
 2610 bytes received in 00:00 (69.13 KiB/s)
 
 
-### Get ssh  Challenger acccess
+### Get ssh access as Challenger 
 
 ┌──(duke㉿kali)-[~/Documents/THM_DOdge]
 └─$ ls -la 
@@ -238,6 +233,7 @@ drwx--x--x  4 root root 4096 Jun 22  2023 containerd
 drwxr-xr-x  9 root root 4096 Jun 22  2023 docker-compose-lamp
 drwxr-xr-x  2 root root 4096 Jun 29  2023 ssl
 
+### Something run on port 10000
 
 challenger@thm-lamp:/tmp$ ./nmap localhost
 
@@ -254,11 +250,7 @@ PORT      STATE SERVICE
 443/tcp   open  https
 10000/tcp open  webmin
 
-### Get Cobra ssh
-
-found that service on port 10 000 run locally 
-
-forward port out 
+### Forward local port out 
 
 ┌──(duke㉿kali)-[~/Documents/THM_DOdge]
 └─$ ssh -v -L 10000:127.0.0.1:10000 challenger@dodge.thm -i id_rsa_backup 
