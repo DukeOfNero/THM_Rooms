@@ -24,6 +24,27 @@ Nmap done: 1 IP address (1 host up) scanned in 45.63 seconds
 /phpmyadmin           (Status: 403) [Size: 274]                                   
 /server-status        (Status: 403) [Size: 274] 
 
+
+[+] Url:                     https://grep.thm/public
+/index.php            (Status: 200) [Size: 0]
+/html                 (Status: 301) [Size: 312] [--> https://grep.thm/public/html/]
+/css                  (Status: 301) [Size: 311] [--> https://grep.thm/public/css/] 
+/js                   (Status: 301) [Size: 310] [--> https://grep.thm/public/js/] 
+
+
+[+] Url:                     https://grep.thm/api
+/index.php            (Status: 200) [Size: 0]
+/login.php            (Status: 200) [Size: 34]
+/register.php         (Status: 200) [Size: 38]
+/uploads              (Status: 301) [Size: 312] [--> https://grep.thm/api/uploads/]
+/upload.php           (Status: 200) [Size: 39]                                     
+/posts.php            (Status: 200) [Size: 25]                                     
+/logout.php           (Status: 200) [Size: 42]                                     
+/config.php           (Status: 200) [Size: 0]   
+
+[+] Url:                     https://grep.thm/javascript
+/jquery               (Status: 301) [Size: 318] [--> https://grep.thm/javascript/jquery/]
+
 johncena
                                                                
   
