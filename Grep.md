@@ -46,6 +46,34 @@ Nmap done: 1 IP address (1 host up) scanned in 45.63 seconds
 /jquery               (Status: 301) [Size: 318] [--> https://grep.thm/javascript/jquery/]
 
 johncena
-                                                               
+
+### Initial access over https://grep.thm/api/upload.php upload revershell
+
+
+in /var/www/backup/users.sql
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `name`, `role`) VALUES
+(1, 'test', '$2y$10$dE6VAdZJCN4repNAFdsO2ePDr3StRdOhUJ1O/41XVQg91qBEBQU3G', 'test@grep.thm', 'Test User', 'user'),
+(2, 'admin', '$2y$10$3V62f66VxzdTzqXF4WHJI.Mpgcaj3WxwYsh7YDPyv1xIPss4qCT9C', 'admin@searchme2023cms.grep.thm', 'Admin User', 'admin');
+
+www-data@ip-10-10-63-206:/var/www$ ls -la
+ls -la
+total 48
+drwxr-xr-x  6 ubuntu www-data 4096 Jun 14  2023 .
+drwxr-xr-x 14 root   root     4096 Nov 10  2021 ..
+drwxr-xr-x  2 ubuntu www-data 4096 Jun 14  2023 backup
+-rw-r--r--  1 root   root     1131 Jun 14  2023 certificate.crt
+-rw-r--r--  1 root   root      960 Jun  2  2023 certificate.csr
+drwxr-xr-x  2 ubuntu www-data 4096 Jun 14  2023 default_html
+drwxr-xr-x  4 ubuntu www-data 4096 Jun  7  2023 html
+-rw-r--r--  1 root   root     1208 Jun 14  2023 leak_certificate.crt
+-rw-r--r--  1 root   root     1001 Jun 14  2023 leak_certificate.csr
+drwxr-xr-x  2 ubuntu www-data 4096 Jun 14  2023 leakchecker
+-rw-------  1 root   root     1874 Jun  2  2023 private.key
+-rw-------  1 root   root     1704 Jun 14  2023 private_unencrypted.key
+
+###  https://leakchecker.grep.thm:51337/?email=admin%40searchme2023cms.grep.thm
+get password
+
+Password: admin_tryhackme! 
   
 </code>
