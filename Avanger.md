@@ -111,4 +111,45 @@ PORT     STATE SERVICE VERSION
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 169.01 seconds
 
+RDP 
+in cert GIFT
+
+
+┌──(duke㉿kali)-[~]
+└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://avanger.thm  -x .php,.html,.js -k
+===============================================================
+Gobuster v3.1.0
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://avanger.thm
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.1.0
+[+] Extensions:              js,php,html
+[+] Timeout:                 10s
+===============================================================
+2024/06/21 03:54:44 Starting gobuster in directory enumeration mode
+===============================================================
+/img                  (Status: 301) [Size: 333] [--> http://avanger.thm/img/]
+/wordpress            (Status: 301) [Size: 339] [--> http://avanger.thm/wordpress/]
+/applications.html    (Status: 200) [Size: 3607]                                   
+/examples             (Status: 503) [Size: 401]                                    
+/licenses             (Status: 403) [Size: 420]                                    
+/gift                 (Status: 301) [Size: 334] [--> http://avanger.thm/gift/]     
+/Applications.html    (Status: 200) [Size: 3607]                                   
+/dashboard            (Status: 301) [Size: 339] [--> http://avanger.thm/dashboard/]
+/%20                  (Status: 403) [Size: 301]                                    
+/IMG                  (Status: 301) [Size: 333] [--> http://avanger.thm/IMG/]      
+/Img                  (Status: 301) [Size: 333] [--> http://avanger.thm/Img/]      
+/phpmyadmin           (Status: 403) [Size: 301]                                    
+/webalizer            (Status: 403) [Size: 420]                                    
+/Dashboard            (Status: 301) [Size: 339] [--> http://avanger.thm/Dashboard/]
+/xampp                (Status: 301) [Size: 335] [--> http://avanger.thm/xampp/]    
+/Gift                 (Status: 301) [Size: 334] [--> http://avanger.thm/Gift/]     
+/server-status        (Status: 403) [Size: 420]  
+
+
+
 
