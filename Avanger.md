@@ -150,6 +150,108 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 /Gift                 (Status: 301) [Size: 334] [--> http://avanger.thm/Gift/]     
 /server-status        (Status: 403) [Size: 420]  
 
+### Wordpress
+┌──(duke㉿kali)-[~]
+└─$ wpscan --url http://avenger.tryhackme/wordpress --enumerate u
+_______________________________________________________________
+         __          _______   _____
+         \ \        / /  __ \ / ____|
+          \ \  /\  / /| |__) | (___   ___  __ _ _ __ ®
+           \ \/  \/ / |  ___/ \___ \ / __|/ _` | '_ \
+            \  /\  /  | |     ____) | (__| (_| | | | |
+             \/  \/   |_|    |_____/ \___|\__,_|_| |_|
+
+         WordPress Security Scanner by the WPScan Team
+                         Version 3.8.22
+       Sponsored by Automattic - https://automattic.com/
+       @_WPScan_, @ethicalhack3r, @erwan_lr, @firefart
+_______________________________________________________________
+
+[+] URL: http://avenger.tryhackme/wordpress/ [10.10.54.237]
+[+] Started: Fri Jun 21 06:22:21 2024
+
+Interesting Finding(s):
+
+[+] Headers
+ | Interesting Entries:
+ |  - Server: Apache/2.4.56 (Win64) OpenSSL/1.1.1t PHP/8.0.28
+ |  - X-Powered-By: PHP/8.0.28
+ | Found By: Headers (Passive Detection)
+ | Confidence: 100%
+
+[+] XML-RPC seems to be enabled: http://avenger.tryhackme/wordpress/xmlrpc.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+ | References:
+ |  - http://codex.wordpress.org/XML-RPC_Pingback_API
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_ghost_scanner/
+ |  - https://www.rapid7.com/db/modules/auxiliary/dos/http/wordpress_xmlrpc_dos/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_xmlrpc_login/
+ |  - https://www.rapid7.com/db/modules/auxiliary/scanner/http/wordpress_pingback_access/
+
+[+] WordPress readme found: http://avenger.tryhackme/wordpress/readme.html
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] Upload directory has listing enabled: http://avenger.tryhackme/wordpress/wp-content/uploads/
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 100%
+
+[+] The external WP-Cron seems to be enabled: http://avenger.tryhackme/wordpress/wp-cron.php
+ | Found By: Direct Access (Aggressive Detection)
+ | Confidence: 60%
+ | References:
+ |  - https://www.iplocation.net/defend-wordpress-from-ddos
+ |  - https://github.com/wpscanteam/wpscan/issues/1299
+
+[+] WordPress version 6.2.2 identified (Insecure, released on 2023-05-20).
+ | Found By: Rss Generator (Passive Detection)
+ |  - http://avenger.tryhackme/gift/feed/, <generator>https://wordpress.org/?v=6.2.2</generator>
+ |  - http://avenger.tryhackme/gift/comments/feed/, <generator>https://wordpress.org/?v=6.2.2</generator>
+
+[+] WordPress theme in use: astra
+ | Location: http://avenger.tryhackme/wordpress/wp-content/themes/astra/
+ | Last Updated: 2024-06-18T00:00:00.000Z
+ | Readme: http://avenger.tryhackme/wordpress/wp-content/themes/astra/readme.txt
+ | [!] The version is out of date, the latest version is 4.7.1
+ | Style URL: http://avenger.tryhackme/wordpress/wp-content/themes/astra/style.css
+ | Style Name: Astra
+ | Style URI: https://wpastra.com/
+ | Description: Astra is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio,...
+ | Author: Brainstorm Force
+ | Author URI: https://wpastra.com/about/?utm_source=theme_preview&utm_medium=author_link&utm_campaign=astra_theme
+ |
+ | Found By: Urls In Homepage (Passive Detection)
+ | Confirmed By: Urls In 404 Page (Passive Detection)
+ |
+ | Version: 4.1.5 (80% confidence)
+ | Found By: Style (Passive Detection)
+ |  - http://avenger.tryhackme/wordpress/wp-content/themes/astra/style.css, Match: 'Version: 4.1.5'
+
+[+] Enumerating Users (via Passive and Aggressive Methods)
+ Brute Forcing Author IDs - Time: 00:00:45 <==============================================================================================================================================================> (10 / 10) 100.00% Time: 00:00:45
+
+[i] User(s) Identified:
+
+[+] admin
+ | Found By: Rss Generator (Passive Detection)
+ | Confirmed By:
+ |  Wp Json Api (Aggressive Detection)
+ |   - http://avenger.tryhackme/gift/wp-json/wp/v2/users/?per_page=100&page=1
+ |  Login Error Messages (Aggressive Detection)
+
+[!] No WPScan API Token given, as a result vulnerability data has not been output.
+[!] You can get a free API token with 25 daily requests by registering at https://wpscan.com/register
+
+[+] Finished: Fri Jun 21 06:25:05 2024
+[+] Requests Done: 51
+[+] Cached Requests: 7
+[+] Data Sent: 13.062 KB
+[+] Data Received: 700.438 KB
+[+] Memory used: 188.953 MB
+[+] Elapsed time: 00:02:44
+                            
+
 
 
 
