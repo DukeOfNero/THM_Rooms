@@ -251,7 +251,7 @@ Interesting Finding(s):
 [+] Memory used: 188.953 MB
 [+] Elapsed time: 00:02:44
                             
-
+http://avenger.tryhackme/wordpress/wp-login.php
 
 
 
