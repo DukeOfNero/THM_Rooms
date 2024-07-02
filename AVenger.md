@@ -277,5 +277,6 @@ POST http://avenger.tryhackme/gift/
 POST http://avenger.tryhackme/gift/wp-comments-post.php
 
 
+### http://avenger.tryhackme/gift/wp-content/uploads/
 
 
