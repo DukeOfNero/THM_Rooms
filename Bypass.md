@@ -55,7 +55,6 @@ Dev Ops Engineer
 
 Send POST request
 commands=cat index.php
-Get -->
 	<?php if(isset($_GET['error'])): ?>
 		<div>
 			<small class="text-danger text-center">Failed to login, Invalid credentials provided</small>
