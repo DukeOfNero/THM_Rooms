@@ -446,5 +446,9 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon
     LastUsedUsername    REG_SZ    hugo
     ShellAppRuntime    REG_SZ    ShellAppRuntime.exe
 
+**Login via Remmina as hugo**
+run cmd as administrator and get access to 
 
-
+C:\Users\Administrator\Desktop>type root.txt
+THM{I_CAN_DO_THIS_ALL_DAY}
+C:\Users\Administrator\Desktop>
