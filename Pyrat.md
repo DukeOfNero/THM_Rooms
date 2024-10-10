@@ -105,6 +105,40 @@ id
 uid=1000(think) gid=1000(think) groups=1000(think)
 think@Pyrat:/opt/dev/.git$ 
 
+make some intel/osint about josemlwdf@github.com
+found: https://github.com/josemlwdf/PyRAT
+
+def get_admin(client_socket):
+    global admins
+
+    uid = os.getuid()
+    if (uid != 0):
+        send_data(client_socket, "Start a fresh client to begin.")
+        return
+
+    password = 'testpass'
+
+    for i in range(0, 3):
+        # Ask for Password
+        send_data(client_socket, "Password:")
+
+        # Receive data from the client
+        try:
+            data = client_socket.recv(1024).decode("utf-8")
+        except Exception as e:
+            # Send the exception message back to the client
+            send_data(client_socket, e)
+            pass
+        finally:
+            # Reset stdout to the default
+            sys.stdout = sys.__stdout__
+
+        if data.strip() == password:
+            admins.append(str(client_socket))
+            send_data(client_socket, 'Welcome Admin!!! Type "shell" to begin')
+            break
+
+use fusser to crack password
 
   
 <\code>
