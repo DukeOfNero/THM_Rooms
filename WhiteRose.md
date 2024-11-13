@@ -1,7 +1,10 @@
 <code>
 https://tryhackme.com/r/room/whiterose
 
-## Enumeration
+## White Rose
+
+
+### Enumeration
 ┌──(kali㉿kali)-[~/Documents/THM/THM_whiterose]
 └─$ nmap -A -Pn -p80 cyprusbank.thm 
 Starting Nmap 7.94SVN ( https://nmap.org ) at 2024-11-12 05:30 EST
