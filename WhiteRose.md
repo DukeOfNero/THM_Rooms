@@ -20,15 +20,20 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 found admin.cyprusbank.thm
 
 
-### use crentials
+### Use crentials
 Olivia Cortez:olivi8
 
+
+#### Found
 
 http://admin.cyprusbank.thm/messages/?c=0
 
 Gayle Bev: Of course! My password is 'p~]P@5!6;rs558:q'
 
+### Use crentials
 
+
+in /setting found this
 
 [ CVE-2022–29078 ] → EJS Server Side Template Injection RCE → PoC ( Link to the Writeup Below )
 
@@ -68,7 +73,7 @@ Matching Defaults entries for web on cyprusbank:
 User web may run the following commands on cyprusbank:
     (root) NOPASSWD: sudoedit /etc/nginx/sites-available/admin.cyprusbank.thm
 
-### USE THIS
+### Privescalation
 
 https://exploit-notes.hdks.org/exploit/linux/privilege-escalation/sudo/sudoedit-privilege-escalation/?source=post_page-----972ee9129fe2--------------------------------
 
