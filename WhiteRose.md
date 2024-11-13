@@ -3,7 +3,6 @@ https://tryhackme.com/r/room/whiterose
 
 ## White Rose
 
-
 ### Enumeration
 ┌──(kali㉿kali)-[~/Documents/THM/THM_whiterose]
 └─$ nmap -A -Pn -p80 cyprusbank.thm 
