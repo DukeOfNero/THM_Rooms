@@ -61,6 +61,40 @@ images                  [Status: 301, Size: 324, Words: 20, Lines: 10, Duration:
 logs                    [Status: 301, Size: 322, Words: 20, Lines: 10, Duration: 32ms]
 
 
+
+┌──(kali㉿kali)-[~]
+└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.80.225:1337 -x php,txt,html  
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://10.10.80.225:1337
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] User Agent:              gobuster/3.6
+[+] Extensions:              php,txt,html
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/.php                 (Status: 403) [Size: 279]
+/.html                (Status: 403) [Size: 279]
+/index.php            (Status: 200) [Size: 1326]
+/javascript           (Status: 301) [Size: 324] [--> http://10.10.80.225:1337/javascript/]
+/logout.php           (Status: 302) [Size: 0] [--> index.php]
+/vendor               (Status: 301) [Size: 320] [--> http://10.10.80.225:1337/vendor/]
+/config.php           (Status: 200) [Size: 0]
+/dashboard.php        (Status: 302) [Size: 0] [--> logout.php]
+/phpmyadmin           (Status: 301) [Size: 324] [--> http://10.10.80.225:1337/phpmyadmin/]
+/.php                 (Status: 403) [Size: 279]
+/.html                (Status: 403) [Size: 279]
+/reset_password.php   (Status: 200) [Size: 1664]
+/server-status        (Status: 403) [Size: 279]
+
+
+
 ### http://10.10.80.225:1337/hmr_logs/error.logs
 
 [Mon Aug 19 12:00:01.123456 2024] [core:error] [pid 12345:tid 139999999999999] [client 192.168.1.10:56832] AH00124: Request exceeded the limit of 10 internal redirects due to probable configuration error. Use 'LimitInternalRecursion' to increase the limit if necessary. Use 'LogLevel debug' to get a backtrace.
