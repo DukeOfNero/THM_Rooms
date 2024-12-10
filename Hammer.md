@@ -1,9 +1,7 @@
 <code>
-
-### Hammer
+## Hammer
   
 https://tryhackme.com/r/room/hammer
-
 ### Service Enumeration
 
 
