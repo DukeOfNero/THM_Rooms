@@ -64,21 +64,7 @@ logs                    [Status: 301, Size: 322, Words: 20, Lines: 10, Duration:
 
 ┌──(kali㉿kali)-[~]
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.80.225:1337 -x php,txt,html  
-===============================================================
-Gobuster v3.6
-by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
-===============================================================
-[+] Url:                     http://10.10.80.225:1337
-[+] Method:                  GET
-[+] Threads:                 10
-[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
-[+] Negative Status codes:   404
-[+] User Agent:              gobuster/3.6
-[+] Extensions:              php,txt,html
-[+] Timeout:                 10s
-===============================================================
-Starting gobuster in directory enumeration mode
-===============================================================
+
 /.php                 (Status: 403) [Size: 279]
 /.html                (Status: 403) [Size: 279]
 /index.php            (Status: 200) [Size: 1326]
