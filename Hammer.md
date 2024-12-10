@@ -96,7 +96,7 @@ for X in {0..255}; do for Y in {0..255}; do echo "192.168.$X.$Y"; done; done > f
 ## Run attack
 ffuf -w count-9999.txt:W1 -w fake_ip_cut.txt:W2 -u "http://<target_IP>:1337/reset_password.php" -X "POST" -d "recovery_code=W1&s=80" -b "PHPSESSID=<SESSIONID>" -H "X-Forwarded-For: W2" -H "Content-Type: application/x-www-form-urlencoded" -fr "Invalid" -mode pitchfork -fw 1 -rate 100 -o output.txt
 
-'' Explain
+**Explaining**
 **-w** — This is naming the two lists we are using. Both are followed by a colon : and then the code we will use when Fuzzing, e.g. you will see W1 where we are putting the auth code, and W2 where we put the IPs.
 
 **-u** This is our target URL.
@@ -118,7 +118,7 @@ ffuf -w count-9999.txt:W1 -w fake_ip_cut.txt:W2 -u "http://<target_IP>:1337/rese
 **-rate** This is used to set a target rate (attacks per second) for ffuf, I had never used it and thought I would get into the use of it, seeing as most bug bounties etc state a rate requirement.
 
 **-o** Saves the output (in JSON format) to a stated file, I wanted this to review for error handling. I believe this is saved as one horribly long line, so you can use this tool to make it neat. Note — I didn’t end up needing to use the tool in the end to review errors.
-''
+
 Get 4-digits code and reset password
 
 **Get tester access**
