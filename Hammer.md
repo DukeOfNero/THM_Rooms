@@ -34,14 +34,6 @@ Nmap done: 1 IP address (1 host up) scanned in 12.34 seconds
 
 ┌──(kali㉿kali)-[~]
 └─$ ffuf -u http://10.10.80.225:1337/hmr_FUZZ -c -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt 
-
-        /'___\  /'___\           /'___\       
-       /\ \__/ /\ \__/  __  __  /\ \__/       
-       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
-        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
-         \ \_\   \ \_\  \ \____/  \ \_\       
-          \/_/    \/_/   \/___/    \/_/       
-
        v2.1.0-dev
 ________________________________________________
 
