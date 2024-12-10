@@ -143,5 +143,12 @@ explain
 
 Get 4-digits code and reset password
 
-  
+**Get tester access**
+
+admin access get over JWT Token in jwt.io modify 
+
+We changed **kid**, which is identifying which key was used to sign the token. I had assumed the location was "/var/www/html/188ade1.key as this is typically the ‘base folder’ on a web server, meaning this is likely where the ls command was ran.
+We changed the **role** to **admin** within the payload, with the assumption the server identifies us as admin and gives us elevated rights. If this didn’t work I would have also looked at editing user_id. We put in the key value(from 188ade1.key) at the bottom to sign the token
+
+**Get admin access**
 <\code>
