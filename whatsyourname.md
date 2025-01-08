@@ -106,5 +106,9 @@ Steal cookie by inserting to registration form.
 
 get moderator cookie.
 
+Admin crendetials found in 
+
+http://login.worldwap.thm:80/admin.py
+
   
 <\code>
