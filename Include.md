@@ -63,6 +63,25 @@ Service Info: Host:  mail.filepath.lab; OS: Linux; CPE: cpe:/o:linux:linux_kerne
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 35.44 seconds
 
+──(kali㉿kali)-[~/Documents/THM/THM_Include]
+└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.125.163:4000 -x php,txt,html 
+/index                (Status: 302) [Size: 29] [--> /signin]
+/images               (Status: 301) [Size: 179] [--> /images/]
+/signup               (Status: 500) [Size: 1246]
+/Index                (Status: 302) [Size: 29] [--> /signin]
+/signin               (Status: 200) [Size: 1295]
+/fonts                (Status: 301) [Size: 177] [--> /fonts/]
+/INDEX                (Status: 302) [Size: 29] [--> /signin]
+/Signup               (Status: 500) [Size: 1246]
+/SignUp               (Status: 500) [Size: 1246]
+/signUp               (Status: 500) [Size: 1246]
+/SignIn               (Status: 200) [Size: 1295]
+Progress: 882240 / 882244 (100.00%)
+===============================================================
+Finished
+===============================================================
+
+
 
   
 <\code>
