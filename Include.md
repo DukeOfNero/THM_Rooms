@@ -82,22 +82,20 @@ Progress: 882240 / 882244 (100.00%)
 
 ┌──(kali㉿kali)-[~/Documents/THM/THM_Include]
 └─$ nikto -h http://10.10.125.163:4000  -Tuning 4
-- Nikto v2.5.0
-+ Target IP:          10.10.125.163
-+ Target Hostname:    10.10.125.163
-+ Target Port:        4000
-+ Start Time:         2025-01-09 05:57:03 (GMT-5)
-+ Server: No banner retrieved
-+ /: Retrieved x-powered-by header: Express.
-+ /: The anti-clickjacking X-Frame-Options header is not present. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
- /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/
+Nikto v2.5.0
+Target IP:          10.10.125.163
+Target Hostname:    10.10.125.163
+Target Port:        4000
+Start Time:         2025-01-09 05:57:03 (GMT-5)
+Server: No banner retrieved
+/: Retrieved x-powered-by header: Express.
+/: The anti-clickjacking X-Frame-Options header is not present. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
+/: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/
  No CGI Directories found (use '-C all' to force check all possible dirs)
  OPTIONS: Allowed HTTP Methods: GET, HEAD .
  983 requests: 0 error(s) and 4 item(s) reported on remote host
  End Time:           2025-01-09 05:57:48 (GMT-5) (45 seconds)
-
-+ 1 host(s) tested
-                                                                                                                    
+                                                                                                                   
 ┌──(kali㉿kali)-[~/Documents/THM/THM_Include]
 └─$ nikto -h http://10.10.125.163:50000  -Tuning 4
 Nikto v2.5.0
