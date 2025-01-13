@@ -102,21 +102,21 @@ Progress: 882240 / 882244 (100.00%)
                                                                                                                     
 ┌──(kali㉿kali)-[~/Documents/THM/THM_Include]
 └─$ nikto -h http://10.10.125.163:50000  -Tuning 4
-- Nikto v2.5.0
-+ Target IP:          10.10.125.163
-+ Target Hostname:    10.10.125.163
-+ Target Port:        50000
-+ Start Time:         2025-01-09 06:14:36 (GMT-5)
-+ Server: Apache/2.4.41 (Ubuntu)
-+ /: The anti-clickjacking X-Frame-Options header is not present. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
-+ /: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/
-+ /: Cookie PHPSESSID created without the httponly flag. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
-+ No CGI Directories found (use '-C all' to force check all possible dirs)
-+ Apache/2.4.41 appears to be outdated (current is at least Apache/2.4.54). Apache 2.2.34 is the EOL for the 2.x branch.
-+ /: Web Server returns a valid response with junk HTTP methods which may cause false positives.
-+ 983 requests: 0 error(s) and 5 item(s) reported on remote host
-+ End Time:           2025-01-09 06:15:18 (GMT-5) (42 seconds)
-+ 1 host(s) tested
+Nikto v2.5.0
+Target IP:          10.10.125.163
+Target Hostname:    10.10.125.163
+Target Port:        50000
+Start Time:         2025-01-09 06:14:36 (GMT-5)
+Server: Apache/2.4.41 (Ubuntu)
+/: The anti-clickjacking X-Frame-Options header is not present. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
+/: The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type. See: https://www.netsparker.com/web-vulnerability-scanner/vulnerabilities/missing-content-type-header/
+/: Cookie PHPSESSID created without the httponly flag. See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies
+No CGI Directories found (use '-C all' to force check all possible dirs)
+Apache/2.4.41 appears to be outdated (current is at least Apache/2.4.54). Apache 2.2.34 is the EOL for the 2.x branch.
+/: Web Server returns a valid response with junk HTTP methods which may cause false positives.
+983 requests: 0 error(s) and 5 item(s) reported on remote host
+End Time:           2025-01-09 06:15:18 (GMT-5) (42 seconds)
+1 host(s) tested
 
 
 ┌──(kali㉿kali)-[~/Documents/THM/THM_Include]
