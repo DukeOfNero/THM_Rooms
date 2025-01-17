@@ -99,13 +99,15 @@ dev@injectics.thm
 
 [!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
 
-[*] starting @ 09:15:11 /2025-01-16/
+starting @ 09:15:11 /2025-01-16/
 
 [09:15:11] [INFO] parsing HTTP request from 'reg1.txt'
+
 [09:15:11] [INFO] resuming back-end DBMS 'mysql' 
+
 [09:15:11] [INFO] testing connection to the target URL
+
 sqlmap resumed the following injection point(s) from stored session:
----
 Parameter: username (POST)
     Type: time-based blind
     Title: MySQL >= 5.0.12 RLIKE time-based blind
