@@ -1,6 +1,6 @@
 <code>
   
-## injectics
+## Injectics
 
 https://tryhackme.com/r/room/injectics
 
