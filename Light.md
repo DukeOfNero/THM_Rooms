@@ -60,4 +60,13 @@ SF:")%r(FourOhFourRequest,6B,"Welcome\x20to\x20the\x20Light\x20database!\n
 SF:Please\x20enter\x20your\x20username:\x20Username\x20not\x20found\.\nPle
 SF:ase\x20enter\x20your\x20username:\x20");
 
+
+┌──(kali㉿kali)-[~]
+└─$ nc 10.10.78.225 1337
+Welcome to the Light database!
+Please enter your username: smokey
+Password: vYQ5ngPpw8AdUmL
+
+
+
 <\Code>
