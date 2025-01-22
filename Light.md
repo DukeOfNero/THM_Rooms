@@ -68,5 +68,26 @@ Please enter your username: smokey
 Password: vYQ5ngPpw8AdUmL
 
 
+Found: alice
+Password: tF8tj2o94WE4LKC
+
+Found: hazel
+Password: EcSuU35WlVipjXG
+
+Found: john
+Password: e74tqwRh2oApPo6
+
+Found: michael
+Password: 7DV4dwA0g5FacRe
+
+Found: ralph
+Password: YO1U9O1m52aJImA
+
+Found: rob
+Password: yAn4fPaF2qpCKpR
+
+Found: steve
+Password: WObjufHX1foR8d7
+
 
 <\Code>
