@@ -2,8 +2,7 @@
 
 https://tryhackme.com/r/room/elbandito
 
-##Enumeration
-
+## Enumeration
 
 ┌──(kali㉿kali)-[~/Documents/THM/THM_elbandito]
 └─$ nmap   -Pn -p- 10.10.202.51 
