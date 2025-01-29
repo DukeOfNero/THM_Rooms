@@ -418,4 +418,4 @@ think@lookup:~$ sudo /usr/bin/look '' /root/root.txt
 5a285a9f257e45c68bb6c9f9f57d18e8
 
 
-<\code>
+</code>
