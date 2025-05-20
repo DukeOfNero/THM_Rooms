@@ -36,28 +36,8 @@ $A$005$n:{T^3%/{5=+Z0Y1zOxlUB7mIrlVbAxA5t4ARcqMaY6i4k1AhaU2/W1
 ┌──(kali㉿kali)-[~/Documents/THM/THM_Brute]
 └─$ hashcat hash.txt -m 3200 ../../../Documents/www/wordlists/rockyou.txt
 hashcat (v6.2.6) starting
-
-OpenCL API (OpenCL 3.0 PoCL 6.0+debian  Linux, None+Asserts, RELOC, LLVM 17.0.6, SLEEF, DISTRO, POCL_DEBUG) - Platform #1 [The pocl project]
-============================================================================================================================================
-* Device #1: cpu-haswell-Intel(R) Core(TM) i7-9700 CPU @ 3.00GHz, 1692/3449 MB (512 MB allocatable), 4MCU
-
 Minimum password length supported by kernel: 0
 Maximum password length supported by kernel: 72
-
-Hashes: 1 digests; 1 unique digests, 1 unique salts
-Bitmaps: 16 bits, 65536 entries, 0x0000ffff mask, 262144 bytes, 5/13 rotates
-Rules: 1
-
-Optimizers applied:
-* Zero-Byte
-* Single-Hash
-* Single-Salt
-
-Watchdog: Hardware monitoring interface not found on your system.
-Watchdog: Temperature abort trigger disabled.
-
-Host memory required for this attack: 0 MB
-
 Dictionary cache built:
 * Filename..: ../../../Documents/www/wordlists/rockyou.txt
 * Passwords.: 14344392
