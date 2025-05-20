@@ -45,7 +45,7 @@ Dictionary cache built:
 * Keyspace..: 14344385
 * Runtime...: 1 sec
 
-$2y$10$tLzQuuQ.h6zBuX8dV83zmu9pFlGt3EF9gQO4aJ8KdnSYxz0SKn4we:tigger
+**$2y$10$tLzQuuQ.h6zBuX8dV83zmu9pFlGt3EF9gQO4aJ8KdnSYxz0SKn4we:tigger**
                                                           
 Session..........: hashcat
 Status...........: Cracked
@@ -67,4 +67,6 @@ Candidates.#1....: 654321 -> butterfly
 
 Started: Tue May 20 12:34:47 2025
 Stopped: Tue May 20 12:35:34 2025
+
+## credentials Adrian:tigger
 
