@@ -68,5 +68,5 @@ Candidates.#1....: 654321 -> butterfly
 Started: Tue May 20 12:34:47 2025
 Stopped: Tue May 20 12:35:34 2025
 
-## credentials Adrian:tigger - only for web service not for ftp
+## credentials Adrian:tigger - only for web service not for ftp/ssh
 
