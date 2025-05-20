@@ -70,3 +70,37 @@ Stopped: Tue May 20 12:35:34 2025
 
 ## credentials Adrian:tigger - only for web service not for ftp/ssh
 
+## gobuster with credentials - nothing
+
+┌──(kali㉿kali)-[~/Documents/THM/THM_Brute]
+└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.210.144 -x .php, .txt, .html -c PHPSESSID=6mf4a6dknljbg7it5dvurulukb
+===============================================================
+Gobuster v3.6
+by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
+===============================================================
+[+] Url:                     http://10.10.210.144
+[+] Method:                  GET
+[+] Threads:                 10
+[+] Wordlist:                /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+[+] Negative Status codes:   404
+[+] Cookies:                 PHPSESSID=6mf4a6dknljbg7it5dvurulukb
+[+] User Agent:              gobuster/3.6
+[+] Extensions:              php,
+[+] Timeout:                 10s
+===============================================================
+Starting gobuster in directory enumeration mode
+===============================================================
+/.                    (Status: 302) [Size: 0] [--> welcome.php]
+/.php                 (Status: 403) [Size: 278]
+/index.php            (Status: 302) [Size: 0] [--> welcome.php]
+/welcome.php          (Status: 200) [Size: 631]
+/logout.php           (Status: 302) [Size: 0] [--> index.php]
+/config.php           (Status: 200) [Size: 0]
+/.php                 (Status: 403) [Size: 278]
+/.                    (Status: 200) [Size: 1080]
+/server-status        (Status: 403) [Size: 278]
+Progress: 661680 / 661683 (100.00%)
+===============================================================
+Finished
+===============================================================
+                                                                    
