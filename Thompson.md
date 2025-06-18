@@ -63,7 +63,6 @@ For example, to add the manager-gui role to a user named tomcat with a password 
    TARGETURI     /manager         yes       The URI path of the manager app (/html/upload and /undeploy will be used)
    VHOST                          no        HTTP server virtual host
 
-````
 Payload options (java/meterpreter/reverse_tcp):
 
    Name   Current Setting  Required  Description
