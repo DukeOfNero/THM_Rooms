@@ -6,6 +6,7 @@ cve-2020-1938
 
 ## Enumeration
 
+```
 ┌──(kali㉿kali)-[~/Documents/THM/THM_Thompson]
 └─$ nmap   -p- 10.10.29.119       
 Starting Nmap 7.94SVN ( https://nmap.org ) at 2025-06-18 11:43 CEST
@@ -35,7 +36,7 @@ PORT     STATE SERVICE VERSION
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 6.77 seconds
-
+```
 
 **Looks like cve-2020-1938**
 
