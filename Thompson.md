@@ -41,6 +41,8 @@ Nmap done: 1 IP address (1 host up) scanned in 6.77 seconds
 **Looks like cve-2020-1938**
 
 ## try default passwords on web and Get
+
+```
 401 Unauthorized
 
 You are not authorized to view this page. If you have not changed any configuration files, please examine the file conf/tomcat-users.xml in your installation. That file must contain the credentials to let you use this webapp.
@@ -49,6 +51,8 @@ For example, to add the manager-gui role to a user named tomcat with a password 
 
 <role rolename="manager-gui"/>
 <user username="tomcat" password="s3cret" roles="manager-gui"/>
+```
+
 
 ## Try msfconsole
 ``` Module options (exploit/multi/http/tomcat_mgr_upload):
