@@ -1,5 +1,10 @@
 <code>
+   
 https://tryhackme.com/room/bsidesgtthompson
+cve-2020-1938
+
+
+## Enumeration
 
 ┌──(kali㉿kali)-[~/Documents/THM/THM_Thompson]
 └─$ nmap   -p- 10.10.29.119       
@@ -11,8 +16,6 @@ PORT     STATE SERVICE
 22/tcp   open  ssh
 8009/tcp open  ajp13
 8080/tcp open  http-proxy
-
-
 
 ┌──(kali㉿kali)-[~/Documents/THM/THM_Thompson]
 └─$ nmap  -sV -A -p 8080 10.10.29.119
@@ -33,7 +36,10 @@ PORT     STATE SERVICE VERSION
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 6.77 seconds
 
-## try default passwords and Get
+
+**Looks like cve-2020-1938**
+
+## try default passwords on web and Get
 401 Unauthorized
 
 You are not authorized to view this page. If you have not changed any configuration files, please examine the file conf/tomcat-users.xml in your installation. That file must contain the credentials to let you use this webapp.
