@@ -46,3 +46,8 @@ Starting gobuster in directory enumeration mode
 /debug                (Status: 200) [Size: 1957]
 ```
 
+                                                                                                                               
+┌──(kali㉿kali)-[~]
+└─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.67.247:7777/cloud -x .php, .txt
+nothing
+
