@@ -200,3 +200,5 @@ Type "help", "copyright", "credits" or "license" for more information.
 ```
 
 Set manualy X-Forwarded-For: 127.0.0.1 to reguest
+
+Use CyberChef for xor to get **AyhamDeebugg** from 2000000000251c0d0318061e
