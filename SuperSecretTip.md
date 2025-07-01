@@ -164,3 +164,37 @@ This file import two other non-standard python file called **ip.py(using in /deb
 When using debugger, the “‘&;%” is the illegal character.
 In the /cloud directory, there is only two kind of file can be downloaded, the first one is called “source.py”, another one is the file with “.txt” extension.
 There is another directory called **/debugresult** . It seems use to get the feedback of the /debug page.
+
+```
+┌──(kali㉿kali)-[~/Documents/THM/THM_SuperSecretTip]
+└─$ ls
+debugpassword.py  ip.py  source.py  supersecrettip.txt
+                                                                                                                               
+┌──(kali㉿kali)-[~/Documents/THM/THM_SuperSecretTip]
+└─$ cat debugpassword.py 
+import pwn
+
+def get_encrypted(passwd):
+    return pwn.xor(bytes(passwd, 'utf-8'), b'ayham')
+                                                                                                                               
+┌──(kali㉿kali)-[~/Documents/THM/THM_SuperSecretTip]
+└─$ cat ip.py           
+host_ip = "127.0.0.1"
+def checkIP(req):
+    try:
+        return req.headers.getlist("X-Forwarded-For")[0] == host_ip
+    except:
+        return req.remote_addr == host_ip
+                                                                                                                               
+┌──(kali㉿kali)-[~/Documents/THM/THM_SuperSecretTip]
+└─$ cat supersecrettip.txt 
+b' \x00\x00\x00\x00%\x1c\r\x03\x18\x06\x1e'
+
+
+┌──(kali㉿kali)-[~/Documents/THM/THM_SuperSecretTip]
+└─$ python3                                                
+Python 3.11.9 (main, Apr 10 2024, 13:16:36) [GCC 13.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> b' \x00\x00\x00\x00%\x1c\r\x03\x18\x06\x1e'.hex()
+'2000000000251c0d0318061e'
+```
