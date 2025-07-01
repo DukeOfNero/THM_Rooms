@@ -198,3 +198,5 @@ Type "help", "copyright", "credits" or "license" for more information.
 >>> b' \x00\x00\x00\x00%\x1c\r\x03\x18\x06\x1e'.hex()
 '2000000000251c0d0318061e'
 ```
+
+Set manualy X-Forwarded-For: 127.0.0.1 to reguest
