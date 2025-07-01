@@ -160,7 +160,7 @@ if __name__ == "__main__":
 **Main from source.py**
 
 There is a file called ‘**supersecrettip.txt**’ in the same directory that we can download it.
-This file import two other non-standard python file called** ip.py(using in /debugresult) and debugpassword.py** .
+This file import two other non-standard python file called **ip.py(using in /debugresult) and debugpassword.py** .
 When using debugger, the “‘&;%” is the illegal character.
 In the /cloud directory, there is only two kind of file can be downloaded, the first one is called “source.py”, another one is the file with “.txt” extension.
 There is another directory called **/debugresult** . It seems use to get the feedback of the /debug page.
