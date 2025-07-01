@@ -23,8 +23,7 @@ PORT     STATE SERVICE VERSION
 
 
 
-````
-                                                                                                                                                                                                                                           
+```                                                                                                                                                                                                                                          
 ┌──(kali㉿kali)-[~]
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.150.162:7777 -x .php, .txt, .html 
 ===============================================================
@@ -52,6 +51,7 @@ Starting gobuster in directory enumeration mode
 nothing
 
 ## FFUZ
+
 ```
 POST http://10.10.247.188:7777/cloud HTTP/1.1
 host: 10.10.247.188:7777
