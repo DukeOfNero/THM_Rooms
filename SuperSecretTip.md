@@ -51,3 +51,17 @@ Starting gobuster in directory enumeration mode
 └─$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.10.67.247:7777/cloud -x .php, .txt
 nothing
 
+## FFUZ
+```
+POST http://10.10.247.188:7777/cloud HTTP/1.1
+host: 10.10.247.188:7777
+user-agent: Mozilla/5.0 (Windows NT 10.0; rv:125.0) Gecko/20100101 Firefox/125.0
+pragma: no-cache
+cache-control: no-cache
+content-type: application/x-www-form-urlencoded
+referer: http://10.10.247.188:7777/cloud
+content-length: 21
+
+download=FFUZ
+```
+
