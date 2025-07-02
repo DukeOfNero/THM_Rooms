@@ -220,6 +220,7 @@ So, we are able to call subprocess.Popen with the following payload:
 
 run linpeas and found
 
+```
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
@@ -229,8 +230,8 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 52 6    1 * *   root    test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.monthly; }
 *  *    * * *   root    curl -K /home/F30s/site_check
 *  *    * * *   F30s    bash -lc 'cat /home/F30s/health_check'
-
-Privilage Escalation
+```
+**Privilage Escalation to F30s**
 
 While enumerating, we find a writable .profile file in F30s home directory. 
 
