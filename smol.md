@@ -1,9 +1,11 @@
 <code>
 
-SMol
+**SMol**
 https://tryhackme.com/room/smol
 
-**Enumeration
+add smol.thm and www.smol.thm
+
+**Enumeration**
 
 root@ip-10-10-10-170:~# nmap -sV -Pn 10.10.165.216
 Starting Nmap 7.80 ( https://nmap.org ) at 2025-09-16 11:50 BST
