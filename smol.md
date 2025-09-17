@@ -342,5 +342,7 @@ john --wordlist=/usr/share/wordlists/rockyou.txt wordpress_hashes.txt
 user: diego
 Password: sandiegocalifornia
 
+get fist flag
+
 <\code>
 
