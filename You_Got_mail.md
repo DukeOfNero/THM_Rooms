@@ -22,7 +22,8 @@ PORT     STATE SERVICE       VERSION
 587/tcp  open  smtp          hMailServer smtpd
 3389/tcp open  ms-wbt-server Microsoft Terminal Services
 MAC Address: 02:1A:41:63:2C:59 (Unknown)
-Service Info: Host: BRICK-MAIL; OS: Windows; CPE: cpe:/o:microsoft:windows'```
+Service Info: Host: BRICK-MAIL; OS: Windows; CPE: cpe:/o:microsoft:windows
+```
 
 
 **Username Enumeration**
