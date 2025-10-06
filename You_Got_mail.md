@@ -5,7 +5,7 @@ https://tryhackme.com/room/yougotmail
 alias https://brownbrick.co/
 not fill to etc/hosts
 
-``''root@ip-10-10-123-138:~# nmap -sV brownbrick.co
+``root@ip-10-10-123-138:~# nmap -sV brownbrick.co
 Starting Nmap 7.80 ( https://nmap.org ) at 2025-10-06 14:05 BST
 mass_dns: warning: Unable to open /etc/resolv.conf. Try using --system-dns or specify valid servers with --dns-servers
 mass_dns: warning: Unable to determine any DNS servers. Reverse DNS is disabled. Try using --system-dns or specify valid servers with --dns-servers
