@@ -47,4 +47,9 @@ Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2025-10-06 16:15:
 1 of 1 target successfully completed, 1 valid password found
 Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2025-10-06 16:15:49
 
+try rdp access with user creds .. nothing
+try smb enumeration with user creds .. nothing
+try pop3 with user creds .. nothing
+
+you must send mail with reverse shell
 
