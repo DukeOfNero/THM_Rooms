@@ -14,5 +14,6 @@ Not shown: 65533 closed ports
 PORT   STATE SERVICE
 22/tcp open  ssh
 80/tcp open  http
+```
 
 <\code>
