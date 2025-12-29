@@ -16,7 +16,8 @@ PORT   STATE SERVICE
 80/tcp open  http
 ```
 
-```root@ip-10-67-96-166:~# gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.67.167.186 -x php,txt,html
+```
+root@ip-10-67-96-166:~# gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://10.67.167.186 -x php,txt,html
 [+] Url:                     http://10.67.167.186
 [+] Method:                  GET
 [+] Threads:                 10
