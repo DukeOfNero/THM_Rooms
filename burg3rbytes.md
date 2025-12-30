@@ -60,8 +60,9 @@ Upgrade-Insecure-Requests: 1
 Priority: u=0, i
 
 csrf_token=IjE3NGY2MjQ3N2QyZjc1ZTEyYzEyMWU4ZTJjNjk4NTk5Nzc3YmMyNzMi.aVN03A.fycCrxgNSYPyzNXV2OvX-Pht7PE&name=&voucher_code=TRYHACK3M&submit=Checkout
+```
 
-end get this
+get this redirestion link with vulnuerable parm
 http://10.67.128.59/receipt/82739098304716027352341076?name=
 
 </code>
